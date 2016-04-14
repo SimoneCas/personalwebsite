@@ -1,0 +1,189 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+
+    <title>DevOps Best Practice</title>
+
+    <meta name="description" content="Presentazione per condividere DevOps Best Practices">
+    <meta name="author" content="Simone Casamassa">
+
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+    <link rel="stylesheet" href="css/reveal.css">
+    <link rel="stylesheet" href="css/theme/blood.css" id="theme">
+
+    <!-- Code syntax highlighting -->
+    <link rel="stylesheet" href="lib/css/zenburn.css">
+
+    <!-- Printing and PDF exports -->
+    <script>
+      var link = document.createElement( 'link' );
+      link.rel = 'stylesheet';
+      link.type = 'text/css';
+      link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+      document.getElementsByTagName( 'head' )[0].appendChild( link );
+    </script>
+  </head>
+  <body>
+    <div class="reveal">
+      <!-- Any section element inside of this container is displayed as a slide -->
+      <div class="slides">
+        <section>
+          <h1>DevOps</h1>
+          <p>
+            <small>Best Practices</small>
+          </p>
+        </section>
+
+        <section>
+          <h2>Overview</h2>
+          <ul>
+            <li>Introduzione</li>
+            <li>Vantaggi</li>
+            <li>Strategie di progetto</li>
+            <li>Strategie di rilascio</li>
+            <li>Strumenti a supporto</li>
+          </ul>
+
+          
+        </section>
+
+        <section>
+          <h2>Introduzione</h2>
+        </section>
+
+        <section>
+           <h2>Introduzione</h2>
+          <p>
+          DevOps è una metodologia di sviluppo del software che punta alla comunicazione, collaborazione e integrazione tra sviluppatori e addetti alle operations dell'information technology (IT).
+          <br/><br/>
+          DevOps vuole rispondere all'interdipendenza tra sviluppo software e IT operations puntando verso uno sviluppo rapido ed efficiente di prodotti software.
+          </p>
+          
+        </ul>
+        </section>
+
+        <section>
+          <section>
+          <p>
+            
+            L'integrazione DevOps ha come obiettivo il rilascio del prodotto, il collaudo del software, l'evoluzione e il mantenimento (bug fixing e "minor release") in modo tale da aumentare affidabilità e sicurezza e rendere più veloci i cicli di sviluppo e rilascio. Molte delle idee che costituiscono DevOps provengono dalla gestione di sistemi aziendali e dalla Metodologia agile.
+          </p>
+        </section>
+          <section>
+            <img src="imgs/devops_01.png" />
+            <br/><br/>
+            La metodologia DevOps aiuta le aziende nella gestione dei rilasci, standardizzando gli ambienti di sviluppo e le procedure d'installazione. 
+          </section>
+        </section>
+
+        <section>
+          <h2>Vantaggi</h2>
+          <ul>
+            <li>Aumento dell'efficienza e dell'affidabilità nelle fasi di rilascio</li>
+            <li>Diminuzione del tempo di preparazione dei rilasci</li>
+            <li>Aumento della frequenza dei rilasci</li>
+            <li>Semplificazione del processo di rilascio, automatizzando gli step da eseguire</li>
+            <li>Riduzione del time-to-market delle applicazioni</li>
+          </ul>
+        </section>
+
+        <section>
+          <h2>8 Azioni da intraprendere</h2>
+          <ul>
+            <li>Automatizzare la creazione/gestione degli ambienti</li>
+            <li>Adottare Continuous Integration</li>
+            <li>Automatizzare la fase di rilascio</li>
+            <li>Automatizzare i test</li>
+            <li>Compiere decisioni di release Data-Driven</li>
+            <li>Ridurre la grandezza del software rilasciato</li>
+            <li>Eliminare step manuali e tempi d'attesa</li>
+            <li>Estrarre feedback dai risultati ottenuti</li> 
+          </ul>
+        </section>
+
+        <section>
+          <h2>Strategie di progetto</h2>
+          <ul>
+            <li>Iniziare con l'automatizzare la creazione e gestione degli ambienti di sviluppo e collaudo, per poi espanderla all'ambiente di produzione</li>
+            <li>Automatizzare il processo di compilazione e test del software tramite continuous integration. Cominciare con la compilazione e gli unit test per poi gradualmente integrare test funzionali, di performance e di scalabilità</li>
+            <li>Combinare l'automatizzazione dei rilasci con la continuous integration al fine di crare un'unico processo</li>
+          </ul>
+        </section>
+
+        <section>
+          
+          <h2>Strategie di rilascio</h2>
+          <ul>
+            <li>Ridurre l'ambito di ogni rilascio per accellerare i feedback</li>
+            <li>Ridurre l'ambito di ogni rilascio per minimizzare i rischi diminuendo le dipendenze e semplificando le installazioni</li>
+            <li>Ridurre l'ambito di ogni rilascio focalizzando ogni persona su una singola attività che compone il rilascio</li>
+          </ul>
+        
+            <img src="https://driftboatdave.files.wordpress.com/2015/02/020415_1616_devopscatsa2.png?w=620">
+        
+        </section>
+
+        <section>
+          <section>
+            <h1>Strumenti a supporto</h1>
+          </section>
+          <section>
+            <h2>Docker</h2>
+            <img src="http://www.01net.it/wp-content/uploads/sites/14/2015/10/docker-logo.png" width="500" heigth="500" />
+          </section>
+          <section>
+            <h2>Ansible</h2>
+            <img src="https://www.elastic.co/assets/bltef783ee77445f09f/ansible.png" width="500" heigth="500" />
+          </section>
+          <section>
+            <h2>Jenkins + Nexus</h2>
+            <img src="http://www.sonatype.org/nexus/content/uploads/2015/12/Jenkins-and-Nexus-Featured-Image.jpg" width="500" heigth="500" />
+          </section>
+        </section>
+
+        <section>
+          <h1>The End</h1>
+          <h3>Grazie</h3>
+          <h4><a href="http://www.simonecasamassa.it">SIMONECASAMASSA.IT</a></h4>
+        </section>
+
+      </div>
+      <div style="position:absolute; bottom:0; left:0; margin-left:1%; font-size:16pt">
+        <p style="text-align:left; ">
+            <a href="">simonecasamassa.it</a>
+        </p>
+      </div>
+    </div>
+
+    <script src="lib/js/head.min.js"></script>
+    <script src="js/reveal.js"></script>
+
+    <script>
+     // Full list of configuration options available at:
+     // https://github.com/hakimel/reveal.js#configuration
+     Reveal.initialize({
+       controls: true,
+       progress: true,
+       history: true,
+       center: true,
+
+       transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+       // Optional reveal.js plugins
+       dependencies: [
+         { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+         { src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+         { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+         { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+         { src: 'plugin/zoom-js/zoom.js', async: true },
+         { src: 'plugin/notes/notes.js', async: true }
+       ]
+     });
+    </script>
+  </body>
+</html>
