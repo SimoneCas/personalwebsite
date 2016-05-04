@@ -112,19 +112,12 @@
 					<div id="titleMobileChar" >
 					<h2 style=" margin:0px 0">Ultimo Articolo</h2>
 					</div>
-					<p style="color:black; margin-top:5%; text-align:left">
-						Principali linee guida per lo sviluppo e la progettazione di logiche d'integrazione tramite Oracle Service Bus:<br>
-			<ol style="color:black; margin-top:5%; text-align:left">
-				<li>Non cercare di sviluppare l'intera soluzione d'integration solo su OSB: OSB è solo una parte di Oracle SOA Suite, anche se installato separatamente. In alcuni progetti si tende a sviluppare tutte le soluzioni d'integrazione tramite OSB; accentrare in OSB operazioni come la gestione degli errori, delle operazioni asincrone e di logica di business può generare enorme caos. OSB è un prodotto ESB e come tale deve essere utilizzato solo per sviluppare componenti ESB. </li>
-				<li>Non progettare transazioni statefull su OSB. OSB è un prodotto per la gestione di sessioni stateless, demandando a BPEL o BPM queste funzionalità.</li>
-				<li>Non utilizzare le action di OSB per effettuare operazioni di INSERT/UPDATE/DELETE  o chiamate a procedure. Limitarsi ad operazionni di SELECT.</li>
-				<li>Non utilizzare Java Callout per implementare complessa logica di business</li>
-				<li>Tra l'uso di una Route o di una Service Callout, prediligere sempre l'utilizzo della route che è implementata con una gestione dei Thread più performante, utilizzando un minor numero di risorse.</li>
-				<li>Non sviluppare molteplici operazioni in un singolo stage del Proxy Service, poiché in caso di errore o di debug lo stage è il blocco più atomico identificato dal prodotto.</li>
-				<li>Non processare file troppo grandi con OSB.</li>
-				<li>Nell'uso dell' XPath non utilizzare wild card come * e //</li>
-				<li>Impostare il progetto con un'alberatura di cartelle che permette di sudddividere il deploy in più fasi per permettere installazioni progressive ed agili.</li>
-			</ol>
+					<p style="color:black; margin-top:5%; text-align:left; margin-left:5%">
+						<b>DevOps Best Practices:</b><br>
+			evOps è un termine entrato da qualche anno nel gergo informatico delle metodologie di sviluppo ed operation IT. Con la seguente presentazione si ricapitolano i principali componenti metodologici, il modo in cui questi si applichino alla realtà e con quali strumenti. <br>Oltre a fornire una panoramica su ciò che DevOps è si forniscono le principali linee guida per adottare teniche di DevOps sul progetto: <br>
+			
+			<br>
+			<a href="slide/devOps.html"><img src="img/dvOpSlide.png" width="50%"/></a>
 			<br>
 			Per ulteriori informazioni sul prodotto si rimanda alla pagina <a href="http://www.oracle.com/technetwork/middleware/service-bus/overview/index.html">oracle service bus</a>. 
 
