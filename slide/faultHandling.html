@@ -22,7 +22,7 @@
       <!-- internal CSS for single page -->
       <style type="text/css">
       p.testo{
-        font-size:20pt;
+        font-size:22pt;
       }
       </style>
       <!-- Printing and PDF exports -->
@@ -41,14 +41,13 @@
           <section>
             <h2>Gestione e prevenzione dell'errore</h2>
             <p>
-              <small>Integrazione</small>
+              <small>Integration</small>
             </p>
           </section>
 
           
           <section>
-            <section>
-             <h2>Introduzione</h2>
+             <h3>Introduzione</h3>
               <p class="testo">
               La presentazione descrive le principali pratiche da adottare in contesti di integrazione ESB, SOA o BPM per poter prevenire e gestire gli errori.
 			  In particolar modo saranno trattati 4 punti principali:
@@ -61,19 +60,51 @@
 			  <br/><br/>
 			  Nella presentazione tutti gli esempi sono effettuati su Oracle Service Bus.
               </p>  
-            </section>
-            <section>
-              <img src="imgs/micro-deployment.png" />
-            </section>
           </section>
 
           <section>
-             <h2>Composizione via Servizi</h2>
-              <p class="testo">
-              L'architettura a Microservizi si basa sui componenti, unità software che sono indipendenti, sostituibili e aggiornabili.
-              Si predilige l'uso dei servizi all'uso delle librerie perchè i servizi sono installabili singolarmente. Al contrario, un'applicazione monolitica che utilizza più librerie, richiederà l'installazione completa anche solo per modificare  una qualunque libreria.<br/><br/>
-              La divisione in servizi non permette una modularità totale, perchè modificando l'interfaccia di un servizio, andranno modificati anche tutti i servizi "client" di quell'interfaccia, richiedendo una nuova installazione. Il disegno basato su microservizi riduce però notevolmente la coesione tra i moduli.
-              </p>  
+			  <section>
+				 <h3>Integrazione con servizi a scalabilità limitata</h3>
+				  <p class="testo">
+				  Legacy System e database sono sistemi che non si prestano a scalare in funzione del carico ricevuto. Per evitare di sovraccaricare i sistemi durante i picchi di carico è bene inserire soluzioni che prevengano il fault dei sistemi esterni. 
+				  <br/></br>
+				  <img src="imgs/dbNoScale.jpg"/>
+				  </p> 
+			  </section>
+			  <section>
+				<h3>Soluzione 1: Cache (1)</h3>
+				  <p class="testo">
+				  Invece di chiamare il sistema per ogni richiesta si può salvare il risultato delle interazioni precedenti in cache ed utilizzarla per ritrovare il dato da inviare al client richiedente. 
+				  <br/><br/>
+				  <b>Descrizione Algoritmo:</b><br>
+				  Per ogni richiesta ricevuta si ricerca il dato richiesto in cache (1). Se non è presente in cache si invoca una richiesta esplicita al sistema esterno (2), si salva il risultato in cache (3) e si restituisce la risposta al client.
+				  <br/></br>
+				  <img style="width:50%" src="imgs/slide.jpg"/>
+				  </p> 
+			  </section>
+			  <section>
+				<h3>Soluzione 1: Cache (2)</h3>
+				  <p class="testo">
+				  <b>Azione:</b><br/>
+				  <ul>
+				  <li>
+				  Prevenzione dell'errore
+				  </li>
+				  </u>
+				  <br/><br/>
+				  <b>Considerazioni:</b><br/>
+				  <ul>
+				  <li>
+				  Il dato in cache deve essere solo leggibile e non modificabilie
+				  </li>
+				  </u>
+				  <br/><br/>
+				  <b></b><br/>
+				  
+				  <br/><br/>
+				  <b></b><br/>
+				  </p> 
+			  </section>
           </section>
 
           <section>
