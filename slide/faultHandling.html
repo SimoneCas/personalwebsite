@@ -5,7 +5,7 @@
 
       <title>Integration - Fault Handling</title>
 
-      <meta name="description" content="Presentazione per descrivere architetture a micorservizi">
+      <meta name="description" content="Presentazione per descrivere tecniche di fault tolerance">
       <meta name="author" content="Simone Casamassa">
 
       <meta name="apple-mobile-web-app-capable" content="yes">
@@ -95,29 +95,69 @@
 			  </section>
 			  <section>
 				<h3>Soluzione 1: Cache (2)</h3>
-				  <p class="testo_left">
-				  prova
+				  <p class="testo">
 					  <p class="sottoTitolo">
 					  Azione:
 					  </p>
-					  <ul>
+					  <ul style = "display:block">
 						<li>
-						Prevenzione dell'errore
+						Prevenzione dell'errore 
 						</li>
 					  </ul>
 					  <p class="sottoTitolo">Considerazioni:</p>
-					  <ul >
+					  <ul style = "display:block">
 						  <li>
 						  Il dato in cache deve essere solo leggibile e non modificabilie
+						  </li>
+						  <li>
+						  Utilizzabile solo per dati di natura statica
 						  </li>
 						  <li>
 						  Per sfruttare al meglio la soluzione caricare la cache all'avvio dell'applicazione
 						  </li>
 					  </ul>
 					  <p class="sottoTitolo">Impatti:</p>
-					  <ul>
+					  <ul style = "display:block">
 						  <li>
 						  Aumento dell'utilizzo della RAM
+						  </li>
+					  </ul>					  
+				  </p> 
+			  </section>
+			  
+			  <!-- SOLUZIONE A2 -->
+			  <section>
+				<h3>Soluzione 2: Buffer (1)</h3>
+				  <p class="testo">
+				  Se non è possibile utilizzare la cache per la natura del dato e, si può diminuire il numero di richieste inviate per unità di tempo servizio esterno accodando in un buffer le richieste da inviare. 
+				  <br/><br/>
+				  <b>Descrizione Algoritmo:</b><br>
+				  Tra il client e il servizio si configura un buffer configurando il numero massimo di richieste da poter inviare in parallelo al servizio, la capacità del buffer ed il tempo di vita della richieste. Raggiunto il numero massimo di invocazioni contemporanee, tutte le successive richieste vengono salvate nel buffer e smaltite al termine delle richieste attive. Nel caso in cui il buffer si saturi o scada la richiesta in attesa, verrà restituito al client il relativo codice di errore. 
+				  <br/></br>
+				  <img style="width:50%" src="imgs/buffer.jpg"/>
+				  </p> 
+			  </section>
+			  <section>
+				<h3>Soluzione 2: Buffer (2)</h3>
+				  <p class="testo">
+					  <p class="sottoTitolo">
+					  Azione:
+					  </p>
+					  <ul style = "display:block">
+						<li>
+						Prevenzione dell'errore 
+						</li>
+					  </ul>
+					  <p class="sottoTitolo">Considerazioni:</p>
+					  <ul style = "display:block">
+						  <li>
+						  Soluzione da prediligere per richieste di natura asincrona o one-way. Il tempo di throttling potrebbe superare il valore di timeout del client
+						  </li>
+					  </ul>
+					  <p class="sottoTitolo">Impatti:</p>
+					  <ul style = "display:block">
+						  <li>
+						  L'aumento del tempo di gestione della richiesta causato dal buffer in contesti di richieste sincrone può far violare SLA di servizio o far scattare timeout sul client 
 						  </li>
 					  </ul>					  
 				  </p> 
