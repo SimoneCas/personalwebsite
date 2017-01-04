@@ -24,6 +24,17 @@
       p.testo{
         font-size:22pt;
       }
+	  
+	  p.testo_left{
+        font-size:22pt;
+		text-align: left;
+      }
+	  
+	  p.sottoTitolo {
+		text-align:left; 
+		font-weight:bold; 
+		margin-top:2%;
+	  }
       </style>
       <!-- Printing and PDF exports -->
       <script>
@@ -77,32 +88,38 @@
 				  Invece di chiamare il sistema per ogni richiesta si può salvare il risultato delle interazioni precedenti in cache ed utilizzarla per ritrovare il dato da inviare al client richiedente. 
 				  <br/><br/>
 				  <b>Descrizione Algoritmo:</b><br>
-				  Per ogni richiesta ricevuta si ricerca il dato richiesto in cache (1). Se non è presente in cache si invoca una richiesta esplicita al sistema esterno (2), si salva il risultato in cache (3) e si restituisce la risposta al client.
+				  Per ogni richiesta ricevuta si ricerca il dato richiesto in cache (1). Se non è presente in cache si effettua una richiesta esplicita al sistema esterno (2), si salva il risultato in cache (3) e si restituisce la risposta al client.
 				  <br/></br>
 				  <img style="width:50%" src="imgs/slide.jpg"/>
 				  </p> 
 			  </section>
 			  <section>
 				<h3>Soluzione 1: Cache (2)</h3>
-				  <p class="testo">
-				  <b>Azione:</b><br/>
-				  <ul>
-				  <li>
-				  Prevenzione dell'errore
-				  </li>
-				  </u>
-				  <br/><br/>
-				  <b>Considerazioni:</b><br/>
-				  <ul>
-				  <li>
-				  Il dato in cache deve essere solo leggibile e non modificabilie
-				  </li>
-				  </u>
-				  <br/><br/>
-				  <b></b><br/>
-				  
-				  <br/><br/>
-				  <b></b><br/>
+				  <p class="testo_left">
+				  prova
+					  <p class="sottoTitolo">
+					  Azione:
+					  </p>
+					  <ul>
+						<li>
+						Prevenzione dell'errore
+						</li>
+					  </ul>
+					  <p class="sottoTitolo">Considerazioni:</p>
+					  <ul >
+						  <li>
+						  Il dato in cache deve essere solo leggibile e non modificabilie
+						  </li>
+						  <li>
+						  Per sfruttare al meglio la soluzione caricare la cache all'avvio dell'applicazione
+						  </li>
+					  </ul>
+					  <p class="sottoTitolo">Impatti:</p>
+					  <ul>
+						  <li>
+						  Aumento dell'utilizzo della RAM
+						  </li>
+					  </ul>					  
 				  </p> 
 			  </section>
           </section>
