@@ -1,0 +1,307 @@
+  <!doctype html>
+  <html lang="en">
+    <head>
+      <meta charset="utf-8">
+
+      <title>Integration - Fault Handling</title>
+
+      <meta name="description" content="Presentazione per descrivere tecniche di fault tolerance">
+      <meta name="author" content="Simone Casamassa">
+
+      <meta name="apple-mobile-web-app-capable" content="yes">
+      <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+      <link rel="stylesheet" href="css/reveal.css">
+      <link rel="stylesheet" href="css/theme/blood.css" id="theme">
+
+      <!-- Code syntax highlighting -->
+      <link rel="stylesheet" href="lib/css/zenburn.css">
+
+      <!-- internal CSS for single page -->
+      <style type="text/css">
+      p.testo{
+        font-size:22pt;
+      }
+	  
+	  p.testo_left{
+        font-size:22pt;
+		text-align: left;
+      }
+	  
+	  p.sottoTitolo {
+		text-align:left; 
+		font-weight:bold; 
+		margin-top:2%;
+	  }
+      </style>
+      <!-- Printing and PDF exports -->
+      <script>
+        var link = document.createElement( 'link' );
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+        document.getElementsByTagName( 'head' )[0].appendChild( link );
+      </script>
+    </head>
+    <body>
+      <div class="reveal">
+        <!-- Any section element inside of this container is displayed as a slide -->
+        <div class="slides">
+          <section>
+            <h2>Gestione e prevenzione dell'errore</h2>
+            <p>
+              <small>Integration</small>
+            </p>
+          </section>
+
+          
+          <section>
+             <h3>Introduzione</h3>
+              <p class="testo">
+              La presentazione descrive le principali pratiche da adottare in contesti di integrazione ESB, SOA o BPM per poter prevenire e gestire gli errori.
+			  In particolar modo saranno trattati 4 punti principali:
+			  <ul>
+			  <li>Integrazione con servizi a scalabilità limitata</li>
+			  <li>Integrazione con servizi non raggiungibili</li>
+			  <li>Restituzione d'informazioni d'errore al client</li>
+			  <li>Garantire l'elaborazione del messaggio</li>
+			  </ul>
+			  <br/><br/>
+			  Nella presentazione tutti gli esempi sono effettuati su Oracle Service Bus.
+              </p>  
+          </section>
+
+          <section>
+			  <section>
+				 <h3>Integrazione con servizi a scalabilità limitata</h3>
+				  <p class="testo">
+				  Legacy System e database sono sistemi che non si prestano a scalare in funzione del carico ricevuto. Per evitare di sovraccaricare i sistemi durante i picchi di carico è bene inserire soluzioni che prevengano il fault dei sistemi esterni. 
+				  <br/></br>
+				  <img src="imgs/dbNoScale.jpg"/>
+				  </p> 
+			  </section>
+			  <section>
+				<h3>Soluzione 1: Cache (1)</h3>
+				  <p class="testo">
+				  Invece di chiamare il sistema per ogni richiesta si può salvare il risultato delle interazioni precedenti in cache ed utilizzarla per ritrovare il dato da inviare al client richiedente. 
+				  <br/><br/>
+				  <b>Descrizione Algoritmo:</b><br>
+				  Per ogni richiesta ricevuta si ricerca il dato richiesto in cache (1). Se non è presente in cache si effettua una richiesta esplicita al sistema esterno (2), si salva il risultato in cache (3) e si restituisce la risposta al client.
+				  <br/></br>
+				  <img style="width:50%" src="imgs/slide.jpg"/>
+				  </p> 
+			  </section>
+			  <section>
+				<h3>Soluzione 1: Cache (2)</h3>
+				  <p class="testo">
+					  <p class="sottoTitolo">
+					  Azione:
+					  </p>
+					  <ul style = "display:block">
+						<li>
+						Prevenzione dell'errore 
+						</li>
+					  </ul>
+					  <p class="sottoTitolo">Considerazioni:</p>
+					  <ul style = "display:block">
+						  <li>
+						  Il dato in cache deve essere solo leggibile e non modificabilie
+						  </li>
+						  <li>
+						  Utilizzabile solo per dati di natura statica
+						  </li>
+						  <li>
+						  Per sfruttare al meglio la soluzione caricare la cache all'avvio dell'applicazione
+						  </li>
+					  </ul>
+					  <p class="sottoTitolo">Impatti:</p>
+					  <ul style = "display:block">
+						  <li>
+						  Aumento dell'utilizzo della RAM
+						  </li>
+					  </ul>					  
+				  </p> 
+			  </section>
+			  
+			  <!-- SOLUZIONE A2 -->
+			  <section>
+				<h3>Soluzione 2: Buffer (1)</h3>
+				  <p class="testo">
+				  Se non è possibile utilizzare la cache per la natura del dato e, si può diminuire il numero di richieste inviate per unità di tempo servizio esterno accodando in un buffer le richieste da inviare. 
+				  <br/><br/>
+				  <b>Descrizione Algoritmo:</b><br>
+				  Tra il client e il servizio si configura un buffer configurando il numero massimo di richieste da poter inviare in parallelo al servizio, la capacità del buffer ed il tempo di vita della richieste. Raggiunto il numero massimo di invocazioni contemporanee, tutte le successive richieste vengono salvate nel buffer e smaltite al termine delle richieste attive. Nel caso in cui il buffer si saturi o scada la richiesta in attesa, verrà restituito al client il relativo codice di errore. 
+				  <br/></br>
+				  <img style="width:50%" src="imgs/buffer.jpg"/>
+				  </p> 
+			  </section>
+			  <section>
+				<h3>Soluzione 2: Buffer (2)</h3>
+				  <p class="testo">
+					  <p class="sottoTitolo">
+					  Azione:
+					  </p>
+					  <ul style = "display:block">
+						<li>
+						Prevenzione dell'errore 
+						</li>
+					  </ul>
+					  <p class="sottoTitolo">Considerazioni:</p>
+					  <ul style = "display:block">
+						  <li>
+						  Soluzione da prediligere per richieste di natura asincrona o one-way. Il tempo di throttling potrebbe superare il valore di timeout del client
+						  </li>
+					  </ul>
+					  <p class="sottoTitolo">Impatti:</p>
+					  <ul style = "display:block">
+						  <li>
+						  L'aumento del tempo di gestione della richiesta causato dal buffer in contesti di richieste sincrone può far violare SLA di servizio o far scattare timeout sul client 
+						  </li>
+					  </ul>					  
+				  </p> 
+			  </section>
+          </section>
+
+          <section>
+             <h2>Organizzazione dei team</h2>
+              <p class="testo">
+              Adottando l'approccio basato su microservizi anche la divisione dei team sarà gestita in modo diverso. La suddivisione non sarà più per competenze tecniche bensì per competenze di business. 
+              <br/><br/>
+              Ogni servizio include un completo stack tecnologico, richiedendo un team composto da funzionali di business, sviluppatori di front end, di backend e dba.
+              I diversi team non saranno più divisi per funzionalità tecniche, bensì per funzionalità di business. 
+              </p>  
+          </section>
+
+          <section>
+             <h2>Prodotti e non progetti</h2>
+              <p class="testo">
+              Con le applicazioni monolitiche il team si concentra nell'analisi e nell'implementazione del progetto, fino al rilascio in ambiente di produzione che conclude le attività di progetto. Con i microservizi, il team non si limiterà solo allo sviluppo delle funzionalità ma sarà direttamente responsabile dell'installazione e delle attività di operation. 
+              <br/><br/>
+              Con questo approccio si riescono a recepire più velocemente i feedback dell'utente, accrescendo le conoscenze di business degli sviluppatori.
+              <br/><br/>
+              <b>Non esistono ragioni che impediscono questo approccio su applicazioni monolitiche ma le dimensioni dei servizi meglio si prestano a questa organizzazione dei team.</b> 
+              </p>  
+          </section>
+
+          <section>
+            <section>
+            <p>
+              
+              L'integrazione DevOps ha come obiettivo il rilascio del prodotto, il collaudo del software, l'evoluzione e il mantenimento (bug fixing e "minor release") in modo tale da aumentare affidabilità e sicurezza e rendere più veloci i cicli di sviluppo e rilascio. Molte delle idee che costituiscono DevOps provengono dalla gestione di sistemi aziendali e dalla Metodologia agile.
+            </p>
+          </section>
+            <section>
+              <img src="imgs/devops_01.png" />
+              <br/><br/>
+              La metodologia DevOps aiuta le aziende nella gestione dei rilasci, standardizzando gli ambienti di sviluppo e le procedure d'installazione. 
+            </section>
+          </section>
+
+          <section>
+            <h2>Vantaggi</h2>
+            <ul>
+              <li>Aumento dell'efficienza e dell'affidabilità nelle fasi di rilascio</li>
+              <li>Diminuzione del tempo di preparazione dei rilasci</li>
+              <li>Aumento della frequenza dei rilasci</li>
+              <li>Semplificazione del processo di rilascio, automatizzando gli step da eseguire</li>
+              <li>Riduzione del time-to-market delle applicazioni</li>
+            </ul>
+          </section>
+
+          <section>
+            <h2>8 Azioni da intraprendere</h2>
+            <ul>
+              <li>Automatizzare la creazione/gestione degli ambienti</li>
+              <li>Adottare Continuous Integration</li>
+              <li>Automatizzare la fase di rilascio</li>
+              <li>Automatizzare i test</li>
+              <li>Compiere decisioni di release Data-Driven</li>
+              <li>Ridurre la grandezza del software rilasciato</li>
+              <li>Eliminare step manuali e tempi d'attesa</li>
+              <li>Estrarre feedback dai risultati ottenuti</li> 
+            </ul>
+          </section>
+
+          <section>
+            <h2>Strategie di progetto</h2>
+            <ul>
+              <li>Iniziare con l'automatizzare la creazione e gestione degli ambienti di sviluppo e collaudo, per poi espanderla all'ambiente di produzione</li>
+              <li>Automatizzare il processo di compilazione e test del software tramite continuous integration. Cominciare con la compilazione e gli unit test per poi gradualmente integrare test funzionali, di performance e di scalabilità</li>
+              <li>Combinare l'automatizzazione dei rilasci con la continuous integration al fine di crare un'unico processo</li>
+            </ul>
+          </section>
+
+          <section>
+            
+            <h2>Strategie di rilascio</h2>
+            <ul>
+              <li>Ridurre l'ambito di ogni rilascio per accellerare i feedback</li>
+              <li>Ridurre l'ambito di ogni rilascio per minimizzare i rischi diminuendo le dipendenze e semplificando le installazioni</li>
+              <li>Ridurre l'ambito di ogni rilascio focalizzando ogni persona su una singola attività che compone il rilascio</li>
+            </ul>
+          
+              <img src="https://driftboatdave.files.wordpress.com/2015/02/020415_1616_devopscatsa2.png?w=620">
+          
+          </section>
+
+          <section>
+            <section>
+              <h1>Strumenti a supporto</h1>
+            </section>
+            <section>
+              <h2>Docker</h2>
+              <img src="http://www.01net.it/wp-content/uploads/sites/14/2015/10/docker-logo.png" width="500" heigth="500" />
+            </section>
+            <section>
+              <h2>Ansible</h2>
+              <img src="https://www.elastic.co/assets/bltef783ee77445f09f/ansible.png" width="500" heigth="500" />
+            </section>
+            <section>
+              <h2>Jenkins + Nexus</h2>
+              <img src="http://www.sonatype.org/nexus/content/uploads/2015/12/Jenkins-and-Nexus-Featured-Image.jpg" width="500" heigth="500" />
+            </section>
+          </section>
+
+          <section>
+            <h1>Fine</h1>
+            <h3>Grazie</h3>
+            <h4><a href="http://www.simonecasamassa.it">SIMONECASAMASSA.IT</a></h4>
+          </section>
+
+        </div>
+        <div style="position:absolute; bottom:0; left:0; margin-left:1%; font-size:16pt">
+          <p style="text-align:left; ">
+              <a href="">Simone Casamassa</a>
+          </p>
+        </div>
+      </div>
+
+      <script src="lib/js/head.min.js"></script>
+      <script src="js/reveal.js"></script>
+
+      <script>
+       // Full list of configuration options available at:
+       // https://github.com/hakimel/reveal.js#configuration
+       Reveal.initialize({
+         controls: true,
+         progress: true,
+         history: true,
+         center: true,
+
+         transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+         // Optional reveal.js plugins
+         dependencies: [
+           { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+           { src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+           { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+           { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+           { src: 'plugin/zoom-js/zoom.js', async: true },
+           { src: 'plugin/notes/notes.js', async: true }
+         ]
+       });
+      </script>
+    </body>
+  </html>
