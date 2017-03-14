@@ -74,16 +74,17 @@
           </section>
 
           <section>
+          
 			  <section>
 				 <h3>Integrazione con servizi a scalabilità limitata</h3>
 				  <p class="testo">
 				  Legacy System e database sono sistemi che non si prestano a scalare in funzione del carico ricevuto. Per evitare di sovraccaricare i sistemi durante i picchi di carico è bene inserire soluzioni che prevengano il fault dei sistemi esterni. 
-				  <br/></br>
-				  <img src="imgs/dbNoScale.jpg"/>
+				  <br/><br/>
+				  <img src="imgs/dbNoScale.JPG"/>
 				  </p> 
 			  </section>
 			  <section>
-				<h3>Soluzione 1: Cache (1)</h3>
+				<h3>Soluzione 1: Cache</h3>
 				  <p class="testo">
 				  Invece di chiamare il sistema per ogni richiesta si può salvare il risultato delle interazioni precedenti in cache ed utilizzarla per ritrovare il dato da inviare al client richiedente. 
 				  <br/><br/>
@@ -94,7 +95,7 @@
 				  </p> 
 			  </section>
 			  <section>
-				<h3>Soluzione 1: Cache (2)</h3>
+				<h3>Soluzione 1: Cache</h3>
 				  <p class="testo">
 					  <p class="sottoTitolo">
 					  Azione:
@@ -127,7 +128,7 @@
 			  
 			  <!-- SOLUZIONE A2 -->
 			  <section>
-				<h3>Soluzione 2: Buffer (1)</h3>
+				<h3>Soluzione 2: Buffer</h3>
 				  <p class="testo">
 				  Se non è possibile utilizzare la cache per la natura del dato e, si può diminuire il numero di richieste inviate per unità di tempo servizio esterno accodando in un buffer le richieste da inviare. 
 				  <br/><br/>
@@ -138,7 +139,7 @@
 				  </p> 
 			  </section>
 			  <section>
-				<h3>Soluzione 2: Buffer (2)</h3>
+				<h3>Soluzione 2: Buffer</h3>
 				  <p class="testo">
 					  <p class="sottoTitolo">
 					  Azione:
@@ -164,106 +165,268 @@
 			  </section>
           </section>
 
-          <section>
-             <h2>Organizzazione dei team</h2>
-              <p class="testo">
-              Adottando l'approccio basato su microservizi anche la divisione dei team sarà gestita in modo diverso. La suddivisione non sarà più per competenze tecniche bensì per competenze di business. 
-              <br/><br/>
-              Ogni servizio include un completo stack tecnologico, richiedendo un team composto da funzionali di business, sviluppatori di front end, di backend e dba.
-              I diversi team non saranno più divisi per funzionalità tecniche, bensì per funzionalità di business. 
-              </p>  
-          </section>
-
-          <section>
-             <h2>Prodotti e non progetti</h2>
-              <p class="testo">
-              Con le applicazioni monolitiche il team si concentra nell'analisi e nell'implementazione del progetto, fino al rilascio in ambiente di produzione che conclude le attività di progetto. Con i microservizi, il team non si limiterà solo allo sviluppo delle funzionalità ma sarà direttamente responsabile dell'installazione e delle attività di operation. 
-              <br/><br/>
-              Con questo approccio si riescono a recepire più velocemente i feedback dell'utente, accrescendo le conoscenze di business degli sviluppatori.
-              <br/><br/>
-              <b>Non esistono ragioni che impediscono questo approccio su applicazioni monolitiche ma le dimensioni dei servizi meglio si prestano a questa organizzazione dei team.</b> 
-              </p>  
-          </section>
-
+          <!-- PROBLEMA B -->  
           <section>
             <section>
-            <p>
-              
-              L'integrazione DevOps ha come obiettivo il rilascio del prodotto, il collaudo del software, l'evoluzione e il mantenimento (bug fixing e "minor release") in modo tale da aumentare affidabilità e sicurezza e rendere più veloci i cicli di sviluppo e rilascio. Molte delle idee che costituiscono DevOps provengono dalla gestione di sistemi aziendali e dalla Metodologia agile.
-            </p>
-          </section>
-            <section>
-              <img src="imgs/devops_01.png" />
-              <br/><br/>
-              La metodologia DevOps aiuta le aziende nella gestione dei rilasci, standardizzando gli ambienti di sviluppo e le procedure d'installazione. 
+                <h3>Gestione errori raggiungibilità</h3>
+      				  <p class="testo">
+        				  Durante la comunicazioni ci sono alcuni fattori che il consumatore del servizio non può controllare. Per esempio
+                  problemi di connessione e di raggiungibilità del servizio potrebbero causare un'interruzione della lavorazione.
+                  Risulta quindi necessario per l'"Integrator" gestire tali casistiche, evitando di interrompere l'erogazione del servizio. 
+        				  <br/><br/>
+        				  <img src="imgs/connectionError.JPG"/>
+        				</p> 
             </section>
-          </section>
-
-          <section>
-            <h2>Vantaggi</h2>
-            <ul>
-              <li>Aumento dell'efficienza e dell'affidabilità nelle fasi di rilascio</li>
-              <li>Diminuzione del tempo di preparazione dei rilasci</li>
-              <li>Aumento della frequenza dei rilasci</li>
-              <li>Semplificazione del processo di rilascio, automatizzando gli step da eseguire</li>
-              <li>Riduzione del time-to-market delle applicazioni</li>
-            </ul>
-          </section>
-
-          <section>
-            <h2>8 Azioni da intraprendere</h2>
-            <ul>
-              <li>Automatizzare la creazione/gestione degli ambienti</li>
-              <li>Adottare Continuous Integration</li>
-              <li>Automatizzare la fase di rilascio</li>
-              <li>Automatizzare i test</li>
-              <li>Compiere decisioni di release Data-Driven</li>
-              <li>Ridurre la grandezza del software rilasciato</li>
-              <li>Eliminare step manuali e tempi d'attesa</li>
-              <li>Estrarre feedback dai risultati ottenuti</li> 
-            </ul>
-          </section>
-
-          <section>
-            <h2>Strategie di progetto</h2>
-            <ul>
-              <li>Iniziare con l'automatizzare la creazione e gestione degli ambienti di sviluppo e collaudo, per poi espanderla all'ambiente di produzione</li>
-              <li>Automatizzare il processo di compilazione e test del software tramite continuous integration. Cominciare con la compilazione e gli unit test per poi gradualmente integrare test funzionali, di performance e di scalabilità</li>
-              <li>Combinare l'automatizzazione dei rilasci con la continuous integration al fine di crare un'unico processo</li>
-            </ul>
-          </section>
-
-          <section>
             
-            <h2>Strategie di rilascio</h2>
-            <ul>
-              <li>Ridurre l'ambito di ogni rilascio per accellerare i feedback</li>
-              <li>Ridurre l'ambito di ogni rilascio per minimizzare i rischi diminuendo le dipendenze e semplificando le installazioni</li>
-              <li>Ridurre l'ambito di ogni rilascio focalizzando ogni persona su una singola attività che compone il rilascio</li>
-            </ul>
-          
-              <img src="https://driftboatdave.files.wordpress.com/2015/02/020415_1616_devopscatsa2.png?w=620">
-          
+            <!-- SOLUZIONE B1 -->
+    			  <section>
+    				<h3>Soluzione 1: Retry</h3>
+    				  <p class="testo">
+    				  In caso di non raggiungibilità del servizio invocato, lo strato d'integrazione gestisce l'errore ricevuto
+              e tenta un numero definito di retry, invocando ripetutamente il servizio. 
+    				  <br/><br/>
+    				  <b>Descrizione Algoritmo:</b><br>
+    				   Si configura lo strato d'integrazione per gestire un numero massimo di Retry (Retry Count) in caso di non raggiungibilità
+               del servizio invocato. Può essere utile configuare anche un intervallo di tempo d'attesa tra i retry (Retry Iteration Interval) 
+               configurato diversamente per ogni singolo servizio richiamato. Se il numero di invocazioni ha raggiunto il numero massimo configurato,
+               si ritorna l'errore al chiamante originale o si gestisce appositamente l'errore.
+    				  <br/><br/>
+    				  <img style="width:50%" src="imgs/connectionError_sol1.JPG"/>
+    				  </p> 
+    			  </section>
+    			  <section>
+    				<h3>Soluzione 1: Retry</h3>
+    				  <p class="testo">
+    					  <p class="sottoTitolo">
+    					  Azione:
+    					  </p>
+    					  <ul style = "display:block">
+    						<li>
+    						Retry (fault prevention)
+    						</li>
+    					  </ul>
+    					  <p class="sottoTitolo">Considerazioni:</p>
+    					  <ul style = "display:block">
+    						  <li>
+    						  Da utilizzare per servizi che sono idempotenti, cioè che riconoscono e gestiscono eventuali richieste duplicate
+                  senza causare duplicazione di dati e processi.
+    						  </li>
+    					  </ul>
+    					  <p class="sottoTitolo">Impatti:</p>
+    					  <ul style = "display:block">
+    						  <li>
+    						  Un numero troppo elevato di retry o di intervallo di attesa causerà un ritardo nella risposta in caso di servizio sincrono, 
+                  rischiando di non rispettare le SLA.<br/>
+    						  </li>
+    					  </ul>					  
+    				  </p> 
+    			  </section>
+            <!-- SOLUZIONE B2 -->
+    			  <section>
+    				<h3>Soluzione 2: Load-balancing</h3>
+    				  <p class="testo">
+    				  In caso di non raggiungibilità del servizio invocato, lo strato d'integrazione tenta di invocare il servizio su differenti istanze.
+    				  <br/><br/>
+    				  <b>Descrizione Algoritmo:</b><br>
+    				   Nel flusso d'integrazione si configura un pool di endpoints per servizio. Se a seguito di una richiesta si ricevono 
+               errori, si eseguirà nuovamente la richiesta invocando una nuova istanza del servizio.
+               <br><br>
+    				  <img style="width:50%" src="imgs/loadbalancing.JPG"/>
+    				  </p> 
+    			  </section>
+    			  <section>
+    				<h3>Soluzione 2: Load-balancing</h3>
+    				  <p class="testo">
+    					  <p class="sottoTitolo">
+    					  Azione:
+    					  </p>
+    					  <ul style = "display:block">
+    						<li>
+    						Share the load (fault prevention)
+    						</li>
+    					  </ul>
+    					  <p class="sottoTitolo">Considerazioni:</p>
+    					  <ul style = "display:block">
+    						  <li>
+    						  Soluzione utilizzabile solo se il servizio da integrare espone diverse istanze da poter invocare.
+    						  </li>
+    					  </ul>
+    					  <p class="sottoTitolo">Impatti:</p>
+    					  <ul style = "display:block">
+    						  <li>
+    						  Un numero troppo elevato di tentativi causerà un ritardo nella risposta in caso di servizio sincrono, 
+                  rischiando di non rispettare le SLA.<br/>
+    						  </li>
+                </ul>					  
+    				  </p> 
+    			  </section>
           </section>
-
+          
+          <!-- PROBLEMA C -->
           <section>
             <section>
-              <h1>Strumenti a supporto</h1>
+                <h3>Restituzione d'informazioni d'errore al client</h3>
+      				  <p class="testo">
+        				  Se in seguito all'invocazione del servizio riceviamo un fault applicativo e non un'errore di comunicazione, non ha senso applicare
+                  politiche di retry ma il fault va gestito e ritornato al client, inoltrando le informazioni necessarie alla gestione 
+                  del fault. La modalità di restituzione del fault è strettamente correlata al protocollo utilizzato dal client per invocare il layer
+                  d'integrazione.
+        				  <br/><br/>
+        				  <img src="imgs/returnError.JPG"/>
+        				</p> 
             </section>
-            <section>
-              <h2>Docker</h2>
-              <img src="http://www.01net.it/wp-content/uploads/sites/14/2015/10/docker-logo.png" width="500" heigth="500" />
-            </section>
-            <section>
-              <h2>Ansible</h2>
-              <img src="https://www.elastic.co/assets/bltef783ee77445f09f/ansible.png" width="500" heigth="500" />
-            </section>
-            <section>
-              <h2>Jenkins + Nexus</h2>
-              <img src="http://www.sonatype.org/nexus/content/uploads/2015/12/Jenkins-and-Nexus-Featured-Image.jpg" width="500" heigth="500" />
-            </section>
+            
+            <!-- SOLUZIONE C1 -->
+    			  <section>
+    				<h3>Soluzione 1: Return fault message</h3>
+    				  <p class="testo">
+    				  Una volta ricevuto il fault applicativo dal servizio invocato, si cattura e si gestisce il fault per ritornare al client
+              lo stesso o un nuovo fault che comprende le informazioni necessarie per la sua gestione. 
+    				  <br/><br/>
+    				  <b>Descrizione Algoritmo:</b><br>
+    				   Nel caso di servizi sincroni il fault deve essere dichiarato nell'interfaccia esposta e una volta ricevuto deve essere
+               ritornato al client.
+    				  <br/>
+    				  <br>
+              Nel caso in cui il client ci invochi con modalità asincrona, se riceviamo un fault applicativo si ritornerà il fault
+              al client tramite un apposito messaggio di callback.
+              <br>
+              </p> 
+    			  </section>
+    			  <section>
+    				<h3>Soluzione 1: Return fault message</h3>
+    				  <p class="testo">
+    					  <p class="sottoTitolo">
+    					  Azione:
+    					  </p>
+    					  <ul style = "display:block">
+    						<li>
+    						Exception shielding (fault handling)
+    						</li>
+    					  </ul>
+    					  <p class="sottoTitolo">Considerazioni:</p>
+    					  <ul style = "display:block">
+    						  <li>
+    						  Sia in contesti sincroni che asincroni bisogna gestire i fault e ritornarli al client. Tale gestione è da limitare
+                  ai fault applicativi, rimandando la gestione degli altri errori alle tecniche elencate precedentemente.
+    						  </li>
+    					  </ul>
+    					  <p class="sottoTitolo">Impatti:</p>
+    					  <ul style = "display:block">
+    						  <li>
+    						  In ogni caso il client deve gestire eventuali fault concordati tra il client ed il layer d'integrazione.
+                  <br/>
+    						  </li>
+    					  </ul>					  
+    				  </p> 
+    			  </section>
+            <!-- SOLUZIONE C2 -->
+    			  <section>
+    				<h3>Soluzione 2: Storing faults in a persistent store</h3>
+    				  <p class="testo">
+    				  In alcuni contesti il client non rimane in attesa di risposta o dell'eventuale fault.
+              In questi casi si può storicizzare e lavorare in modo asincrono i fault archiviati.
+    				  <br/><br/>
+    				  <b>Descrizione Algoritmo:</b><br>
+    				   Se invocando il servizio si riceve un'errore applicativo, si gestisce e si storicizza il fault 
+               in un Error Hospital. La storicizzazione permette di intervenire in modo manuale per 
+               modificare il payload e risottomettere la richiesta o per gestire le casistiche riscontrate.
+               <br>
+    				  <img style="width:40%" src="imgs/erroreStoricizzato.JPG"/>
+    				  </p> 
+    			  </section>
+    			  <section>
+    				<h3>Soluzione 2: Storing faults in a persistent store</h3>
+    				  <p class="testo">
+    					  <p class="sottoTitolo">
+    					  Azione:
+    					  </p>
+    					  <ul style = "display:block">
+    						<li>
+    						Exception shielding (fault handling)
+    						</li>
+                <li>
+                Recovery/alternative (fault prevention)
+                </li>
+    					  </ul>
+    					  <p class="sottoTitolo">Considerazioni:</p>
+    					  <ul style = "display:block">
+    						  <li>
+    						  Soluzione utilizzabile in contesti di invocazione asincrona, legati a fault applicativi di carattere tecnico.
+    						  </li>
+    					  </ul>
+    					  <p class="sottoTitolo">Impatti:</p>
+    					  <ul style = "display:block">
+    						  <li>
+    						  Necessità di gestire la persistenza dei fault in un Error Hospital.
+    						  </li>
+                  <li>
+                  Richiesto l'intervento umano per la gestione dei fault.
+                  </li>
+                
+                </ul>					  
+    				  </p> 
+    			  </section>
           </section>
-
+          
+          <!-- PROBLEMA D -->
+          <section>
+            <section>
+                <h3>Garantire processamento della richiesta</h3>
+      				  <p class="testo">
+        				  Spesso si sviluppano flussi d'integrazione asincroni per mantenere basso l'accoppiamento tra i client e i provider
+                  dei servizi. La natura asincrona dell'integrazione però introduce il rischio di perdere messaggi, sia durante l'invocazione
+                  del servizio esterno che durante la lavorazione del messaggio nel layer d'integrazione.
+        				  <br/><br/>
+        				  <img src="imgs/perditaPacchetti.JPG"/>
+        				</p> 
+            </section>
+            
+            <!-- SOLUZIONE C1 -->
+    			  <section>
+    				<h3>Soluzione 1: Distributed transaction</h3>
+    				  <p class="testo">
+    				  Gestire in un'unica transazione distribuita l'intero flusso di gestione del messaggio. 
+    				  <br/><br/>
+    				  <b>Descrizione Algoritmo:</b><br>
+    				  Sviluppare l'interfaccia esposta al client, le chiamate verso i servizi esterni e gli step intermedi con 
+              strumenti che supportano le transazioni globali. In questo modo l'insieme delle operazioni scaturite dalla
+              ricezione del messaggio saranno eseguite in modo transazionale ed atomico. 
+    				  <br/>
+    				  <br>
+               <img style="width:50%" src="imgs/transazionalita.JPG"/>
+              </p> 
+              
+    			  </section>
+    			  <section>
+    				<h3>Soluzione 1: Distributed transaction</h3>
+    				  <p class="testo">
+    					  <p class="sottoTitolo">
+    					  Azione:
+    					  </p>
+    					  <ul style = "display:block">
+    						<li>
+    						Provisional action (fault prevention)
+    						</li>
+    					  </ul>
+    					  <p class="sottoTitolo">Considerazioni:</p>
+    					  <ul style = "display:block">
+    						  <li>
+    						  Poter utilizzare nel flusso d'integrazione solo risorse che possono partecipare ad una transazione distribuita.
+    						  </li>
+    					  </ul>
+    					  <p class="sottoTitolo">Impatti:</p>
+    					  <ul style = "display:block">
+    						  <li>
+    						  La gestione della transazione globale comporta maggior tempi di esecuzione di alcune operazioni ed è più
+                  costosa in termini di risorse computazionali .
+                  <br/>
+    						  </li>
+    					  </ul>					  
+    				  </p> 
+    			  </section>
+            </section>
+          
           <section>
             <h1>Fine</h1>
             <h3>Grazie</h3>

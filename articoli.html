@@ -30,7 +30,7 @@ f<html lang="en">
 				margin: 0
 			}
 			.anchorArticle{
-				padding-top: 80px; 
+				//padding-top: 80px; 
 				margin-top: -80px;
 			}
 		</style>
@@ -126,7 +126,36 @@ f<html lang="en">
 		
 		<div class="col-sm-8 blog-main" style="width:75%; float:left">
 
-			<!-- blog OSB Best Practice -->
+			
+      <!-- blog best practice integration -->
+          <div class="blog-post">
+            <h2 class="blog-post-title"><a name="integrationProblems" class="anchorArticle" >Problemi d'integrazione</a></h2>
+            <p class="blog-post-meta">Marzo 14, 2017</p>
+
+            <p>In progetti d'integrazione aspetti trasversali al business come la gestione degli errori rivestono un ruolo 
+            fondamentale.
+            <br>
+			      La presentazione descrive le principali pratiche da adottare in contesti di integrazione ESB, SOA o BPM per poter prevenire e gestire gli errori. In particolar modo saranno trattati 4 punti principali:
+            <ul>
+              <li>Integrazione con servizi a scalabilità limitata</li>
+              <li>Integrazione con servizi non raggiungibili</li>
+              <li>Restituzione d'informazioni d'errore al client</li>
+              <li>Garantire l'elaborazione del messaggio</li>
+			       </ul>
+      <br>
+			<a href="slide/faultHandling.html"><img src="img/integrationProblems.JPG" width="50%"/></a>. 
+			</p>
+            
+          <ul class="pager">
+            <li><a href="#">Previous</a></li>
+            <li><a href="#devOps">Next</a></li>
+            <li><a href="#">Top</a></li>
+          </ul>
+
+        </div><!-- end blog best practice integration -->
+      
+      
+      <!-- blog DevOps -->
           <div class="blog-post">
             <h2 class="blog-post-title"><a name="devOps" class="anchorArticle" >DevOps Best Practices</a></h2>
             <p class="blog-post-meta">Aprile 10, 2016 </p>
@@ -138,11 +167,12 @@ f<html lang="en">
 			</p>
             
           <ul class="pager">
-            <li><a href="#">Previous</a></li>
+            <li><a href="#integrationProblems">Previous</a></li>
             <li><a href="#osbBestPractice">Next</a></li>
+            <li><a href="#">Top</a></li>
           </ul>
 
-        </div><!-- end blog OSB Best Practice -->
+        </div><!-- end blog DevOps -->
 		
 		<!-- blog OSB Best Practice -->
           <div class="blog-post">
@@ -168,6 +198,7 @@ f<html lang="en">
           <ul class="pager">
             <li><a href="#devOps">Previous</a></li>
             <li><a href="#joinSql">Next</a></li>
+            <li><a href="#">Top</a></li>
           </ul>
 
         </div><!-- end blog OSB Best Practice -->
@@ -187,6 +218,7 @@ f<html lang="en">
           <ul class="pager">
             <li><a href="#osbBestPractice">Previous</a></li>
             <li><a href="#">Next</a></li>
+            <li><a href="#">Top</a></li>
           </ul>
 
         </div><!-- end blog sql join -->
@@ -276,9 +308,10 @@ f<html lang="en">
 					<li><a href="#osbBestPractice">OSB Best Practice</a></li>
 				</ol>
 			  </li>
-			  <li>Management
+			  <li>Altro
 				<ol class="list-unstyled" type="a">
 					<li><a href="#devOps">DevOps</a></li>
+          <li><a href="#integrationProblems">Problemi d'integrazione</a></li>
 				</ol>
 			  </li>
 			  <!--
