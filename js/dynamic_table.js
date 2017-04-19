@@ -99,4 +99,24 @@ var fifthRow = $('th:contains("Face"):first').parent();
 		})
 		.siblings(':contains("Face")')
 		.fadeOut('fast');
+		
+	var sixthRow = $('th:contains("655"):first').parent();
+	var acea655Row = $('<tr><th class="input" colspan="5">Technology Reply Roma - Acea Monitoraggio 655</th></tr>');
+	acea655Row 
+		.addClass('group')
+		.insertBefore(sixthRow)
+		.click(function(){
+			if( $(this).hasClass('open') ){
+				$(this)
+				.siblings(':contains("655")')
+				.fadeOut('normal');
+			}else{
+				$(this)
+				.siblings(':contains("655")')
+				.fadeIn('normal');
+			}
+			$(this).toggleClass('open');
+		})
+		.siblings(':contains("655")')
+		.fadeOut('fast');
 });
