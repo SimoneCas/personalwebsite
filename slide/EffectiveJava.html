@@ -1,0 +1,431 @@
+  <!doctype html>
+  <html lang="en">
+    <head>
+      <meta charset="utf-8">
+
+      <title>Pillole di Effective Java</title>
+
+      <meta name="description" content="Presentazione per elencare le best practice Effective Java">
+      <meta name="author" content="Simone Casamassa">
+
+      <meta name="apple-mobile-web-app-capable" content="yes">
+      <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+      <link rel="stylesheet" href="css/reveal.css">
+      <link rel="stylesheet" href="css/theme/blood.css" id="theme">
+
+      <!-- Code syntax highlighting -->
+      <link rel="stylesheet" href="lib/css/zenburn.css">
+
+      <!-- internal CSS for single page -->
+      <style type="text/css">
+      p.testo{
+        font-size:18pt;
+      }
+      p.code {
+        font-size:16pt;
+        background-color: black;
+        color: green;
+        text-align:left;
+        border-style:groove;
+        font-family:'Arial';
+      }
+      ol.testo{
+        font-size:18pt;
+      }
+      ul.testo{
+        font-size:18pt;
+      }
+      </style>
+      <!-- Printing and PDF exports -->
+      <script>
+        var link = document.createElement( 'link' );
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+        document.getElementsByTagName( 'head' )[0].appendChild( link );
+      </script>
+    </head>
+    <body>
+      <div class="reveal">
+        <!-- Any section element inside of this container is displayed as a slide -->
+        <div class="slides">
+          <section>
+            <h2>Effective Java</h2>
+            <p>
+              <small>Suggerimenti e Best Practice</small>
+            </p>
+          </section>
+
+          <section>
+            <h2>Indice</h2>
+            <ul>
+              <li>Creazione e distruzione oggetti</li>
+              <li style="color:grey">Metodi comuni a tutti gli oggetti</li>
+              <li style="color:grey">Classi e interfacce</li>
+              <li style="color:grey">Generics</li>
+              <li style="color:grey">Annotazioni ed Enums</li>
+              <li style="color:grey">Lambdas e Streams</li>
+              <li style="color:grey">Metodi</li>
+              <li style="color:grey">Programmazione generica</li>
+              <li style="color:grey">Eccezioni</li>
+              <li style="color:grey">Concorrenza</li>
+              <li style="color:grey">Serializzazione</li>
+            </ul>
+
+            
+          </section>
+
+          <section>
+            <section>
+             <h2>Creazione e distruzione oggetti</h2>
+              <ul>
+              <li>Matodi statici di Factory</li>
+              <li>Builder Pattern</li>
+              <li>Singleton con costruttore privato</li>
+              <li>Forzare la non istanziabilità tramite costruttore privato</li>
+              <li>Preferire Dependency Injection alle risorse fortemente legate</li>
+              <li style="color:grey">Evitare la creazione di oggetti non necessari</li>
+              <li style="color:grey">Eliminazion delle reference ad oggetti inutilizzati</li>
+              <li style="color:grey">Evitare metodi di Finalizer e Cleaner</li>
+              <li style="color:grey">Preferire try-with-resources al try-finally</li>
+            </ul>
+            </section>
+            <section>
+              <h3>Static factory methods</h3>
+              <p class = "code" style="padding-left:30%">
+                public static Boolean valueOf(boolean b) {<br>
+                 &nbsp;&nbsp; return b ? Boolean.TRUE : Boolean.FALSE;<br>
+                }
+              </p>
+              <p class="testo" style="text-align:left">
+                L'utilizzo di un metodo factory al posto del costruttore presenta i seguenti vantaggi:
+                <ol class="testo">
+                  <li>Possibilità di assegnare nomi ai metodi per distinguere le diverse modalità di generazione dell'oggetto;</li>
+                  <li>Possibilità di gestire meccanismi per controllare il numero di istanze generate: possibilità di gestire la classe come 
+                  Singleton o di applicare il pattern Flyweight</li>
+                  <li>Possibilità di restituire diverse tipologie di oggetti, anche sottoclassi se necessario, in base ai parametri ricevuti</li>
+                </ol>
+                <b>Limitazioni:</b><br>
+                <ol class="testo">
+                  <li>Senza costruttori pubblici o protected non sarà possibile generare sottoclassi</li>
+                  <li>Per gli sviluppatori difficili da individuare nella documentazione</li>
+                </ol><br>
+              </p>  
+              <p class="testo">
+                Nomi suggeriti per i metodi: from, of, valueOf, instance, getInstance, create, newInstance, get"Type", new"Type"
+              </p>
+              
+            </section>
+            <section>
+              <h3>Builder Pattern</h3>
+              <p class="testo">
+              Metodi factories statici e costruttori sono scomodi se c'è la necessità
+              di poter configurare molti parametri di cui alcuni opzionali. Utilizzando i costruttori 
+              si corre il rischio di definire numerosi costruttori con crescita telescopica dei parametri di input.
+              Si sconsiglia inoltre l'utilizzo del costruttore vuoto e di definire tramite i metodi setter i field (pattern JavaBeans), in quanto la logica di generazione è divisa su più comandi.
+              <br>
+              Una soluzione è quella di utilizzare il pattern Builder: ottenere un oggetto Builder sul quale settare tutti i parametri richiesti e sul quale si potrà infine richiamare il metodo build().
+              Tipicamente il builder è un membro statico della classe da generare.
+              </p>
+            </section>
+            <section>
+              <h3>Builder Pattern (2)</h3>
+             
+                <div style="float: left">
+                   <p class = "code" style="padding-left:30%; font-size:12pt; margin-right: 50px">
+                // Builder Pattern<br>
+                public class NutritionFacts {<br>
+                &nbsp;&nbsp;private final int servingSize;<br>
+                &nbsp;&nbsp;private final int servings;<br>
+                &nbsp;&nbsp;private final int calories;<br>
+                &nbsp;&nbsp;private final int fat;<br>
+                &nbsp;&nbsp;private final int sodium;<br>
+                &nbsp;&nbsp;private final int carbohydrate;<br><br>
+                &nbsp;&nbsp;public static class Builder {<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;// Required parameters<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;private final int servingSize;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;private final int servings;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;// Optional parameters - initialized to default values<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;private int calories = 0;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;private int fat = 0;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;private int sodium = 0;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;private int carbohydrate = 0;<br><br>
+                &nbsp;&nbsp;&nbsp;&nbsp;public Builder(int servingSize, int servings) {<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;this.servingSize = servingSize;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;this.servings = servings;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;}<br>
+                
+                 </p>
+              </div>
+              <div>
+                <p class = "code" style="padding-left:30%; font-size:12pt">
+                  <br><br>
+                &nbsp;&nbsp;&nbsp;&nbsp;public Builder calories(int val)<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{ calories = val; return this; }<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;public Builder fat(int val)<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{ fat = val; return this; }<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;public Builder sodium(int val)<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{ sodium = val; return this; }<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;public Builder carbohydrate(int val)<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{ carbohydrate = val; return this; }<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;public NutritionFacts build() {<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return new NutritionFacts(this);<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;}<br>
+                &nbsp;&nbsp;}<br><br>
+                &nbsp;&nbsp;private NutritionFacts(Builder builder) {<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;servingSize = builder.servingSize;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;servings = builder.servings;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;calories = builder.calories;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;fat = builder.fat;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;sodium = builder.sodium;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;carbohydrate = builder.carbohydrate;<br>
+                &nbsp;&nbsp;}<br>
+                }<br>
+                 </p>
+              </div>
+             
+            </section>
+            
+            <section>
+              <h3>Forzare non instanziabilità tramite costrutture privato</h3>
+              <p class="testo">
+                Quando si definisce una classe che aggrega più metodi statici utili ad implemntare un set omogeneo di funzionalità non ha
+                senso permettere la creazione di istanze. Anche non definendo il costruttore esplicitamente verrà generata quello vuoto di default.
+                Per forzare il comportamento andrà scritto un <b>construttore vuoto privato</b>
+                <br>
+                           
+              </p>
+              <p class = "code" style="padding-left:30%">
+                // Noninstantiable utility class
+                <br>public class UtilityClass {
+                <br>&nbsp;&nbsp;// Suppress default constructor for noninstantiability
+                <br>&nbsp;&nbsp;private UtilityClass() {
+                <br>&nbsp;&nbsp;&nbsp;&nbsp;throw new AssertionError();
+                <br>&nbsp;&nbsp;}
+                <br>&nbsp;&nbsp;... // Remainder omitted
+                <br>}
+              </p>
+              <p class="testo" style="text-align:left">
+                Definendo il costrtuttore privato non potrà essere invocato dall'esterno della classe. Il lancio dell'errore serve per prevenire 
+                eventuali chiamate dalla classe stessa.<br>
+                La definizione del solo costruttore privato non permetterà alla classe di essere estesa, in quanto non sarà possibile richiamare
+                il suo costruttore.
+              </p>
+            </section>
+            <section>
+               <h3>Dependency Injection</h3>
+              <p class="testo">
+                Classi che espongono metodi statici o Singleton non possono essere utilizzati se a loro volta dipendono da uno o più risorse che potrebbero essere diverse da contesto a contesto.
+                <br>
+                In questi casi conviene passare la risorsa nel costruttore al momento dell'inizializzazione dell'oggetto.
+                Questo pattern si chiama Dependency Injection ed è supportato da diversi framework tramite annotazioni. 
+              </p>
+                 <p class = "code" style="padding-left:30%">
+                // Dependency injection provides flexibility and testability
+                <br>&nbsp;&nbsp;public class SpellChecker {
+                <br>&nbsp;&nbsp;&nbsp;&nbsp;private final Lexicon dictionary;
+                <br>&nbsp;&nbsp;&nbsp;&nbsp;public SpellChecker(Lexicon dictionary) {
+                <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;this.dictionary = Objects.requireNonNull(dictionary);
+                <br>&nbsp;&nbsp;&nbsp;&nbsp;}
+                <br>&nbsp;&nbsp;&nbsp;&nbsp;public boolean isValid(String word) { ... }
+                <br>&nbsp;&nbsp;&nbsp;&nbsp;public List<String> suggestions(String typo) { ... }
+                <br>}
+              </p>  
+              <p class="testo">
+                Questo pattern aumenterà la flessibilità, la riusabilità e la testabilità della classe.  
+              </p>
+            </section>
+            <section>
+              <h3>Evitare la creazione di oggetti non necessari</h3>
+              <p class="testo">
+                Se si hanno oggetti funzionali e immutabili è bene riciclare istanze già create invece di creare per ogni utilizzo una nuova istanza dell'oggetto. Per limitare la generazione multipla degli oggetti si potrà fornire una static factory che gestirà il numero di istanze da creare. 
+                <br>
+                
+                <ul class="testo">
+                  <li>Evitare quindi di:</li>
+                  <li>Generare troppe istanze dello stesso oggetto;</li>
+                  <li>Abusare dell'autoboxing;</li>
+                  <li>Non utilizzare il costruttore esplicito per la generazione delles stringhe</li>
+                </ul>
+              </p>
+            </section>
+            <section>
+              <h3>Eliminare puntamenti ad oggetti obsoleti</h3>
+              <p class="testo">
+                Quando un oggetto non deve più essere utilizzato, cancellare il suo riferimento permette di rendere elegibile l'oggetto alla cancellazione da parte del Garbage Collector.<br>
+                <br><br>
+                Tutte le volte che si gestisce in memory dati (cache, data storage, registrazione di callback) fare attenzione ad evitare i memory leaks.
+                <br><br>
+                Per permettere questo si può:<br>
+                <ul class="testo">
+                  <li>Dichiarare le variabili nei constesti in cui sono utilizzate</li>
+                  <li>Valorizzare con <b>null</b> la variabile di un oggetto</li>
+                </ul><br>
+              </p>
+            </section>
+            <section>
+              <p class="testo">
+              Item 8
+              </p>
+            </section>
+            <section>
+              <p class="testo">
+              Item 9
+              </p>
+            </section>
+            
+          </section>
+
+          <section>
+             <h2>Composizione via Servizi</h2>
+              <p class="testo">
+              L'architettura a Microservizi si basa sui componenti, unità software che sono indipendenti, sostituibili e aggiornabili.
+              Si predilige l'uso dei servizi all'uso delle librerie perchè i servizi sono installabili singolarmente. Al contrario, un'applicazione monolitica che utilizza più librerie, richiederà l'installazione completa anche solo per modificare  una qualunque libreria.<br/><br/>
+              La divisione in servizi non permette una modularità totale, perchè modificando l'interfaccia di un servizio, andranno modificati anche tutti i servizi "client" di quell'interfaccia, richiedendo una nuova installazione. Il disegno basato su microservizi riduce però notevolmente la coesione tra i moduli.
+              </p>  
+          </section>
+
+          <section>
+             <h2>Organizzazione dei team</h2>
+              <p class="testo">
+              Adottando l'approccio basato su microservizi anche la divisione dei team sarà gestita in modo diverso. La suddivisione non sarà più per competenze tecniche bensì per competenze di business. 
+              <br/><br/>
+              Ogni servizio include un completo stack tecnologico, richiedendo un team composto da funzionali di business, sviluppatori di front end, di backend e dba.
+              I diversi team non saranno più divisi per funzionalità tecniche, bensì per funzionalità di business. 
+              </p>  
+          </section>
+
+          <section>
+             <h2>Prodotti e non progetti</h2>
+              <p class="testo">
+              Con le applicazioni monolitiche il team si concentra nell'analisi e nell'implementazione del progetto, fino al rilascio in ambiente di produzione che conclude le attività di progetto. Con i microservizi, il team non si limiterà solo allo sviluppo delle funzionalità ma sarà direttamente responsabile dell'installazione e delle attività di operation. 
+              <br/><br/>
+              Con questo approccio si riescono a recepire più velocemente i feedback dell'utente, accrescendo le conoscenze di business degli sviluppatori.
+              <br/><br/>
+              <b>Non esistono ragioni che impediscono questo approccio su applicazioni monolitiche ma le dimensioni dei servizi meglio si prestano a questa organizzazione dei team.</b> 
+              </p>  
+          </section>
+
+          <section>
+            <section>
+            <p>
+              
+              L'integrazione DevOps ha come obiettivo il rilascio del prodotto, il collaudo del software, l'evoluzione e il mantenimento (bug fixing e "minor release") in modo tale da aumentare affidabilità e sicurezza e rendere più veloci i cicli di sviluppo e rilascio. Molte delle idee che costituiscono DevOps provengono dalla gestione di sistemi aziendali e dalla Metodologia agile.
+            </p>
+          </section>
+            <section>
+              <img src="imgs/devops_01.png" />
+              <br/><br/>
+              La metodologia DevOps aiuta le aziende nella gestione dei rilasci, standardizzando gli ambienti di sviluppo e le procedure d'installazione. 
+            </section>
+          </section>
+
+          <section>
+            <h2>Vantaggi</h2>
+            <ul>
+              <li>Aumento dell'efficienza e dell'affidabilità nelle fasi di rilascio</li>
+              <li>Diminuzione del tempo di preparazione dei rilasci</li>
+              <li>Aumento della frequenza dei rilasci</li>
+              <li>Semplificazione del processo di rilascio, automatizzando gli step da eseguire</li>
+              <li>Riduzione del time-to-market delle applicazioni</li>
+            </ul>
+          </section>
+
+          <section>
+            <h2>8 Azioni da intraprendere</h2>
+            <ul>
+              <li>Automatizzare la creazione/gestione degli ambienti</li>
+              <li>Adottare Continuous Integration</li>
+              <li>Automatizzare la fase di rilascio</li>
+              <li>Automatizzare i test</li>
+              <li>Compiere decisioni di release Data-Driven</li>
+              <li>Ridurre la grandezza del software rilasciato</li>
+              <li>Eliminare step manuali e tempi d'attesa</li>
+              <li>Estrarre feedback dai risultati ottenuti</li> 
+            </ul>
+          </section>
+
+          <section>
+            <h2>Strategie di progetto</h2>
+            <ul>
+              <li>Iniziare con l'automatizzare la creazione e gestione degli ambienti di sviluppo e collaudo, per poi espanderla all'ambiente di produzione</li>
+              <li>Automatizzare il processo di compilazione e test del software tramite continuous integration. Cominciare con la compilazione e gli unit test per poi gradualmente integrare test funzionali, di performance e di scalabilità</li>
+              <li>Combinare l'automatizzazione dei rilasci con la continuous integration al fine di crare un'unico processo</li>
+            </ul>
+          </section>
+
+          <section>
+            
+            <h2>Strategie di rilascio</h2>
+            <ul>
+              <li>Ridurre l'ambito di ogni rilascio per accellerare i feedback</li>
+              <li>Ridurre l'ambito di ogni rilascio per minimizzare i rischi diminuendo le dipendenze e semplificando le installazioni</li>
+              <li>Ridurre l'ambito di ogni rilascio focalizzando ogni persona su una singola attività che compone il rilascio</li>
+            </ul>
+          
+              <img src="https://driftboatdave.files.wordpress.com/2015/02/020415_1616_devopscatsa2.png?w=620">
+          
+          </section>
+
+          <section>
+            <section>
+              <h1>Strumenti a supporto</h1>
+            </section>
+            <section>
+              <h2>Docker</h2>
+              <img src="http://www.01net.it/wp-content/uploads/sites/14/2015/10/docker-logo.png" width="500" heigth="500" />
+            </section>
+            <section>
+              <h2>Ansible</h2>
+              <img src="https://www.elastic.co/assets/bltef783ee77445f09f/ansible.png" width="500" heigth="500" />
+            </section>
+            <section>
+              <h2>Jenkins + Nexus</h2>
+              <img src="http://www.sonatype.org/nexus/content/uploads/2015/12/Jenkins-and-Nexus-Featured-Image.jpg" width="500" heigth="500" />
+            </section>
+          </section>
+
+          <section>
+            <h1>Fine</h1>
+            <h3>Grazie</h3>
+            <h4><a href="http://www.simonecasamassa.it">SIMONECASAMASSA.IT</a></h4>
+          </section>
+
+        </div>
+        <div style="position:absolute; bottom:0; left:0; margin-left:1%; font-size:16pt">
+          <p style="text-align:left; ">
+              <a href="">Simone Casamassa</a>
+          </p>
+        </div>
+      </div>
+
+      <script src="lib/js/head.min.js"></script>
+      <script src="js/reveal.js"></script>
+
+      <script>
+       // Full list of configuration options available at:
+       // https://github.com/hakimel/reveal.js#configuration
+       Reveal.initialize({
+         controls: true,
+         progress: true,
+         history: true,
+         center: true,
+
+         transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+         // Optional reveal.js plugins
+         dependencies: [
+           { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+           { src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+           { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+           { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+           { src: 'plugin/zoom-js/zoom.js', async: true },
+           { src: 'plugin/notes/notes.js', async: true }
+         ]
+       });
+      </script>
+    </body>
+  </html>

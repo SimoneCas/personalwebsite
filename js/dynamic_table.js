@@ -119,4 +119,44 @@ var fifthRow = $('th:contains("Face"):first').parent();
 		})
 		.siblings(':contains("655")')
 		.fadeOut('fast');
+
+	var seventhRow = $('th:contains("GEDI"):first').parent();
+	var gediRow = $('<tr><th class="input" colspan="5">Technology Reply Roma - GEDI - Migrazione Office 365</th></tr>');
+	gediRow 
+		.addClass('group')
+		.insertBefore(seventhRow)
+		.click(function(){
+			if( $(this).hasClass('open') ){
+				$(this)
+				.siblings(':contains("GEDI")')
+				.fadeOut('normal');
+			}else{
+				$(this)
+				.siblings(':contains("GEDI")')
+				.fadeIn('normal');
+			}
+			$(this).toggleClass('open');
+		})
+		.siblings(':contains("GEDI")')
+		.fadeOut('fast');
+
+	var eighthRow = $('th:contains("SISAL"):first').parent();
+	var sisalRow = $('<tr><th class="input" colspan="5">Technology Reply Roma - SISAL MATCHPOINT - POC Terminali</th></tr>');
+	sisalRow 
+		.addClass('group')
+		.insertBefore(eighthRow)
+		.click(function(){
+			if( $(this).hasClass('open') ){
+				$(this)
+				.siblings(':contains("SISAL")')
+				.fadeOut('normal');
+			}else{
+				$(this)
+				.siblings(':contains("SISAL")')
+				.fadeIn('normal');
+			}
+			$(this).toggleClass('open');
+		})
+		.siblings(':contains("SISAL")')
+		.fadeOut('fast');
 });

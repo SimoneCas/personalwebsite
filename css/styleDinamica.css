@@ -192,3 +192,6 @@ small{
   margin-bottom: 20px;
   color: #999;
 }
+th.input:hover {
+	font-size: 150%;
+}

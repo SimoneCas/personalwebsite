@@ -12,13 +12,19 @@
 		<link href="./css/bootstrap.css" rel="stylesheet">
 		<link href="./css/bootstrap-responsive.css" rel="stylesheet">
 		<link href="./css/style.css" rel="stylesheet">
+		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+		<link rel="stylesheet" href="./css/styleDinamica.css" type="text/css" charset="utf-8" />
 
 		<!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
 		<!--[if lt IE 9]>
 		<script src="../assets/js/html5shiv.js"></script>
 		<![endif]-->
 
-		<style type="text/css"></style>
+		<style type="text/css">
+    tr.group:hover{
+      color:#1a75ff;
+    }
+    </style>
 		<style id="holderjs-style" type="text/css">
 			.holderjs-fluid {
 				font-size: 16px;
@@ -29,9 +35,16 @@
 			}
 		</style>
 		
-		<script type="text/javascript" src="js/redirect_mobile.js"></script>
-
+		<!-- script for dynamic table -->
+		<script type="text/javascript" src="js/dynamic_table_2.js"></script>		
+		<script>
 		
+
+
+</script>
+
+	<script type="text/javascript" src="js/redirect_mobile.js"></script>
+	
 	</head>
 
 	<body>
@@ -50,13 +63,13 @@
 							<div class="nav-collapse collapse">
 								<ul class="nav pull-right">
 									<li>
-										<a href="index.html">HOME</a>
+										<a href="index.html" >HOME</a>
 									</li>
 									<li>
 										<a href="curriculum.html">CURRICULUM</a>
 									</li>
 									<li class="dropdown">
-										<a href="progettilavoro.html" >PROGETTI</a>
+										<a href="progetti.html" class="active">PROGETTI</a>
 									</li>
 									<li>
 										<a href="articoli.html">ARTICOLI</a>
@@ -71,7 +84,7 @@
 										<a href="utilities.html">UTILITY</a>
 									</li>
 									<li>
-										<a href="" class="active">CHI SONO</a>
+										<a href="chisono.html">CHI SONO</a>
 									</li>
 
 								</ul>
@@ -108,68 +121,67 @@
 		================================================== -->
 		<!-- Wrap the rest of the page in another container to center all the content. -->
 
-		<div class="container marketing">
+		<div class="container marketing" >
+		
+      <div class="row">
+  			<h2 class="featurette-heading"><b>Progetti svolti </b>
+  				
+  		</div>
 
-			<div class="row" style="margin-bottom: 50px">
-				<h2 class="featurette-heading"><b>Chi sono</b></h2><br><br>
-				<div class="firstSection">
-					<!-- Se si modifica l'immagine bisogna settare il css graf1 con l'altezza dell'immagine utilizzata -->
-					<div id="graf1" class="chart_container span6" style="background-color: #FFF"><img src="./img/mainImage.jpg" alt="" /></div>
-					<div class="span6" style="font-size: 14pt">
-						<b>Contattami a: simone.casamassa@gmail.com</b> <br><br>
-						Ingegnere informatico laureato presso l’Università degli Studi di Roma Tre 
-						sono una persona appassionata di informatica e di tecnologia. Sono attratto 
-						da sfide e problemi che rendano dinamico e stimolante il lavoro da svolgere. 
-						Durante l’attività lavorativa ogni nuovo progetto  lo vivo come un’occasione 
-						per ampliare la mia rete di conoscenze, affinare le metodologie di lavoro e 
-						migliorare le competenze tecniche.  Il mio obiettivo lavorativo è quello di 
-						apprendere ed approfondire in modo puntuale ed efficace le skill inerenti il 
-						progetto attuale ma, allo stesso tempo, rimanere costantemente aggiornato in 
-						ambito tecnologico. L’informatica, la matematica e la logica non fanno parte 
-						della mia sola vita lavorativa, bensì costituiscono un aspetto fondamentale dei 
-						miei hobbies e del mio stile di vita, insieme ad un pizzico di estro e di follia. 
-						Attraverso le esperienze svolte sto maturando sempre più  conoscenze tecniche ma al 
-						contempo nutro la necessità di approfondire aspetti trasversali come: capacità di 
-						problem solving, comunicazione efficace e capacità di lavorare in team in modo efficiente, 
-						tutti aspetti indispensabili per ottenere ottimi risultati lavorativi.    
-						
-					</div>
-				</div>
-			</div>
-      
-      <div class="row" style="margin-bottom: 50px">
-				<h2><b>Altro</b></h2><br>
+  		
+  			<!-- START THE FEATURETTES -->
+  			<div class="row">
+  				<table id="table-one" summary="...">
+  				<colgroup>
+  					<col id="empty"/>
+  				</colgroup>				
+  				<tbody>
+          <tr>
+  						<th style="padding-left:50px; padding-bottom: 35px; text-align: left"  scope="row" >OneImageForDay:
+  							<span style="font-weight:lighter; font-size:11pt">
+  								<p class="descrizioneProgetto">One Image For Day.  
+  								</p>
+  								<b>Contributi personali al progetto:</b> 
+  								<ul style="list-style-type:disc">
+   									<li>Configurazione e mantenimento del sistema di versionamento Git</li>
+   									<li>Raccolta ed analisi di requisiti interfacciandomi con ICT e Business</li>
+   									<li>Sviluppo dei seguenti strumenti PL-SQL: View, Package, Procedure, Function, Materialized View</li>
+   									<li>Tuning delle tabelle per ottimizzazione delle performance</li>
+   									<li>Generazione e condivisione report</li>
+  								</ul> 
+  								<b>Tecnologie utilizzate:</b>
+  									<ul style="list-style-type:disc">
+  										<li>Oracle Database 12c</li>
+  										<li>PL-SQL</li>
+  										<li>Java SE 7</li>
+  										<li>Python</li>
+  										<li>SAP</li>
+  										<li>Git</li>
+  										<li>Jira</li>
+  									</ul> 
+  								<p class="imgProgetto">
+  									<img class="progetto" src="img/oracledb.png" />
+  									<img class="progetto" src="img/plsql.jpg" />
+  									<img class="progetto" src="img/javaEE.png" />
+  									<img class="progetto" src="img/python.png" />
+  									<img class="progetto" src="img/sapdownload.png" />
+  								</p>
+  							</span></th>
+  					</tr>
+  					
+  				</tbody>
+  			</table>
+  			</div>
 
-					
-					<div class="span12" style="font-size: 14pt">
-						<ul>
-              <li><a href="http://www.juniorconsulting.it/2014/07/jc-1-anno-dopo-19/">Cliccando qui</a> potrete leggere una mia intervista rilasciata al consorzio Elis nella quale, ad 1 
-              anno dal completamento del programma Junior Consulting, descrivo l'esperienza di tesi svolta ed il successivo 
-              inserimento nel mondo del lavoro.</li>
-            </ul>
-					</div>
-
-			</div>
-      
 			<!-- FOOTER -->
 			<footer>
 				<p class="pull-right"></p>
 				<p>
-					Simone Casamassa website
-					
+					Simone Casamassa website					
 				</p>
 			</footer>
-
 		</div><!-- /.container -->
-
-		<!-- javascript
-		================================================== -->
-		<!-- Placed at the end of the document so the pages load faster -->
-		<script src="./js/jquery.js"></script>
-		<script src="./js/bootstrap.js"></script>
-		<script src="./js/bootstrap.min.js"></script>
-
-	<script>
+		<script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
   m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
