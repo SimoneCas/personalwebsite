@@ -131,6 +131,45 @@
 		
 		<div class="col-sm-8 blog-main" style="width:75%; float:left">
 
+		<!-- blog ottimizzazioni app db -->
+          <div class="blog-post">
+            <h2 class="blog-post-title"><a name="rdbms" class="anchorArticle" >Ottimizzazioni Applicationi con RDBMS</a></h2>
+            <p class="blog-post-meta">Aprile 26, 2018</p>
+
+            <p>
+            Al fine di sviluppare applicazioni performanti che utilizzano RDBMS, condivido le principali best practices da adottare in termini di sviluppo e configurazione.
+
+            <ul>
+            	<li><b>Velocizzare la connettività verso il Database</b>: stabilire la connessione verso il database è l'operazione più costosa. Possibili soluzioni:</li>
+            	<ul>
+            		<li>Connection Pools lato Client</li>
+            		<li>Proxy Connection Pools</li>
+            		<li>Posticipare il controllo dello stato della connessione</li>
+            		<li>De-prioritizzazione dei nodi guasti</li>
+            	</ul><br>
+            	<li><b>Ottimizzazione dell'elaborazione delle istruzioni</b>: La COMMIT policy predefinita con JDBC è Auto-COMMIT; a meno che ciò corrisponda al volere dello sviluppatore, si dovrebbe disabilitare esplicitamente Auto-COMMIT sulla connessione.</li>
+            	<ul>
+            		<li>Statements Caching</li>
+            		<li>ResultSets Caching with Change Notification - the Hard Way (JDBC-OCI)</li>
+            		<li>ResultSets Caching with Change Notification - the Easy Way (JDBC Thin or OCI with DB 18c)</li>
+            	</ul><br>
+            	<li><b>Ottimizzazione del traffico di rete</b></li>
+            	<ul>
+            		<li>Network Data Compression</li>
+            		<li>Sessions Multiplexing</li>
+            	</ul>
+            </ul>
+         
+            Guida completa: <a href="http://db360.blogspot.it/2018/03/optimizing-performance-scalability-of.html?elq_mid=109484&sh=8181412132224268261426882615131212260&cmid=WWMK170418P00047">link articolo</a>
+            </p>
+            <ul class="pager">
+            <li><a href="#">Previous</a></li>
+            <li><a href="#grafici">Next</a></li>
+            <li><a href="#">Top</a></li>
+          </ul>
+
+        </div><!-- end ottimizzazioni app db -->
+
 		<!-- blog grafici -->
           <div class="blog-post">
             <h2 class="blog-post-title"><a name="grafici" class="anchorArticle" >Visualizzazione dati</a></h2>
@@ -143,7 +182,7 @@
 
             </p>
             <ul class="pager">
-            <li><a href="#">Previous</a></li>
+            <li><a href="#rdbms">Previous</a></li>
             <li><a href="#integrationProblems">Next</a></li>
             <li><a href="#">Top</a></li>
           </ul>
@@ -322,8 +361,9 @@
             <h4>Lista:</h4>
             <ol class="list-unstyled">
               </li>
-              <li>Sql
+              <li>Sql - Database
 				<ol class="list-unstyled" type="a">
+					<li><a href="#rdbms">Ottimizzazioni RDBMS</a></li>
 					<li><a href="#joinSql">Join</a></li>
 				</ol>
 			  </li>
