@@ -117,7 +117,51 @@
 
       <div class="row" style="width:100%">
 		
-		<!-- blog SQL Join -->
+		<!-- blog risorse web -->
+		<div class="col-sm-8 blog-main" style="width:75%; float:left">
+
+          <div class="blog-post">
+            <h2 class="blog-post-title"><a name="webResources">WEB Resources</a></h2>
+
+            <p>
+			Elenco delle principali piattaforme web testate per le seguenti tipologie di servizi: 
+			<br>
+			<b>Domino:</b>
+			<ul>
+				<li><a href="http://www.tophost.it/th/index.php">TopHost:</a> Il canone annuo per un domino e' 5.99 EUR, il piu' economico che abbia mai visto.</li>
+			 	<li><a href="http://www.gandi.net/">Gandi.net:</a>Conveniente se si ha bisogno dei certificati SSL, incluso nel dominio di un anno da 12.99 EUR</li>
+			</ul>
+
+			<b>Server:</b><br>
+			<ul>
+				<li><a href="http://www.server4you.net/">Server4You:</a> Virtual server economico</li>
+				<li><a href="http://www.shellrent.com/">ShellRent:</a>Servizio piu' stabile ma un pochino piu' costoso.</li>
+				<li><a href="https://www.ovh.it/">www.ovh.it/</a></li>
+				<li><a href="https://www.hetzner.de/">www.hetzner.de/</a></li>
+				<li><a href="https://www.aruba.it/">www.aruba.it/</a></li>
+			</ul>
+
+			<b>Dominio + Hosting linux:</b>
+			<ul>
+				<li><a href="http://www.dnshosting.it/dnshst/index.jsp">DnsHosting:</a> Usato maggiormente per siti basati su CMS tipo Joomla e Wordpress, che in genere include anche i DBMS</li>
+			</ul>
+
+			<b>Servizi gratis:</b>
+			<ul>
+				<li><a href="https://www.heroku.com/">www.heroku.com:</a> Configurazione base, gia' tutto installato, permettendo così di concentrasi sul codice da sviluppare. Deploy con Git</li>
+				<li><a href="https://aws.amazon.com/">aws.amazon.com</a></li>
+			</ul>
+ 			</p>
+			<hr>
+          <ul class="pager">
+            <li><a href="#">Previous</a></li>
+            <li><a href="#pnggauntlet">Next</a></li>
+          </ul>
+
+          </div><!-- end blog sql join -->
+	
+
+		<!-- blog PNG Gauntlet -->
 		<div class="col-sm-8 blog-main" style="width:75%; float:left">
 
           <div class="blog-post">
@@ -138,11 +182,11 @@
             </p>
 			<hr>
           <ul class="pager">
-            <li><a href="#">Previous</a></li>
+            <li><a href="#webResources">Previous</a></li>
             <li><a href="#">Next</a></li>
           </ul>
 
-        </div><!-- end blog sql join -->
+        </div><!-- end blog PNG Gauntlet -->
 	
         
 		<!--
@@ -211,7 +255,11 @@
 
         </div><!-- /.blog-main -->
 
-        <div class="col-sm-3 col-sm-offset-1 blog-sidebar" style="width:24%; float:left">
+        
+
+      </div><!-- /.row -->
+
+      <div class="col-sm-3 col-sm-offset-1 blog-sidebar" style="width:24%; float:left">
           <div class="sidebar-module sidebar-module-inset">
             <h4>Perchè:</h4>
             <p>Lista di tool, framework e programmi utili</p>
@@ -219,7 +267,12 @@
           <div class="sidebar-module">
             <h4>Lista:</h4>
             <ol class="list-unstyled">
-              <li><a href="#">Grafica</a>
+              <li>Risorse Web
+              	<ol class="list-unstyled" type="a">
+              		<li><a href="#webResources">WEB Resources</a></li>
+              	</ol>
+              </li>
+              <li>Grafica
 				<ol class="list-unstyled" type="a">
 					<li><a href="#pnggauntlet">PNGGauntlet</a></li>
 				</ol>
@@ -232,10 +285,6 @@
             </ol>
           </div>
         </div><!-- /.blog-sidebar -->
-
-      </div><!-- /.row -->
-
-
 			<!-- FOOTER -->
 			<footer>
 				<p class="pull-right"></p>
