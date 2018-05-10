@@ -131,6 +131,38 @@
 		
 		<div class="col-sm-8 blog-main" style="width:75%; float:left">
 
+		<!-- blog weblogic maven dependency -->
+          <div class="blog-post">
+            <h2 class="blog-post-title"><a name="weblogicMavenDepdendency" class="anchorArticle" >Weblogic Maven Dependency</a></h2>
+            <p class="blog-post-meta">Maggio 10, 2018</p>
+
+            <p>
+            Ad oggi il repository centrale maven di Oracle non risulta stabile per le dipendenze di Weblogic.
+            <br>
+            Al fine di risolvere correttamente tutte le dipendenze maven di Oracle Weblogic la best practice da documentazione è quella di popolare il repository locale maven con le dipendenze di Weblogic a partira da un'installazione locale.
+            <br><br>
+            <a href="https://docs.oracle.com/middleware/12213/wls/WLPRG/maven.htm#WLPRG587">Guida</a>
+            <br>
+            In breve, installare e configurare il weblogic-maven-plugin: 
+            <ul>
+            	<li>Posizionarsi nella cartella <i>ORACLE_HOME\oracle_common\plugins\maven\com\oracle\maven\oracle-maven-sync\12.2.1</i></li>
+            	<li>Lanciare il comando <i>mvn install:install-file -DpomFile=oracle-maven-sync-12.2.1.pom -Dfile=oracle-maven-sync-12.2.1.jar</i></li>
+            	<li>Lanciare il comando <i>mvn com.oracle.maven:oracle-maven-sync:push -DoracleHome=c:\oracle\middleware\oracle_home\</i></li>
+            </ul>
+ 			
+ 			Verificare la configurazione del repository locale: <i>mvn help:describe -DgroupId=com.oracle.weblogic
+-DartifactId=weblogic-maven-plugin -Dversion=12.2.1-0-0 </i>
+
+            </p>
+            <ul class="pager">
+            <li><a href="#">Previous</a></li>
+            <li><a href="#rdbms">Next</a></li>
+            <li><a href="#">Top</a></li>
+          </ul>
+
+        </div><!-- end blog weblogic maven dependency -->
+
+
 		<!-- blog ottimizzazioni app db -->
           <div class="blog-post">
             <h2 class="blog-post-title"><a name="rdbms" class="anchorArticle" >Ottimizzazioni Applicationi con RDBMS</a></h2>
@@ -163,7 +195,7 @@
             Guida completa: <a href="http://db360.blogspot.it/2018/03/optimizing-performance-scalability-of.html?elq_mid=109484&sh=8181412132224268261426882615131212260&cmid=WWMK170418P00047">link articolo</a>
             </p>
             <ul class="pager">
-            <li><a href="#">Previous</a></li>
+            <li><a href="#weblogicMavenDepdendency">Previous</a></li>
             <li><a href="#grafici">Next</a></li>
             <li><a href="#">Top</a></li>
           </ul>
@@ -369,6 +401,7 @@
 			  </li>
 			  <li>Oracle
 				<ol class="list-unstyled" type="a">
+					<li><a href="#weblogicMavenDepdendency">Weblogic Maven Dependency</a></li>
 					<li><a href="#osbBestPractice">OSB Best Practice</a></li>
 				</ol>
 			  </li>
