@@ -140,23 +140,43 @@ var fifthRow = $('th:contains("Face"):first').parent();
 		.siblings(':contains("GEDI")')
 		.fadeOut('fast');
 
-	var eighthRow = $('th:contains("SISAL"):first').parent();
-	var sisalRow = $('<tr><th class="input" colspan="5">Technology Reply Roma - SISAL MATCHPOINT - POC Terminali</th></tr>');
+	var eighthRow = $('th:contains("1-SISAL"):first').parent();
+	var sisalRow = $('<tr><th class="input" colspan="5">Technology Reply Roma - 1-SISAL MATCHPOINT - POC Terminali</th></tr>');
 	sisalRow 
 		.addClass('group')
 		.insertBefore(eighthRow)
 		.click(function(){
 			if( $(this).hasClass('open') ){
 				$(this)
-				.siblings(':contains("SISAL")')
+				.siblings(':contains("1-SISAL")')
 				.fadeOut('normal');
 			}else{
 				$(this)
-				.siblings(':contains("SISAL")')
+				.siblings(':contains("1-SISAL")')
 				.fadeIn('normal');
 			}
 			$(this).toggleClass('open');
 		})
-		.siblings(':contains("SISAL")')
+		.siblings(':contains("1-SISAL")')
+		.fadeOut('fast');
+
+	var ninethRow = $('th:contains("2-SISAL"):first').parent();
+	var sisalBORow = $('<tr><th class="input" colspan="5">Technology Reply Roma - 2-SISAL MATCHPOINT - Betting Offer</th></tr>');
+	sisalBORow 
+		.addClass('group')
+		.insertBefore(ninethRow)
+		.click(function(){
+			if( $(this).hasClass('open') ){
+				$(this)
+				.siblings(':contains("2-SISAL")')
+				.fadeOut('normal');
+			}else{
+				$(this)
+				.siblings(':contains("2-SISAL")')
+				.fadeIn('normal');
+			}
+			$(this).toggleClass('open');
+		})
+		.siblings(':contains("2-SISAL")')
 		.fadeOut('fast');
 });
