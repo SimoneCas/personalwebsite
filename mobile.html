@@ -121,7 +121,7 @@
 							</tr>
 							<tr style="text-align: center; font-weight: bold">
 								<td style="width: 50%">#OSB</td>
-								<td style="width: 50%">#CSS</td>
+								<td style="width: 50%">#Coherence</td>
 							</tr>
 							<tr style="text-align: center; font-weight: bold">
 								<td style="width: 50%">#Maven</td>
@@ -135,36 +135,36 @@
 				</div>
 				
 				<!-- Last Article -->
-				<div id="singleContainerMobile" >
+				<div id="singleContainerMobile">
 					<div id="titleMobileChar" >
 					<h2 style=" margin:0px 0">Ultimo Articolo</h2>
 					</div>
 					<p style="color:black; margin-top:5%; text-align:left; ">
-						<b>Ottimizzazioni Applicationi con RDBMS:</b><br>
-						Al fine di sviluppare applicazioni performanti che utilizzano RDBMS, condivido le principali best practices da adottare in termini di sviluppo e configurazione.
-
-			            <ul style="text-align: left">
-			            	<li><b>Velocizzare la connettività verso il Database</b>: stabilire la connessione verso il database è l'operazione più costosa. Possibili soluzioni:</li>
-			            	<ul>
-			            		<li>Connection Pools lato Client</li>
-			            		<li>Proxy Connection Pools</li>
-			            		<li>Posticipare il controllo dello stato della connessione</li>
-			            		<li>De-prioritizzazione dei nodi guasti</li>
-			            	</ul><br>
-			            	<li><b>Ottimizzazione dell'elaborazione delle istruzioni</b>: La COMMIT policy predefinita con JDBC è Auto-COMMIT; a meno che ciò corrisponda al volere dello sviluppatore, si dovrebbe disabilitare esplicitamente Auto-COMMIT sulla connessione.</li>
-			            	<ul>
-			            		<li>Statements Caching</li>
-			            		<li>ResultSets Caching with Change Notification - the Hard Way (JDBC-OCI)</li>
-			            		<li>ResultSets Caching with Change Notification - the Easy Way (JDBC Thin or OCI with DB 18c)</li>
-			            	</ul><br>
-			            	<li><b>Ottimizzazione del traffico di rete</b></li>
-			            	<ul>
-			            		<li>Network Data Compression</li>
-			            		<li>Sessions Multiplexing</li>
-			            	</ul>
+						<b>Weblogic JMS - Load Balancing:</b><br>
+			            Se si sviluppa un'applicazione con Producer JMS in un cluster Weblogic formato da più istanze di Managed Server la configurazione di default della Connection Factory JMS abiliterà solo accodamenti "single node", ovvero ogni Producer scriverà sulla destinazione locale alla sua istanza, non sfruttando così il parallelismo delle esecuzioni multi server.
+			            <br><br>
+			            Per abilitare un accodamento bilanciato su tutto il cluster bisogna valorizzare le seguenti configurazioni come segue:
+			            <ul style = "text-align: left">
+			            	<li>Server Affinity Enabled --> "False"</li>
+			            	<li>Load Balancing Enabled --> "True"</li>
 			            </ul>
-			         
-			            Guida completa: <a href="http://db360.blogspot.it/2018/03/optimizing-performance-scalability-of.html?elq_mid=109484&sh=8181412132224268261426882615131212260&cmid=WWMK170418P00047">link articolo</a>
+			            <br><br>
+			            
+			            <br>
+			            <table style = "font-style: italic; font-size: 14" width="400">
+			            	<tr><td>Esempio di script WLST:</td></tr>
+			            	<tr><td>...</td></tr>
+			            	<tr><td>cmo=cd('/JMSSystemResources/'+JMS_MODULE_NAME+'/JMSResource/<br>
+			            		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'+JMS_MODULE_NAME+'/ConnectionFactories/'+CONN_FACTORY_NAME<br>
+			            		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;+'/LoadBalancingParams/'+CONN_FACTORY_NAME)</td></tr>
+			            	<tr><td>cmo.setServerAffinityEnabled(false)</td></tr>
+			            	<tr><td>cmo.setLoadBalancingEnabled(true)</td></tr>
+			            	<tr><td>...</td></tr>
+			             	</table>
+			            <br>
+			            Di seguito il link alla documentazione Oracle: 
+			            <a href="https://docs.oracle.com/cd/E72987_01/wls/WLACH/pagehelp/JMSjmsconnectionjmsconnectionfactoryconfigloadbalancingparamstitle.html">https://docs.oracle.com</a>
+			            
 					</p>
 				</div>
 				
