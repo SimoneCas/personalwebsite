@@ -131,6 +131,46 @@
 		
 		<div class="col-sm-8 blog-main" style="width:75%; float:left">
 
+		<!-- blog weblogic jms load balancing -->
+          <div class="blog-post">
+            <h2 class="blog-post-title"><a name="weblogicJmsLoadBalancing" class="anchorArticle">Weblogic JMS - Load Balancing</a></h2>
+            <p class="blog-post-meta">Ottobre 25, 2018</p>
+
+            <p>
+            Se si sviluppa un'applicazione con Producer JMS in un cluster Weblogic formato da più istanze di Managed Server la configurazione di default della Connection Factory JMS abiliterà solo accodamenti "single node", ovvero ogni Producer scriverà sulla destinazione locale alla sua istanza, non sfruttando così il parallelismo delle esecuzioni multi server.
+            <br><br>
+            Per abilitare un accodamento bilanciato su tutto il cluster bisogna valorizzare le seguenti configurazioni come segue:
+            <ul>
+            	<li>Server Affinity Enabled --> "False"</li>
+            	<li>Load Balancing Enabled --> "True"</li>
+            </ul>
+            <br><br>
+            Esempio di script WLST:
+            <br>
+            <table style = "font-style: italic; font-size: 14" width="400">
+            	<tr><td>...</td></tr>
+            	<tr><td>cmo=cd('/JMSSystemResources/'+JMS_MODULE_NAME+'/JMSResource/<br>
+            		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'+JMS_MODULE_NAME+'/ConnectionFactories/'+CONN_FACTORY_NAME<br>
+            		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;+'/LoadBalancingParams/'+CONN_FACTORY_NAME)</td></tr>
+            	<tr><td>cmo.setServerAffinityEnabled(false)</td></tr>
+            	<tr><td>cmo.setLoadBalancingEnabled(true)</td></tr>
+            	<tr><td>...</td></tr>
+             	</table>
+            <br>
+            Di seguito il link alla documentazione Oracle: 
+            <a href="https://docs.oracle.com/cd/E72987_01/wls/WLACH/pagehelp/JMSjmsconnectionjmsconnectionfactoryconfigloadbalancingparamstitle.html">https://docs.oracle.com</a>
+            
+
+            </p>
+            <ul class="pager">
+            <li><a href="#">Previous</a></li>
+            <li><a href="#weblogicMavenDepdendency">Next</a></li>
+            <li><a href="#">Top</a></li>
+          </ul>
+
+        </div><!-- end blog weblogic maven dependency -->
+
+
 		<!-- blog weblogic maven dependency -->
           <div class="blog-post">
             <h2 class="blog-post-title"><a name="weblogicMavenDepdendency" class="anchorArticle" >Weblogic Maven Dependency</a></h2>
@@ -155,7 +195,7 @@
 
             </p>
             <ul class="pager">
-            <li><a href="#">Previous</a></li>
+            <li><a href="#weblogicJmsLoadBalancing">Previous</a></li>
             <li><a href="#rdbms">Next</a></li>
             <li><a href="#">Top</a></li>
           </ul>
@@ -403,6 +443,7 @@
 				<ol class="list-unstyled" type="a">
 					<li><a href="#weblogicMavenDepdendency">Weblogic Maven Dependency</a></li>
 					<li><a href="#osbBestPractice">OSB Best Practice</a></li>
+					<li><a href="#weblogicJmsLoadBalancing">JMS Load Balancing</a></li>
 				</ol>
 			  </li>
 			  <li>Altro
