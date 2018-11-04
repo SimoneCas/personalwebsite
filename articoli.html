@@ -175,15 +175,14 @@
             <br><br>
             Esempio di script WLST:
             <br>
-            <table style = "font-style: italic; font-size: 14" width="400">
-            	<tr><td>...</td></tr>
-            	<tr><td>cmo=cd('/JMSSystemResources/'+JMS_MODULE_NAME+'/JMSResource/<br>
-            		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'+JMS_MODULE_NAME+'/ConnectionFactories/'+CONN_FACTORY_NAME<br>
-            		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;+'/LoadBalancingParams/'+CONN_FACTORY_NAME)</td></tr>
-            	<tr><td>cmo.setServerAffinityEnabled(false)</td></tr>
-            	<tr><td>cmo.setLoadBalancingEnabled(true)</td></tr>
-            	<tr><td>...</td></tr>
-             	</table>
+            <pre style="font-style: italic; font-size: 14px; background: #E7E7E7; font-family: Courier;">
+...
+cmo=cd('/JMSSystemResources/'+JMS_MODULE_NAME+'/JMSResource/+JMS_MODULE_NAME+
+    '/ConnectionFactories/'+CONN_FACTORY_NAME/LoadBalancingParams/'+CONN_FACTORY_NAME)
+cmo.setServerAffinityEnabled(false)
+cmo.setLoadBalancingEnabled(true)
+...
+            </pre>
             <br>
             Di seguito il link alla documentazione Oracle: 
             <a href="https://docs.oracle.com/cd/E72987_01/wls/WLACH/pagehelp/JMSjmsconnectionjmsconnectionfactoryconfigloadbalancingparamstitle.html">https://docs.oracle.com</a>
