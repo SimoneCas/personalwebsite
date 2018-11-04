@@ -140,30 +140,19 @@
 					<h2 style=" margin:0px 0">Ultimo Articolo</h2>
 					</div>
 					<p style="color:black; margin-top:5%; text-align:left; ">
-						<b>Weblogic JMS - Load Balancing:</b><br>
-			            Se si sviluppa un'applicazione con Producer JMS in un cluster Weblogic formato da più istanze di Managed Server la configurazione di default della Connection Factory JMS abiliterà solo accodamenti "single node", ovvero ogni Producer scriverà sulla destinazione locale alla sua istanza, non sfruttando così il parallelismo delle esecuzioni multi server.
-			            <br><br>
-			            Per abilitare un accodamento bilanciato su tutto il cluster bisogna valorizzare le seguenti configurazioni come segue:
-			            <ul style = "text-align: left">
-			            	<li>Server Affinity Enabled --> "False"</li>
-			            	<li>Load Balancing Enabled --> "True"</li>
-			            </ul>
-			            <br><br>
-			            
+						In fase di progettazione della base di dati, a seconda dei diversi requisiti, si dovrà scegliere quale "famiglia" di prodotto utilizzare.
 			            <br>
-			            <table style = "font-style: italic; font-size: 14" width="400">
-			            	<tr><td>Esempio di script WLST:</td></tr>
-			            	<tr><td>...</td></tr>
-			            	<tr><td>cmo=cd('/JMSSystemResources/'+JMS_MODULE_NAME+'/JMSResource/<br>
-			            		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'+JMS_MODULE_NAME+'/ConnectionFactories/'+CONN_FACTORY_NAME<br>
-			            		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;+'/LoadBalancingParams/'+CONN_FACTORY_NAME)</td></tr>
-			            	<tr><td>cmo.setServerAffinityEnabled(false)</td></tr>
-			            	<tr><td>cmo.setLoadBalancingEnabled(true)</td></tr>
-			            	<tr><td>...</td></tr>
-			             	</table>
-			            <br>
-			            Di seguito il link alla documentazione Oracle: 
-			            <a href="https://docs.oracle.com/cd/E72987_01/wls/WLACH/pagehelp/JMSjmsconnectionjmsconnectionfactoryconfigloadbalancingparamstitle.html">https://docs.oracle.com</a>
+			            Prima di elencare le principali soluzioni software ricapitoliamo le proprietà di un sistema distribuito:
+			            <br><br>
+			            <b>Consistenza:</b> tutti i nodi nella rete vedono lo stesso valore del dato nello stesso istante; assicurata quindi l'integrità del dato trai i diversi nodi del sistema distribuito.
+			            <br><br>
+			            <b>Disponibilità:</b> il servizio risulta sempre disponibile garantendo risposte ai client. 
+			            <br><br>
+			            <b>Tolleranza della partizione:</b> il servizio continua ad operare correttamente anche in presenza di perdita di messaggi o di partizioni di rete.
+			            <br><br>
+			            <b>Un sistema distribuito può soddisfare solo due delle tre proprietà descritte.</b>
+			            <br><br><br>
+			            <img src="img/distributedSystem.jpeg"/>
 			            
 					</p>
 				</div>

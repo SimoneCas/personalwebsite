@@ -131,6 +131,34 @@
 		
 		<div class="col-sm-8 blog-main" style="width:75%; float:left">
 
+		<!-- blog distributed system -->
+          <div class="blog-post">
+            <h2 class="blog-post-title"><a name="distributedSystem" class="anchorArticle">Sistemi distribuiti</a></h2>
+            <p class="blog-post-meta">Novembre 05, 2018</p>
+
+            <p>
+            In fase di progettazione della base di dati, a seconda dei diversi requisiti, si dovrà scegliere quale "famiglia" di prodotto utilizzare.
+            <br>
+            Prima di elencare le principali soluzioni software ricapitoliamo le proprietà di un sistema distribuito:
+            <br><br>
+            <b>Consistenza:</b> tutti i nodi nella rete vedono lo stesso valore del dato nello stesso istante; assicurata quindi l'integrità del dato trai i diversi nodi del sistema distribuito.
+            <br><br>
+            <b>Disponibilità:</b> il servizio risulta sempre disponibile garantendo risposte ai client. 
+            <br><br>
+            <b>Tolleranza della partizione:</b> il servizio continua ad operare correttamente anche in presenza di perdita di messaggi o di partizioni di rete.
+            <br><br>
+            <b>Un sistema distribuito può soddisfare solo due delle tre proprietà descritte.</b>
+            <br><br><br>
+            <img src="img/distributedSystem.jpeg"/>
+            </p>
+            <ul class="pager">
+            <li><a href="#">Previous</a></li>
+            <li><a href="#weblogicJmsLoadBalancing">Next</a></li>
+            <li><a href="#">Top</a></li>
+          </ul>
+
+        </div><!-- end blog distributed system -->
+
 		<!-- blog weblogic jms load balancing -->
           <div class="blog-post">
             <h2 class="blog-post-title"><a name="weblogicJmsLoadBalancing" class="anchorArticle">Weblogic JMS - Load Balancing</a></h2>
@@ -163,7 +191,7 @@
 
             </p>
             <ul class="pager">
-            <li><a href="#">Previous</a></li>
+            <li><a href="#distributedSystem">Previous</a></li>
             <li><a href="#weblogicMavenDepdendency">Next</a></li>
             <li><a href="#">Top</a></li>
           </ul>
@@ -450,7 +478,8 @@
 				<ol class="list-unstyled" type="a">
 					<li><a href="#grafici">Visualizzazione dati</a></li>
 					<li><a href="#devOps">DevOps</a></li>
-          <li><a href="#integrationProblems">Problemi d'integrazione</a></li>
+          			<li><a href="#integrationProblems">Problemi d'integrazione</a></li>
+          			<li><a href="#distributedSystem">Sistemi distribuiti</a></li>
 				</ol>
 			  </li>
 			  <!--
