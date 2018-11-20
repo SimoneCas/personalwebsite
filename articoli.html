@@ -235,7 +235,61 @@ cmo.setLoadBalancingEnabled(true)
             <h2 class="blog-post-title"><a name="rdbms" class="anchorArticle" >Ottimizzazioni Applicationi con RDBMS</a></h2>
             <p class="blog-post-meta">Aprile 26, 2018</p>
 
+            <p><b>Assicurare elevate perfomance con JDBC in Weblogic</b><br>
+            	<ul>
+            		<li><b>Utilizzare Datasource Weblogic:</b> generare connesioni JDBC è costoso, utilizzando 
+            		i datasource Weblogic assicura un riuso delle connessioni; la miglior modalità di utilizzo
+            		è quella di utilizzare le connessioni per breve tempo, resituendo così velocemente al pool la 
+            		connessione utilizzata al fine di aumentare il parallelismo delle interazioni.</li>
+            		<li>Preferire l'utilizzo dell'<b>Oracle JDBC thin driver (Type 4)</b> al JDBC OCI driver.
+            		WebLogic ufficialmente non supporta più l'utilizzo del driver in modalità OCI.</li>
+            		<li>Utilizzare la classe <b>PreparedStatements</b> invece di Statements.</li>
+            		<li>Chiudere tutte le risorse JDBC il prima possibile: utilizzando Connection.close() 
+            		saranno chiusi anche tutti i sotto-oggetti JDBC.</li>
+            		<li>Configurare la frequenza di Datasource Shrink a zero: il datasource in assenza di richieste
+            		tende a chiudere le connesioni fino ad arrivare al numero minimo di connessioni pronte nel pool; 
+            		impostando a zero la frequenza di Shrink il datasource manterrà sempre attive le connessioni create
+            		per garantire disponibilità più veloce delle connessioni.</li>
+            		<li>Configurare il massimo di numero di Thread eseguibili dal WorkManager con il numero di connessioni
+            		massime lavorabili dal database.</li>
+            	</ul>
+            	<br/>
+            	Esempio di WebLogic JDBC best practices:
+            	<pre style="font-style: italic; font-size: 14px; background: #E7E7E7; font-family: Courier;">
+
+Public void myTopLevelJDBCMethod() {
+    Connection c = null; // defined as a method-level object, not accessible or kept where other threads can use it.
+      
+    … do all pre-JDBC stuff…
+ 
+    // The try block, in which all JDBC for this method (and sub-methods) will be done
+    Try {
+      // Get the connection directly, fresh from a WLS datasource
+      c = myDatasource.getConnection();
+ 
+      … do all your JDBC… You can pass the connection to sub-methodshod
+      doMyJDBCSubTaskWith( c );
+      
+      c.close(); // close the connection as soon as all JDBC is done
+      c = null;  // so the finally block knows it’s been closed if it was ever obtained.
+ 
+      .. do whatever else that may remain that doesn’t need JDBC. 
+      ..I have seen *huge* concurrency improvements by closing the connection ASAP
+    
+    } catch (Exception e) {
+      .. do what you want/need, if you need a catch-block, but *always* have the finally block:
+    } finally {
+      // If we got here somehow without closing c, do it now, without fail, as the first thing in the finally block so it always happens
+      If (c != null) try {c.close();} catch (Exception ignore){}
+      … do whatever else you want in the finally block
+    }
+}
+            </pre>
+
+            </p>
+
             <p>
+            	<b>Ottimizzazioni generiche:</b>
             Al fine di sviluppare applicazioni performanti che utilizzano RDBMS, condivido le principali best practices da adottare in termini di sviluppo e configurazione.
 
             <ul>
