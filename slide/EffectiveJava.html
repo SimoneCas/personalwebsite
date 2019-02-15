@@ -24,13 +24,14 @@
       p.testo{
         font-size:18pt;
       }
-      p.code {
-        font-size:16pt;
+      pre.code {
+        font-size:12pt;
         background-color: black;
         color: green;
         text-align:left;
         border-style:groove;
-        font-family:'Arial';
+        font-family:'Courier';
+        font-style: italic;
       }
       ol.testo{
         font-size:18pt;
@@ -87,19 +88,20 @@
               <li>Singleton con costruttore privato</li>
               <li>Forzare la non istanziabilità tramite costruttore privato</li>
               <li>Preferire Dependency Injection alle risorse fortemente legate</li>
-              <li style="color:grey">Evitare la creazione di oggetti non necessari</li>
-              <li style="color:grey">Eliminazion delle reference ad oggetti inutilizzati</li>
-              <li style="color:grey">Evitare metodi di Finalizer e Cleaner</li>
-              <li style="color:grey">Preferire try-with-resources al try-finally</li>
+              <li>Evitare la creazione di oggetti non necessari</li>
+              <li>Eliminazion delle reference ad oggetti inutilizzati</li>
+              <li>Preferire try-with-resources al try-finally</li>
             </ul>
             </section>
             <section>
               <h3>Static factory methods</h3>
-              <p class = "code" style="padding-left:30%">
-                public static Boolean valueOf(boolean b) {<br>
-                 &nbsp;&nbsp; return b ? Boolean.TRUE : Boolean.FALSE;<br>
-                }
-              </p>
+              <pre class = "code">
+               
+		public static Boolean valueOf(boolean b) {
+			return b ? Boolean.TRUE : Boolean.FALSE;
+		}
+
+              </pre>
               <p class="testo" style="text-align:left">
                 L'utilizzo di un metodo factory al posto del costruttore presenta i seguenti vantaggi:
                 <ol class="testo">
@@ -134,59 +136,53 @@
             <section>
               <h3>Builder Pattern (2)</h3>
              
-                <div style="float: left">
-                   <p class = "code" style="padding-left:30%; font-size:12pt; margin-right: 50px">
-                // Builder Pattern<br>
-                public class NutritionFacts {<br>
-                &nbsp;&nbsp;private final int servingSize;<br>
-                &nbsp;&nbsp;private final int servings;<br>
-                &nbsp;&nbsp;private final int calories;<br>
-                &nbsp;&nbsp;private final int fat;<br>
-                &nbsp;&nbsp;private final int sodium;<br>
-                &nbsp;&nbsp;private final int carbohydrate;<br><br>
-                &nbsp;&nbsp;public static class Builder {<br>
-                &nbsp;&nbsp;&nbsp;&nbsp;// Required parameters<br>
-                &nbsp;&nbsp;&nbsp;&nbsp;private final int servingSize;<br>
-                &nbsp;&nbsp;&nbsp;&nbsp;private final int servings;<br>
-                &nbsp;&nbsp;&nbsp;&nbsp;// Optional parameters - initialized to default values<br>
-                &nbsp;&nbsp;&nbsp;&nbsp;private int calories = 0;<br>
-                &nbsp;&nbsp;&nbsp;&nbsp;private int fat = 0;<br>
-                &nbsp;&nbsp;&nbsp;&nbsp;private int sodium = 0;<br>
-                &nbsp;&nbsp;&nbsp;&nbsp;private int carbohydrate = 0;<br><br>
-                &nbsp;&nbsp;&nbsp;&nbsp;public Builder(int servingSize, int servings) {<br>
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;this.servingSize = servingSize;<br>
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;this.servings = servings;<br>
-                &nbsp;&nbsp;&nbsp;&nbsp;}<br>
-                
-                 </p>
-              </div>
-              <div>
-                <p class = "code" style="padding-left:30%; font-size:12pt">
-                  <br><br>
-                &nbsp;&nbsp;&nbsp;&nbsp;public Builder calories(int val)<br>
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{ calories = val; return this; }<br>
-                &nbsp;&nbsp;&nbsp;&nbsp;public Builder fat(int val)<br>
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{ fat = val; return this; }<br>
-                &nbsp;&nbsp;&nbsp;&nbsp;public Builder sodium(int val)<br>
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{ sodium = val; return this; }<br>
-                &nbsp;&nbsp;&nbsp;&nbsp;public Builder carbohydrate(int val)<br>
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{ carbohydrate = val; return this; }<br>
-                &nbsp;&nbsp;&nbsp;&nbsp;public NutritionFacts build() {<br>
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return new NutritionFacts(this);<br>
-                &nbsp;&nbsp;&nbsp;&nbsp;}<br>
-                &nbsp;&nbsp;}<br><br>
-                &nbsp;&nbsp;private NutritionFacts(Builder builder) {<br>
-                &nbsp;&nbsp;&nbsp;&nbsp;servingSize = builder.servingSize;<br>
-                &nbsp;&nbsp;&nbsp;&nbsp;servings = builder.servings;<br>
-                &nbsp;&nbsp;&nbsp;&nbsp;calories = builder.calories;<br>
-                &nbsp;&nbsp;&nbsp;&nbsp;fat = builder.fat;<br>
-                &nbsp;&nbsp;&nbsp;&nbsp;sodium = builder.sodium;<br>
-                &nbsp;&nbsp;&nbsp;&nbsp;carbohydrate = builder.carbohydrate;<br>
-                &nbsp;&nbsp;}<br>
-                }<br>
-                 </p>
-              </div>
-             
+                   <pre class = "code" style="font-size:12px ">
+
+// Builder Pattern
+public class NutritionFacts {
+private final int servingSize;
+private final int servings;
+private final int calories;
+private final int fat;
+private final int sodium;
+private final int carbohydrate;
+public static class Builder {
+	// Required parameters
+	private final int servingSize;
+	private final int servings;
+	// Optional parameters - initialized to default values
+	private int calories = 0;
+	private int fat = 0;
+	private int sodium = 0;
+	private int carbohydrate = 0;
+	public Builder(int servingSize, int servings) {
+		this.servingSize = servingSize;
+		this.servings = servings;
+	}
+    
+		public Builder calories(int val)
+			{ calories = val; return this; }
+		public Builder fat(int val)
+			{ fat = val; return this; }
+		public Builder sodium(int val)
+			{ sodium = val; return this; }
+		public Builder carbohydrate(int val)
+			{ carbohydrate = val; return this; }
+		public NutritionFacts build() {
+			return new NutritionFacts(this);
+		}
+	}
+	private NutritionFacts(Builder builder) {
+		servingSize = builder.servingSize;
+	servings = builder.servings;
+		calories = builder.calories;
+		fat = builder.fat;
+		sodium = builder.sodium;
+		carbohydrate = builder.carbohydrate;
+	}
+}
+                "
+                 </pre>             
             </section>
             
             <section>
@@ -198,16 +194,16 @@
                 <br>
                            
               </p>
-              <p class = "code" style="padding-left:30%">
-                // Noninstantiable utility class
-                <br>public class UtilityClass {
-                <br>&nbsp;&nbsp;// Suppress default constructor for noninstantiability
-                <br>&nbsp;&nbsp;private UtilityClass() {
-                <br>&nbsp;&nbsp;&nbsp;&nbsp;throw new AssertionError();
-                <br>&nbsp;&nbsp;}
-                <br>&nbsp;&nbsp;... // Remainder omitted
-                <br>}
-              </p>
+              <pre class = "code">
+// Noninstantiable utility class
+public class UtilityClass {
+	// Suppress default constructor for noninstantiability
+	private UtilityClass() {
+		throw new AssertionError();
+	}
+	... // Remainder omitted
+}
+              </pre>
               <p class="testo" style="text-align:left">
                 Definendo il costrtuttore privato non potrà essere invocato dall'esterno della classe. Il lancio dell'errore serve per prevenire 
                 eventuali chiamate dalla classe stessa.<br>
@@ -223,17 +219,17 @@
                 In questi casi conviene passare la risorsa nel costruttore al momento dell'inizializzazione dell'oggetto.
                 Questo pattern si chiama Dependency Injection ed è supportato da diversi framework tramite annotazioni. 
               </p>
-                 <p class = "code" style="padding-left:30%">
-                // Dependency injection provides flexibility and testability
-                <br>&nbsp;&nbsp;public class SpellChecker {
-                <br>&nbsp;&nbsp;&nbsp;&nbsp;private final Lexicon dictionary;
-                <br>&nbsp;&nbsp;&nbsp;&nbsp;public SpellChecker(Lexicon dictionary) {
-                <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;this.dictionary = Objects.requireNonNull(dictionary);
-                <br>&nbsp;&nbsp;&nbsp;&nbsp;}
-                <br>&nbsp;&nbsp;&nbsp;&nbsp;public boolean isValid(String word) { ... }
-                <br>&nbsp;&nbsp;&nbsp;&nbsp;public List<String> suggestions(String typo) { ... }
-                <br>}
-              </p>  
+                 <pre class = "code">
+// Dependency injection provides flexibility and testability
+public class SpellChecker {
+	private final Lexicon dictionary;
+	public SpellChecker(Lexicon dictionary) {
+		this.dictionary = Objects.requireNonNull(dictionary);
+	}
+	public boolean isValid(String word) { ... }
+	public List<String> suggestions(String typo) { ... }
+}
+              </pre>  
               <p class="testo">
                 Questo pattern aumenterà la flessibilità, la riusabilità e la testabilità della classe.  
               </p>
@@ -267,126 +263,80 @@
               </p>
             </section>
             <section>
-              <p class="testo">
-              Item 8
-              </p>
-            </section>
-            <section>
-              <p class="testo">
-              Item 9
-              </p>
-            </section>
-            
-          </section>
+            	<h3>Preferire try-with-resources al try-finally</h3>
+				<p class="testo">
+              		Preferire sempre il costrutto try-with-resources al try-finally:
+              	</p>
+              		<pre class = "code">
+...
+cmo=cd('/JMSSystemResources/'+JMS_MODULE_NAME+'/JMSResource/+JMS_MODULE_NAME+
+    '/ConnectionFactories/'+CONN_FACTORY_NAME/LoadBalancingParams/'+CONN_FACTORY_NAME)
+cmo.setServerAffinityEnabled(false)
+cmo.setLoadBalancingEnabled(true)
+...        
+              		</pre>
 
-          <section>
-             <h2>Composizione via Servizi</h2>
-              <p class="testo">
-              L'architettura a Microservizi si basa sui componenti, unità software che sono indipendenti, sostituibili e aggiornabili.
-              Si predilige l'uso dei servizi all'uso delle librerie perchè i servizi sono installabili singolarmente. Al contrario, un'applicazione monolitica che utilizza più librerie, richiederà l'installazione completa anche solo per modificare  una qualunque libreria.<br/><br/>
-              La divisione in servizi non permette una modularità totale, perchè modificando l'interfaccia di un servizio, andranno modificati anche tutti i servizi "client" di quell'interfaccia, richiedendo una nuova installazione. Il disegno basato su microservizi riduce però notevolmente la coesione tra i moduli.
-              </p>  
-          </section>
+              	<p class="testo">
+              		Perchè il codice è più corto e leggibile, e le eccezioni generate sono più utili; questa forma semplifica la chiusura delle risorse utilizzate nel try, evitando bug applicativi.
 
-          <section>
-             <h2>Organizzazione dei team</h2>
-              <p class="testo">
-              Adottando l'approccio basato su microservizi anche la divisione dei team sarà gestita in modo diverso. La suddivisione non sarà più per competenze tecniche bensì per competenze di business. 
-              <br/><br/>
-              Ogni servizio include un completo stack tecnologico, richiedendo un team composto da funzionali di business, sviluppatori di front end, di backend e dba.
-              I diversi team non saranno più divisi per funzionalità tecniche, bensì per funzionalità di business. 
-              </p>  
-          </section>
-
-          <section>
-             <h2>Prodotti e non progetti</h2>
-              <p class="testo">
-              Con le applicazioni monolitiche il team si concentra nell'analisi e nell'implementazione del progetto, fino al rilascio in ambiente di produzione che conclude le attività di progetto. Con i microservizi, il team non si limiterà solo allo sviluppo delle funzionalità ma sarà direttamente responsabile dell'installazione e delle attività di operation. 
-              <br/><br/>
-              Con questo approccio si riescono a recepire più velocemente i feedback dell'utente, accrescendo le conoscenze di business degli sviluppatori.
-              <br/><br/>
-              <b>Non esistono ragioni che impediscono questo approccio su applicazioni monolitiche ma le dimensioni dei servizi meglio si prestano a questa organizzazione dei team.</b> 
-              </p>  
-          </section>
-
-          <section>
-            <section>
-            <p>
-              
-              L'integrazione DevOps ha come obiettivo il rilascio del prodotto, il collaudo del software, l'evoluzione e il mantenimento (bug fixing e "minor release") in modo tale da aumentare affidabilità e sicurezza e rendere più veloci i cicli di sviluppo e rilascio. Molte delle idee che costituiscono DevOps provengono dalla gestione di sistemi aziendali e dalla Metodologia agile.
-            </p>
-          </section>
-            <section>
-              <img src="imgs/devops_01.png" />
-              <br/><br/>
-              La metodologia DevOps aiuta le aziende nella gestione dei rilasci, standardizzando gli ambienti di sviluppo e le procedure d'installazione. 
+              	</p>
             </section>
           </section>
-
-          <section>
-            <h2>Vantaggi</h2>
-            <ul>
-              <li>Aumento dell'efficienza e dell'affidabilità nelle fasi di rilascio</li>
-              <li>Diminuzione del tempo di preparazione dei rilasci</li>
-              <li>Aumento della frequenza dei rilasci</li>
-              <li>Semplificazione del processo di rilascio, automatizzando gli step da eseguire</li>
-              <li>Riduzione del time-to-market delle applicazioni</li>
-            </ul>
-          </section>
-
-          <section>
-            <h2>8 Azioni da intraprendere</h2>
-            <ul>
-              <li>Automatizzare la creazione/gestione degli ambienti</li>
-              <li>Adottare Continuous Integration</li>
-              <li>Automatizzare la fase di rilascio</li>
-              <li>Automatizzare i test</li>
-              <li>Compiere decisioni di release Data-Driven</li>
-              <li>Ridurre la grandezza del software rilasciato</li>
-              <li>Eliminare step manuali e tempi d'attesa</li>
-              <li>Estrarre feedback dai risultati ottenuti</li> 
-            </ul>
-          </section>
-
-          <section>
-            <h2>Strategie di progetto</h2>
-            <ul>
-              <li>Iniziare con l'automatizzare la creazione e gestione degli ambienti di sviluppo e collaudo, per poi espanderla all'ambiente di produzione</li>
-              <li>Automatizzare il processo di compilazione e test del software tramite continuous integration. Cominciare con la compilazione e gli unit test per poi gradualmente integrare test funzionali, di performance e di scalabilità</li>
-              <li>Combinare l'automatizzazione dei rilasci con la continuous integration al fine di crare un'unico processo</li>
-            </ul>
-          </section>
-
-          <section>
-            
-            <h2>Strategie di rilascio</h2>
-            <ul>
-              <li>Ridurre l'ambito di ogni rilascio per accellerare i feedback</li>
-              <li>Ridurre l'ambito di ogni rilascio per minimizzare i rischi diminuendo le dipendenze e semplificando le installazioni</li>
-              <li>Ridurre l'ambito di ogni rilascio focalizzando ogni persona su una singola attività che compone il rilascio</li>
-            </ul>
           
-              <img src="https://driftboatdave.files.wordpress.com/2015/02/020415_1616_devopscatsa2.png?w=620">
-          
-          </section>
-
+          <!-- START SECTIOND "Metodi comuni a tutti gli oggetti" -->
           <section>
-            <section>
-              <h1>Strumenti a supporto</h1>
-            </section>
-            <section>
-              <h2>Docker</h2>
-              <img src="http://www.01net.it/wp-content/uploads/sites/14/2015/10/docker-logo.png" width="500" heigth="500" />
-            </section>
-            <section>
-              <h2>Ansible</h2>
-              <img src="https://www.elastic.co/assets/bltef783ee77445f09f/ansible.png" width="500" heigth="500" />
-            </section>
-            <section>
-              <h2>Jenkins + Nexus</h2>
-              <img src="http://www.sonatype.org/nexus/content/uploads/2015/12/Jenkins-and-Nexus-Featured-Image.jpg" width="500" heigth="500" />
-            </section>
+          	<section>
+          		<h2>Metodi comuni a tutti gli oggetti</h2>
+	          <ul>
+	          <li>Rispettare contratto generale sovrascrivendo equals</li>
+	          <li>Sovrascrivere sempre hashCode se si sovrascrive equals</li>
+	          <li>Sovrascrivere sempre toString</li>
+	          <li>Sovrascrivere il metodo clone con attenzione</li>
+	          <li>Valutare l'implementazione di Comparable</li>
+	        </ul>
+          	</section>
+          	<section>
+          		<h3>Rispettare contratto Equals 1 </h3>
+          		<p class="testo">
+	          		Se non si sovrascrive il metodo equals ogni istanza della classe sarà uguale solo a se stessa.
+	 				Considerare questa soluzione nelle seguenti casistiche:
+ 				</p>
+ 				<ul class="testo">
+ 					<li>Ogni istanza della classe è per semantica unica (es. Thread)</li>
+ 					<li>Non necessità di verificare ugualianza logica per quella classe</li>
+ 					<li>Una superclasse ha già sovrascritto equals ed il suo comportamento è appropriato per tutte le sotto classi</li>
+ 					<li>Classe privata e quindi sicuri che equals non sarà mai invocato</li>
+ 				</ul>
+ 				<p class="testo">
+	          		Sovrascrivere equals quando una classe richiede un uguaglianza logica che differisce dall'identità (riferimento) delle istanze; il caso delle <i>Value Classes</i>.
+ 				</p>	
+          	</section>
+          	<section>
+          		<h3>Rispettare contratto Equals 2</h3>
+          		<p class="testo">
+	          		Nell'implementare il metodo equals bisogna rispettare le seguenti proprietà:
+ 				</p>
+ 				<ul class="testo">
+ 					<li><b>Riflessiva</b>: Per ogni reference non-null x.equals(x) deve ritornare TRUE</li>
+ 					<li><b>Simmetrica</b>: x.equals(y) deve ritornare TRUE se e solo se y.equals(x) ritorna TRUE</li>
+ 					<li><b>Transitiva</b>: se x.equals(z) ritorna TRUE e y.equals(z) ritorna TRUE allora x.equals(y) deve ritornare TRUE</li>
+ 					<li><b>Consistente</b>: se si invoca più volte x.equals(y) devono costantemente tornare TRUE o FALSE. </li>
+ 					<li>Per ogni non-null reference, x.equals(null) deve restituire FALSE </li>
+ 				</ul>
+ 				<p class="testo">
+ 					Attenzione: NON estendere mai una classe concreta aggiungendo un attributo, questo renderà il nuovo equals non conforme al contratto. In questo caso è meglio che la nuova classe non estendi la precedente concreta ma bensì abbia un attributo interno della seconda classe.
+ 					Di seguito gli step principali per una corretta implementazione dell'equals:
+ 					<ul class="testo">
+ 						<li>Utilizzare l'operatore == per verificare se l'argomento è una reference all'oggetto corrente</li>
+ 						<li>Utilizzare instanceof per verificare il tipo corretto dell'argomento</li>
+ 						<li>Castare l'argomento al corretto tipo</li>
+ 						<li>Verificare uguaglianza per ogni campo dell'argomento</li>
+ 					</ul>
+ 				</p>	
+          	</section>	
+          	*** continuare da slide 50 ***
           </section>
+          <!-- END SECTIOND "Metodi comuni a tutti gli oggetti" -->
 
           <section>
             <h1>Fine</h1>

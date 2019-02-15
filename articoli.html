@@ -131,6 +131,34 @@
 		
 		<div class="col-sm-8 blog-main" style="width:75%; float:left">
 
+        <!-- blog coherence jmx -->
+          <div class="blog-post">
+            <h2 class="blog-post-title"><a name="coherenceJmx" class="anchorArticle">Abilitare jmx per Coherence</a></h2>
+            <p class="blog-post-meta">Febbraio 15, 2019</p>
+
+            <p>
+            Per abilitare il monitoraggio degli mBean Coherence tramite la specifica jmx bisogna lanciare i Managed Server data storage con una delle due seguenti properties:
+            <pre style="font-style: italic; font-size: 14px; background: #E7E7E7; font-family: Courier;">
+-Dcoherence.management=local-only   //monitoraggio abilitato localmente
+-Dcoherence.management=all          //monitoraggio abilitato da remoto
+            </pre>
+
+            Verificare che <b>non</b> siano presenti le seguenti properties che renderebbero non visibili alcuni mBean di Coherence:
+            <pre style="font-style: italic; font-size: 14px; background: #E7E7E7; font-family: Courier;">
+-Dcom.sun.management.jmxremote=true 
+-Dcom.sun.management.jmxremote.ssl=false 
+-Dcom.sun.management.jmxremote.authenticate=false 
+-Dcom.sun.management.jmxremote.port=10039
+            </pre>
+            </p>
+            <ul class="pager">
+            <li><a href="#">Previous</a></li>
+            <li><a href="#distributedSystem">Next</a></li>
+            <li><a href="#">Top</a></li>
+          </ul>
+
+        </div><!-- end blog coherence jmx -->
+
 		<!-- blog distributed system -->
           <div class="blog-post">
             <h2 class="blog-post-title"><a name="distributedSystem" class="anchorArticle">Sistemi distribuiti</a></h2>
@@ -152,7 +180,7 @@
             <img src="img/distributedSystem.jpeg"/>
             </p>
             <ul class="pager">
-            <li><a href="#">Previous</a></li>
+            <li><a href="#coherenceJmx">Previous</a></li>
             <li><a href="#weblogicJmsLoadBalancing">Next</a></li>
             <li><a href="#">Top</a></li>
           </ul>
@@ -525,6 +553,7 @@ Public void myTopLevelJDBCMethod() {
 					<li><a href="#weblogicMavenDepdendency">Weblogic Maven Dependency</a></li>
 					<li><a href="#osbBestPractice">OSB Best Practice</a></li>
 					<li><a href="#weblogicJmsLoadBalancing">JMS Load Balancing</a></li>
+                    <li><a href="#coherenceJmx">Coherence e jmx</a></li>
 				</ol>
 			  </li>
 			  <li>Altro
