@@ -131,6 +131,27 @@
 		
 		<div class="col-sm-8 blog-main" style="width:75%; float:left">
 
+		<!-- blog coherence listener e filtri -->
+          <div class="blog-post">
+            <h2 class="blog-post-title"><a name="coherenceListenersEqualsAndHashCode" class="anchorArticle">Corretta definizione dei Listeners Coherence</a></h2>
+            <p class="blog-post-meta">Febbraio 19, 2019</p>
+
+            <p>
+            Se utilizzando Coherence si ha la necessità di catturare eventi di modifica della cache, si dovrà registrare alla NamedCache un Listener Coherence con eventualmente un Filtro per rimanere in ascolto solo di eventi relativi ad un sottoinsieme di entry presenti in cache.
+            Un esempio di registrazione di Listener Coherence:
+            <pre style="font-style: italic; font-size: 14px; background: #E7E7E7; font-family: Courier;">
+CacheFactory.getTypedCache(cacheName, TypeAssertion.withTypes(keyClass, valueClass)).addMapListener(listener, new Filter(), false);
+            </pre>
+            Al fine di evitare problematiche di Listener duplicati nel Cluster Coherence ricordarsi sempre di cancellare il listener durante lo stop della propria applicazione; inoltre i listener registrati ed eventuali filtri utilizzati dovranno <b>ri-definire i metodi equals e hashCode</b> al fine di gestire correttamente lato Cluster la fase di registrazione e cancellazione dei listeners.
+            </p>
+            <ul class="pager">
+            <li><a href="#">Previous</a></li>
+            <li><a href="#coherenceJmx">Next</a></li>
+            <li><a href="#">Top</a></li>
+          </ul>
+
+        </div><!-- end blog coherence listener e filtri -->
+
         <!-- blog coherence jmx -->
           <div class="blog-post">
             <h2 class="blog-post-title"><a name="coherenceJmx" class="anchorArticle">Abilitare jmx per Coherence</a></h2>
@@ -152,7 +173,7 @@
             </pre>
             </p>
             <ul class="pager">
-            <li><a href="#">Previous</a></li>
+            <li><a href="#coherenceListenersEqualsAndHashCode">Previous</a></li>
             <li><a href="#distributedSystem">Next</a></li>
             <li><a href="#">Top</a></li>
           </ul>
@@ -554,6 +575,7 @@ Public void myTopLevelJDBCMethod() {
 					<li><a href="#osbBestPractice">OSB Best Practice</a></li>
 					<li><a href="#weblogicJmsLoadBalancing">JMS Load Balancing</a></li>
                     <li><a href="#coherenceJmx">Coherence e jmx</a></li>
+                    <li><a href="#coherenceListenersEqualsAndHashCode">Definizione Listeners Coherence</a></li>
 				</ol>
 			  </li>
 			  <li>Altro
