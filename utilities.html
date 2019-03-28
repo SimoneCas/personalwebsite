@@ -29,6 +29,12 @@
 				font-family: sans-serif;
 				margin: 0
 			}
+			.customScrollbar{
+                background: #4caf50;
+                height: 8px;
+                width: 0%;
+                opacity: 0.8;
+            }
 		</style>
 		
 		<script type="text/javascript" src="js/redirect_mobile.js"></script>
@@ -79,6 +85,8 @@
 							</div>
 						</div>
 					</div>
+					<div class="navbar customScrollbar" id="myBar">
+                    </div>
 				</div>
 			</div>
 		</div><!--navbar -->
@@ -349,14 +357,26 @@
 
 		</div><!-- /.container -->
 <script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+            // When the user scrolls the page, execute myFunction 
+            window.onscroll = function() {scrollbarFunction()};
 
-  ga('create', 'UA-75052645-1', 'auto');
-  ga('send', 'pageview');
-
+            function scrollbarFunction() {
+              console.log("***")
+              var winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+              console.log("winScroll " + winScroll);
+              console.log("1 " +document.documentElement.scrollHeight);
+              console.log("2 " + document.documentElement.clientHeight);
+              var height = document.documentElement.clientHeight;
+              //var height = document.getElementById("myBar").style.height;
+              console.log("height" + height);
+              var scrolled = (winScroll / height) * 100;
+              console.log("scrolled" + scrolled);
+              if (scrolled > 70) {
+               document.getElementById("myBar").style.width = "100%";
+              } else { 
+              document.getElementById("myBar").style.width = scrolled + "%";
+              }
+            }
 </script>
 	</body>
 </html>
