@@ -166,7 +166,7 @@ small{
 
 /* Pagination */
 .pager {
-  margin-bottom: 60px;
+  margin-bottom: 10px;
   text-align: left;
 }
 .pager > li > a {
@@ -182,7 +182,7 @@ small{
  */
 
 .blog-post {
-  margin-bottom: 60px;
+  margin-bottom: 10px;
 }
 .blog-post-title {
   margin-bottom: 5px;
