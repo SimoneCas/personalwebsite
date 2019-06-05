@@ -139,6 +139,36 @@
 		
 		<div class="col-sm-8 blog-main" style="width:75%; float:left">
 
+        <!-- blog coherence POF serialization Inner Class -->
+          <div class="blog-post">
+            <h2 class="blog-post-title"><a name="coherencePOFInnerClass" class="anchorArticle">   </a></h2>
+            <br><br><br>
+            <h2 class="blog-post-title">POF Serialization di Inner Class</h2>
+            <p class="blog-post-meta">Giugno 06, 2019</p>
+
+            <p>
+            Se utilizzando Coherence si decide di serializzare gli oggetti tramite Portable Object Format (POF) Serialization bisognerà dichiarare all'interno del file pof-config.xml il mapping tra la classe da serializzare ed il relativo serializzatore.
+            Se la classe da serializzare è una Inner Class dovremo utilizzare la seguente sintassi per indicare la classe oggetto di serializzazione:
+            
+            <pre style="font-style: italic; font-size: 14px; background: #E7E7E7; font-family: Courier;">
+&lt;user-type>
+    &lt;type-id>1001&lt;/type-id>
+    &lt;class-name>it.sample.model.Bet$BetType&lt;/class-name>
+    &lt;serializer>
+       &lt;class-name>com.tangosol.io.pof.EnumPofSerializer&lt;/class-name>
+    &lt;/serializer>
+&lt;/user-type>
+            </pre>
+            Nell'esempio precedente viene utilizzato il carattere <b>'$'</b> per indicare che <i>BetType</i> è una InnerClass dichiarata all'interno della classe <i>Bet</i>.
+            </p>
+            <ul class="pager">
+            <li><a href="#">Previous</a></li>
+            <li><a href="#coherenceListenersEqualsAndHashCode">Next</a></li>
+            <li><a href="#">Top</a></li>
+          </ul>
+
+        </div><!-- end blog coherence listener e filtri -->
+
 		<!-- blog coherence listener e filtri -->
           <div class="blog-post">
             <h2 class="blog-post-title"><a name="coherenceListenersEqualsAndHashCode" class="anchorArticle">   </a></h2>
@@ -155,7 +185,7 @@ CacheFactory.getTypedCache(cacheName, TypeAssertion.withTypes(keyClass, valueCla
             Al fine di evitare problematiche di Listener duplicati nel Cluster Coherence ricordarsi sempre di cancellare il listener durante lo stop della propria applicazione; inoltre i listener registrati ed eventuali filtri utilizzati dovranno <b>ri-definire i metodi equals e hashCode</b> al fine di gestire correttamente lato Cluster la fase di registrazione e cancellazione dei listeners.
             </p>
             <ul class="pager">
-            <li><a href="#">Previous</a></li>
+            <li><a href="#coherencePOFInnerClass">Previous</a></li>
             <li><a href="#coherenceJmx">Next</a></li>
             <li><a href="#">Top</a></li>
           </ul>
@@ -606,6 +636,7 @@ Public void myTopLevelJDBCMethod() {
 					<li><a href="#weblogicJmsLoadBalancing">JMS Load Balancing</a></li>
                     <li><a href="#coherenceJmx">Coherence e jmx</a></li>
                     <li><a href="#coherenceListenersEqualsAndHashCode">Definizione Listeners Coherence</a></li>
+                    <li><a href="#coherencePOFInnerClass">POF Serialization di Inner Class</a></li>
 				</ol>
 			  </li>
 			  <li>Altro

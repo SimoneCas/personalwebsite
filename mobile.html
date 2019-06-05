@@ -140,19 +140,19 @@
 					<h2 style=" margin:0px 0">Ultimo Articolo</h2>
 					</div>
 					<p style="color:black; margin-top:5%; text-align:left; ">
-						In fase di progettazione della base di dati, a seconda dei diversi requisiti, si dovrà scegliere quale "famiglia" di prodotto utilizzare.
-			            <br>
-			            Prima di elencare le principali soluzioni software ricapitoliamo le proprietà di un sistema distribuito:
-			            <br><br>
-			            <b>Consistenza:</b> tutti i nodi nella rete vedono lo stesso valore del dato nello stesso istante; assicurata quindi l'integrità del dato trai i diversi nodi del sistema distribuito.
-			            <br><br>
-			            <b>Disponibilità:</b> il servizio risulta sempre disponibile garantendo risposte ai client. 
-			            <br><br>
-			            <b>Tolleranza della partizione:</b> il servizio continua ad operare correttamente anche in presenza di perdita di messaggi o di partizioni di rete.
-			            <br><br>
-			            <b>Un sistema distribuito può soddisfare solo due delle tre proprietà descritte.</b>
-			            <br><br><br>
-			            <img src="img/distributedSystem.jpeg"/>
+						Se utilizzando Coherence si decide di serializzare gli oggetti tramite Portable Object Format (POF) Serialization bisognerà dichiarare all'interno del file pof-config.xml il mapping tra la classe da serializzare ed il relativo serializzatore.<br>
+            			Se la classe da serializzare è una Inner Class dovremo utilizzare la seguente sintassi per indicare la classe oggetto di serializzazione.<br>
+            			Nell'esempio successivo viene utilizzato il carattere <b>'$'</b> per indicare che <i>BetType</i> è una InnerClass dichiarata all'interno della classe <i>Bet</i>.	
+            <pre style="font-style: italic; font-size: 12px; background: #E7E7E7; font-family: Courier; text-align: left">
+&lt;user-type>
+    &lt;type-id>1001&lt;/type-id>
+    &lt;class-name>it.sample.model.Bet$BetType&lt;/class-name>
+    &lt;serializer>
+       &lt;class-name>com.tangosol.io.pof.EnumPofSerializer&lt;/class-name>
+    &lt;/serializer>
+&lt;/user-type>
+            </pre>
+            			
 			            
 					</p>
 				</div>
