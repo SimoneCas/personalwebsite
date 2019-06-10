@@ -296,7 +296,7 @@ cmo.setLoadBalancingEnabled(true)
 	        </ul>
           	</section>
           	<section>
-          		<h3>Rispettare contratto Equals 1 </h3>
+          		<h4>Rispettare contratto Equals 1 </h4>
           		<p class="testo">
 	          		Se non si sovrascrive il metodo equals ogni istanza della classe sarà uguale solo a se stessa.
 	 				Considerare questa soluzione nelle seguenti casistiche:
@@ -312,7 +312,7 @@ cmo.setLoadBalancingEnabled(true)
  				</p>	
           	</section>
           	<section>
-          		<h3>Rispettare contratto Equals 2</h3>
+          		<h4>Rispettare contratto Equals 2</h4>
           		<p class="testo">
 	          		Nell'implementare il metodo equals bisogna rispettare le seguenti proprietà:
  				</p>
@@ -334,7 +334,51 @@ cmo.setLoadBalancingEnabled(true)
  					</ul>
  				</p>	
           	</section>	
-          	*** continuare da slide 50 ***
+          	<section>
+          		<h4>Sovrascrivere sempre hashCode se si sovrascrive equals 1</h4>
+          		<p class="testo">
+	          		Nell'implementare il metodo hashCode bisogna rispettare le seguenti proprietà:
+ 				</p>
+ 				<ul class="testo">
+ 					<li>Invocazioni ripetute del metodo su uno stesso oggetto devono sempre ritornare lo stesso valore intero</li>
+ 					<li>Se due oggetti sono uguali per il metodo equals devono ritornare lo stesso hash code</li>
+ 					<li>Se due oggetti non sono uguali non necessariamente devono avere un diverso hash code (ma è consigliabile)</li>
+ 				</ul>
+ 				<p class="testo">
+ 					La funzione hashCode viene utilizzata in tutte le strutture dati basate su hash per ritrovare gli oggetti e per inserirli nel bucket corretto. Una funziona hashCode mal implementata potrebbe non rendere possibile ritrovare gli oggetti dalle collezioni basate su hash (HashMap, HashSet).<br>
+ 					Ritornare invece in modo costante sempre lo stesso valore rende valida la funzione ma non performante, in quanto tutti gli oggetti saranno salvati nello stesso bucket, trasformando ad esempio un HashMap in una LinkedList.
+ 				</p>
+ 			</section>
+ 			<section>
+ 				<h4>Sovrascrivere sempre hashCode se si sovrascrive equals 2</h4>
+ 					<pre class = "code">
+// Typical hashCode method
+@Override public int hashCode() {
+	int result = Short.hashCode(areaCode);
+	result = 31 * result + Short.hashCode(prefix);
+	result = 31 * result + Short.hashCode(lineNum);
+	return result;
+}        
+              		</pre>
+              	<p class="testo">
+              		Se la classe è immutabile ed l'esecuzione del metodo hashCode è dispendioso in termini di tempo si può pensare di cachare il valore in una variabile d'istanza o eseguire una <i>lazy initialize</i>, cachando il valore solo alla prima invocazione del metodo hashCode.
+ 					<pre class = "code">
+private int hashCode; // Automatically initialized to 0
+
+@Override public int hashCode() {
+	int result = hashCode;
+	if (result == 0) {
+		result = Short.hashCode(areaCode);
+		result = 31 * result + Short.hashCode(prefix);
+		result = 31 * result + Short.hashCode(lineNum);
+		hashCode = result;
+	}
+return result;
+}        
+              		</pre>
+              		*** CONTINUARE ADLLA SLIDE 55 (Always override toString) ****
+ 				</p>	
+          	</section>	
           </section>
           <!-- END SECTIOND "Metodi comuni a tutti gli oggetti" -->
 
