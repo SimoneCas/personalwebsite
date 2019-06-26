@@ -139,6 +139,94 @@
 		
 		<div class="col-sm-8 blog-main" style="width:75%; float:left">
 
+		<!-- blog java stream vs parallel stream -->
+          <div class="blog-post">
+            <h2 class="blog-post-title"><a name="streamVsParallel" class="anchorArticle">   </a></h2>
+            <br><br><br>
+            <h2 class="blog-post-title">Stream vs Parallel Stream</h2>
+            <p class="blog-post-meta">Giugno 13, 2019</p>
+
+            <p>
+            Per lavorare su collezioni di dati effettuando operazioni di calcolo, riduzione e aggregazione ci può risultare 
+            utile l'utilizzo degli <b>Stream</b> e dei <b>Parallel Stream</b>.<br><br>
+
+            L'esecuzione di uno <b>Stream</b> avviene in un unico thread, gestendo in modo sequenziale le operazioni.<br>
+            L'esecuzione di un <b>Parallel Stream</b> avviene invece utlizzando molteplici thread, senza mantenere l'ordinamento degli elementi elaborati.<br>
+
+            Esempio di Stream:
+            <pre style="font-style: italic; font-size: 14px; background: #E7E7E7; font-family: Courier;">
+numbers.stream()
+	.map(e -> transform(e))
+	.forEach(System.out::println);
+            </pre>	
+            Esempio di Parallel Stream
+            <pre style="font-style: italic; font-size: 14px; background: #E7E7E7; font-family: Courier;">
+numbers.parallelStream()
+	.map(e -> transform(e))
+	.forEach(System.out::println);
+
+or
+
+numbers.stream()
+	.parallel()
+	.map(e -> transform(e))
+	.forEach(System.out::println);
+            </pre>
+
+            <u>Attenzione</u>: l'utilizzo del metodo "sequential()" forzando l'esecuzione del Parallel Stream in modo sequenziale non permette di eseguire elaborazione parallela.
+            <br>
+            Se si vuole utilizzare il Parallel Stream per ottimizzare l'elaborazione ma si vuole mantenere ordinati i valori originali, si può utilizzare il metodo "forEachOrdered()"
+            <pre style="font-style: italic; font-size: 14px; background: #E7E7E7; font-family: Courier;">
+numbers.stream()
+	.parallel()
+	.map(e -> transform(e))
+	.forEachOrdered(System.out::println);
+            </pre>
+
+            La configurazione del numero di thread da poter assegnare al parallelStraem è importante sia per gestire l'applicazione in modo sicuro rispetto al numero di cores e sia per configurarla al meglio in base alla tipologia di lavoro che lo stream dovrà svolgere.<br>
+            Regola base di configurazione:<br>
+            <br>
+            <pre style="font-style: italic; font-size: 14px; background: #E7E7E7; font-family: Courier;">
+		# of cores
+# thread <= ----------------------------------
+		1 - blocking factor
+
+0 <= blocking factor <= 1
+            </pre>
+            dove:<br>
+            0 se i thraed sono CPU intensive: task che prevedono pochi interrupt ed elaborazioni lunghe ed intensive lato cpu<br>
+			1 se i thread prevedono molti interrupt, dovuti ad esempio ad interazioni con sistemi esterni, e che prevedono elaborazioni brevi lato cpu. <br>
+			Il numero di thread da utilizzare per eseguire l'applicazione può essere configurato:
+			<ul>
+				<li><b>A livello di jvm</b>: -Djava.util.concurrent.ForkJoinPool.common.parallelism=#Thread</li>
+				<li><b>A livello programmatico</b>:</li>
+			</ul>
+			<pre style="font-style: italic; font-size: 14px; background: #E7E7E7; font-family: Courier;">
+ForkJoinPool pool = new ForkJoinPool(50);
+pool.submit(() ->
+	numbers.stream().parallel()
+		.map(e -> transform(e))
+		.forEach(e -> {})
+);
+
+pool.shutdown();
+pool.awaitTermination(10, TimeUnit.SECONDS);
+            </pre>
+            Quando conviene lo stream parallelo?
+            <ul>
+            	<li>Quando abbiamo una mole di dati da elaborare di grandi dimensioni</li>
+            	<li>Per task che non richiedano parecchie risorse di tempo e non producano eccezioni</li>
+            </ul>
+			</p>
+            </p>
+            <ul class="pager">
+            <li><a href="#">Previous</a></li>
+            <li><a href="#coherencePOFInnerClass">Next</a></li>
+            <li><a href="#">Top</a></li>
+          </ul>
+
+        </div><!-- end blog java stream vs parallel stream -->
+
         <!-- blog coherence POF serialization Inner Class -->
           <div class="blog-post">
             <h2 class="blog-post-title"><a name="coherencePOFInnerClass" class="anchorArticle">   </a></h2>
@@ -162,12 +250,12 @@
             Nell'esempio precedente viene utilizzato il carattere <b>'$'</b> per indicare che <i>BetType</i> è una InnerClass dichiarata all'interno della classe <i>Bet</i>.
             </p>
             <ul class="pager">
-            <li><a href="#">Previous</a></li>
+            <li><a href="#streamVsParallel">Previous</a></li>
             <li><a href="#coherenceListenersEqualsAndHashCode">Next</a></li>
             <li><a href="#">Top</a></li>
           </ul>
 
-        </div><!-- end blog coherence listener e filtri -->
+        </div><!-- end blog coherence POF serialization Inner Class -->
 
 		<!-- blog coherence listener e filtri -->
           <div class="blog-post">
@@ -622,6 +710,10 @@ Public void myTopLevelJDBCMethod() {
           <div class="sidebar-module">
             <h4>Lista:</h4>
             <ol class="list-unstyled">
+              <li>Java
+              	<ol class="list-unstyled" type="a">
+              		<li><a href="#streamVsParallel">Stream vs Parallel Stream</li>
+              	</ol>
               </li>
               <li>Sql - Database
 				<ol class="list-unstyled" type="a">
