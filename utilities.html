@@ -126,6 +126,26 @@
       <div class="row" style="width:100%">
 		<div class="col-sm-8 blog-main" style="width:75%; float:left">
 
+		<!-- blog JVM Monitoring -->
+          <div class="blog-post">
+          	<h2 class="blog-post-title"><a name="JVMMonitoring" class="anchorArticle">   </a></h2>
+            <br><br><br>
+            <h2 class="blog-post-title">JVM Monitoring</h2>
+
+            <p>
+            	Sviluppando progetti su JVM è indispensabile monitorare e configurare temi di performance della JVM sulla quale è avviata l'applicazione.
+            	Risulta fondamentamentale quindi monitorare la JVM sia a runtime che a posteriori.<br>
+            	Per analisi a runtime tramite protocollo JMX - <b>Java VisualVM</b>: permette di monitorare l'utilizzo di memoria, cpu, thread e offre la possibilità di installare plug-in per analisi di dettaglio.
+            	<br><br>
+            	Per analizzare invece a posteriori il comportamento di una JVM - <b><a href="https://docs.oracle.com/javacomponents/jmc-5-4/jfr-runtime-guide/about.htm#JFRUH170">Java Flight Recorder</a> + Java Mission Control</b>: tramite JFR è possibile salvare su file le statistiche della JVM in modo automatizzato così da poterle analizzare in un secondo momento tramite il tool Java Mission Control.<br>
+            </p>
+			<hr>
+          <ul class="pager">
+            <li><a href="#">Previous</a></li>
+            <li><a href="#easyGC">Next</a></li>
+          </ul>
+		</div><!-- end blog javase tutorial -->
+
 		<!-- blog EasyGC -->
           <div class="blog-post">
           	<h2 class="blog-post-title"><a name="easyGC" class="anchorArticle">   </a></h2>
@@ -143,10 +163,10 @@
             </p>
 			<hr>
           <ul class="pager">
-            <li><a href="#">Previous</a></li>
+            <li><a href="#JVMMonitoring">Previous</a></li>
             <li><a href="#showMePassword">Next</a></li>
           </ul>
-		</div><!-- end blog javase tutorial -->
+		</div><!-- end blog EasyGC -->
 
 		<!-- blog Show me password -->
           <div class="blog-post">
@@ -358,6 +378,7 @@
               <li>Tool di analisi
               	<ol class="list-unstyled" type="a">
               		<li><a href="#easyGC">Analizzatore Garbage Collector</a></li>
+              		<li><a href="#JVMMonitoring">Analizzatore JVM</a></li>
               	</ol>
               </li>
               <li>Risorse Web
