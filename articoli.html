@@ -149,6 +149,13 @@
 	            <p>
 					Link al White Paper di Oracle nel quale si descrivono tutte le configurazioni e i check da attuare in produzione per rilasciare soluzioni con Oracle Coherence 12c:<br>
 					<a href="slide/oracle-coherence-12c-deployment.pdf">White Paper</a>
+					<br><br>
+					Oltre agli aspetti di configurazione descritti nel White Paper, durante lo sviluppo tenere sempre in considerazione le seguenti linee guida:
+					<ol>
+						<li>Minimizzare gli hop di rete tra nodi applicativi e nodi del datagrid</li>
+						<li>La 'Key Affinity' assicura che i dati siano co-localizzati nella stessa partizione (e non solo nello stesso nodo)</li>
+						<li>Durante l'esecuzione di un Entry Processor, il lock avviene solo sulla entry oggetto di modifica e su eventuali altre entry accedute tramite BackingMap</li>
+					</ol>
             </p>
             <ul class="pager">
             <li><a href="#">Previous</a></li>
