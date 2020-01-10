@@ -156,6 +156,113 @@
 						<li>La 'Key Affinity' assicura che i dati siano co-localizzati nella stessa partizione (e non solo nello stesso nodo)</li>
 						<li>Durante l'esecuzione di un Entry Processor, il lock avviene solo sulla entry oggetto di modifica e su eventuali altre entry accedute tramite BackingMap</li>
 					</ol>
+					<br>
+					Elenco delle attività di Operation che richiedono il riavvio dei server:
+					<br>
+					<table style="border-style: solid; font-size: 10pt">
+						<tr style="border-style: solid; background-color: #f5f5f5; font-weight: bold">
+							<td>Area</td>
+							<td style="border-left: solid">Sistema Coherence</td>
+							<td style="border-left: solid">Attività</td>
+							<td style="border-left: solid">Tipologia di riavvio</td>
+						</tr>
+						<tr>
+							<td>Network</td>
+							<td style="border-left: solid">Nodo del Cluster</td>
+							<td style="border-left: solid">Cambio del trasport protocol tra Cluster Members (Cache Servers / Proxy Servers)</td>
+							<td style="border-left: solid">Riavvio completo</td>
+						</tr>
+						<tr style="background-color: #f5f5f5">
+							<td>Network</td>
+							<td style="border-left: solid">Nodo del Cluster</td>
+							<td style="border-left: solid">Cambio della WKA list IP / hostnames</td>
+							<td style="border-left: solid">Riavvio completo</td>
+						</tr>
+						<tr>
+							<td>Network</td>
+							<td style="border-left: solid">Nodo del Cluster</td>
+							<td style="border-left: solid">Cambio dell'IP di un cluster member non in WKA</td>
+							<td style="border-left: solid">Rolling Restart</td>
+						</tr>
+						<tr style="background-color: #f5f5f5">
+							<td>Network</td>
+							<td style="border-left: solid">Extended Client</td>
+							<td style="border-left: solid">Cambio di IP / hostname</td>
+							<td style="border-left: solid">Non necessario</td>
+						</tr>
+						<tr>
+							<td>Cache Configurare</td>
+							<td style="border-left: solid">Nodo del Cluster</td>
+							<td style="border-left: solid">Modifica delle classe che implementano key,value di cache gia in cluster</td>
+							<td style="border-left: solid">Riavvio completo</td>
+						</tr>
+						<tr style="background-color: #f5f5f5">
+							<td>Cache Configurare</td>
+							<td style="border-left: solid">Nodo del Cluster</td>
+							<td style="border-left: solid">Aggiunta nuove cache in cache-config</td>
+							<td style="border-left: solid">Rolling Restart</td>
+						</tr>
+						<tr>
+							<td>Cache Configurare</td>
+							<td style="border-left: solid">Nodo del Cluster</td>
+							<td style="border-left: solid">Cambio in cache partition</td>
+							<td style="border-left: solid">Riavvio completo</td>
+						</tr>
+						<tr style="background-color: #f5f5f5">
+							<td>Cache Configurare</td>
+							<td style="border-left: solid">Extended Client</td>
+							<td style="border-left: solid">Cambio in cache-config, soltanto del cliente</td>
+							<td style="border-left: solid">Non necessario</td>
+						</tr>
+						<tr>
+							<td>Classi applicative</td>
+							<td style="border-left: solid">Nodo del Cluster</td>
+							<td style="border-left: solid">Cambio di Interceptors / Entry Processors / Key Associators / Key / Values classes</td>
+							<td style="border-left: solid">Riavvio competo</td>
+						</tr>
+						<tr style="background-color: #f5f5f5">
+							<td>Classi applicative</td>
+							<td style="border-left: solid">Extended Client</td>
+							<td style="border-left: solid">Cambio delle app che si eseguono negli extend client</td>
+							<td style="border-left: solid">Non necessario</td>
+						</tr>
+						<tr>
+							<td>Database</td>
+							<td style="border-left: solid"> </td>
+							<td style="border-left: solid">Cambio della struttura degli oggetti SQL usati da Coherence (tables, views)</td>
+							<td style="border-left: solid">Riavvio completo</td>
+						</tr>
+						<tr style="background-color: #f5f5f5">
+							<td>Database</td>
+							<td style="border-left: solid"> </td>
+							<td style="border-left: solid">Operazioni sul DB che richiedono shutdown / startup del DB</td>
+							<td style="border-left: solid"Riavvio completo</td>
+						</tr>
+						<tr>
+							<td>Scaling</td>
+							<td style="border-left: solid">Nodo del Cluster</td>
+							<td style="border-left: solid">Aggiungere / rimuovere cluster members o proxy servers</td>
+							<td style="border-left: solid">Non necessario</td>
+						</tr>
+						<tr style="background-color: #f5f5f5">
+							<td>Scaling</td>
+							<td style="border-left: solid">Extended Client</td>
+							<td style="border-left: solid">Aggiungere / rimuovere extend client</td>
+							<td style="border-left: solid">Non necessario</td>
+						</tr>
+						<tr>
+							<td>Patching</td>
+							<td style="border-left: solid">Nodo del Cluster</td>
+							<td style="border-left: solid">Applicare una patch / PSU su Coherence / WLS dei cluster member</td>
+							<td style="border-left: solid">Rolling Restart</td>
+						</tr>
+						<tr style="background-color: #f5f5f5">
+							<td>Patching</td>
+							<td style="border-left: solid">Extended Client</td>
+							<td style="border-left: solid">Applicare una patch / PSU su domain WLS clienti di un Cluster di Coherence</td>
+							<td style="border-left: solid">Non necessario</td>
+						</tr>
+					</table>
             </p>
             <ul class="pager">
             <li><a href="#">Previous</a></li>
