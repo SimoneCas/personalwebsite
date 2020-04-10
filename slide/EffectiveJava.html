@@ -374,9 +374,57 @@ private int hashCode; // Automatically initialized to 0
 return result;
 }        
               		</pre>
-              		*** CONTINUARE ADLLA SLIDE 66 (Consider implementing Comparable) ****
  				</p>	
           	</section>	
+          	<section>
+ 				<h4>Considerare implementazione di Comparable 1</h4>
+ 				<p class="testo">
+              		Metodo non ereditato da Object ma presente nell'interfaccia Comparable (compareTo). Utile quando si implementa una Value Class, permette di comparare ed ordinare l'oggetto nel quale viene implementato. Implementando questo metodo si potranno sfruttare tutte le potenzialità delle strutture dati che si basano su ordinamento. 
+              	</p>
+              	<pre class="code">
+public interface Comparable<T> {
+	int compareTo(T t);
+}
+              	</pre>
+              	<p class="testo">
+              		Attenzione perchè non sempre l'equals corrisponde all'ugualianza del compareTo: 
+              	</p>
+              		<i style="font-size: 14pt">"consider the BigDecimal class, whose compareTo method is inconsistent with equals. If you create an empty HashSet instance and then add new BigDecimal("1.0") and new BigDecimal("1.00"), the set will contain two elements because the two BigDecimal instances added to the set are unequal when compared using the equals method. If, however, you perform the same
+					procedure using a TreeSet instead of a HashSet, the set will contain only one element because the two BigDecimal instances are equal when compared using the compareTo method."</i>
+				
+			</section>
+			<section>
+				<h4>Considerare implementazione di Comparable 2</h4>
+				<p class="testo">
+					Esempio di compareTo implementato su più campi Java 7:
+				</p>
+				<pre class="code">
+// Multiple-field Comparable with primitive fields
+public int compareTo(PhoneNumber pn) {
+	int result = Short.compare(areaCode, pn.areaCode);
+		if (result == 0) {
+			result = Short.compare(prefix, pn.prefix);
+			if (result == 0)
+				result = Short.compare(lineNum, pn.lineNum);
+		}
+	return result;
+}
+				</pre>
+				<p class="testo">
+					Esempio di compareTo Java 8
+              	</p>
+              	<pre class="code">
+private static final Comparator<PhoneNumber> COMPARATOR =
+	comparingInt((PhoneNumber pn) -> pn.areaCode)
+		.thenComparingInt(pn -> pn.prefix)
+		.thenComparingInt(pn -> pn.lineNum);
+
+public int compareTo(PhoneNumber pn) {
+	return COMPARATOR.compare(this, pn);
+}
+              	</pre>
+ 			</section>
+ 			CONTINUARE DA SLIDE 73 Classes and Interfaces
           </section>
           <!-- END SECTIOND "Metodi comuni a tutti gli oggetti" -->
 
