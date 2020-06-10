@@ -1,0 +1,149 @@
+  <!doctype html>
+  <html lang="en">
+    <head>
+      <meta charset="utf-8">
+
+      <title>S.O.L.I.D Principles</title>
+
+      <meta name="description" content="Presentazione per descrivere i principi S.O.L.I.D nello sviluppo del codice">
+      <meta name="author" content="Simone Casamassa">
+
+      <meta name="apple-mobile-web-app-capable" content="yes">
+      <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+      <link rel="stylesheet" href="css/reveal.css">
+      <link rel="stylesheet" href="css/theme/blood.css" id="theme">
+
+      <!-- Code syntax highlighting -->
+      <link rel="stylesheet" href="lib/css/zenburn.css">
+
+      <!-- internal CSS for single page -->
+      <style type="text/css">
+      p.testo{
+        font-size:22pt;
+      }
+	  
+	  p.testo_left{
+        font-size:22pt;
+		text-align: left;
+      }
+	  
+	  p.sottoTitolo {
+		text-align:left; 
+		font-weight:bold; 
+		margin-top:2%;
+	  }
+      </style>
+      <!-- Printing and PDF exports -->
+      <script>
+        var link = document.createElement( 'link' );
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+        document.getElementsByTagName( 'head' )[0].appendChild( link );
+      </script>
+    </head>
+    <body>
+      <div class="reveal">
+        <!-- Any section element inside of this container is displayed as a slide -->
+        <div class="slides">
+          <section>
+            <h2>S.O.L.I.D Principles</h2>
+          </section>
+          
+          <section>
+             <h3>Introduction</h3>
+              <p class="testo">
+              	If you are familiar with Object-Oriented Programming, then you’ve probably heard about the SOLID principles.
+				<br><br>
+				These five software development principles are guidelines to follow when building software so that it is easier to scale and maintain. They were made popular by a software engineer, Robert C. Martin.
+              </p>  
+          </section>
+
+          
+		  <section>
+			 <h3>S — Single Responsibility</h3>
+			  <p class="testo">
+			  A class should have a single responsibility
+			  <br/><br/>
+			  <img src="imgs/solid-s.JPG" height="400px"/>
+			  </p> 
+		  </section>
+		  <section>
+			 <h3>O — Open-Closed</h3>
+			  <p class="testo">
+			  Classes should be open for extension, but closed for modification
+			  <br/><br/>
+			  <img src="imgs/solid-o.JPG" height="400px"/>
+			  </p> 
+		  </section>
+		  <section>
+			 <h3>L — Liskov Substitution</h3>
+			  <p class="testo">
+			  If S is a subtype of T, then objects of type T in a program may be replaced with objects of type S without altering any of the desirable properties of that program.
+			  <br/><br/>
+			  <img src="imgs/solid-l.JPG" height="400px"/>
+			  </p> 
+		  </section>
+		  <section>
+			 <h3>I — Interface Segregation</h3>
+			  <p class="testo">
+			  Clients should not be forced to depend on methods that they do not use.
+			  <br/><br/>
+			  <img src="imgs/solid-i.JPG" height="400px"/>
+			  </p> 
+		  </section>
+		  <section>
+			 <h3>D — Dependency Inversion</h3>
+			  <p class="testo">
+			  High-level modules should not depend on low-level modules. Both should depend on the abstraction.
+			  <br><br>
+			  Abstractions should not depend on details. Details should depend on abstractions.
+			  <br/><br/>
+			  <img src="imgs/solid-d.JPG" height="400px"/>
+			  </p> 
+		  </section>
+
+          <section>
+            <h1>Fine</h1>
+            <h3>Grazie</h3>
+            <h4><a href="http://www.simonecasamassa.it">SIMONECASAMASSA.IT</a></h4>
+          </section>
+
+        </div>
+        <div style="position:absolute; bottom:0; left:0; margin-left:1%; font-size:16pt">
+          <p style="text-align:left; ">
+              <a href="">Simone Casamassa</a>
+          </p>
+        </div>
+      </div>
+
+      <script src="lib/js/head.min.js"></script>
+      <script src="js/reveal.js"></script>
+
+      <script>
+       // Full list of configuration options available at:
+       // https://github.com/hakimel/reveal.js#configuration
+       Reveal.initialize({
+         controls: true,
+         progress: true,
+         history: true,
+         center: true,
+
+         transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+         // Optional reveal.js plugins
+         dependencies: [
+           { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+           { src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+           { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+           { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+           { src: 'plugin/zoom-js/zoom.js', async: true },
+           { src: 'plugin/notes/notes.js', async: true }
+         ]
+       });
+      </script>
+    </body>
+  </html>
