@@ -68,9 +68,6 @@
 									<li>
 										<a href="index.html" >HOME</a>
 									</li>
-									<li>
-										<a href="curriculum.html" >CURRICULUM</a>
-									</li>
 									<li class="dropdown">
 										<a href="progettilavoro.html" >PROGETTI</a>
 									</li>
@@ -105,7 +102,7 @@
 								Simone Casamassa
 							</div>
 							<p class="lead" id="subtitle">
-								The important thing is not to stop questioning
+								Think, believe, dream, and dare.
 							</p>
 							<!--<a class="btn btn-large btn-primary" href="#">Sign up today</a>-->
 						</div>
@@ -131,6 +128,25 @@
 		
 		
 		<div class="col-sm-8 blog-main" style="width:75%; float:left">
+		
+			<!-- blog jta-->
+			  <div class="blog-post">
+				<h2 class="blog-post-title"><a name="jta" class="anchorArticle">   </a></h2>
+				<br><br><br>
+				<h2 class="blog-post-title">JTA</h2>
+				<p class="blog-post-meta">Novembre 07, 2020</p>
+
+					<p>
+						Infografica che riassume le possibili configurazioni Transazionali negli EJB, tramite Java Transaction API:<br><br>
+						<img src="img/ejb-transaction.jpg"/>
+						<br>
+					</p>
+				</p>
+				<ul class="pager">
+				<li><a href="#">Top</a></li>
+			  </ul>
+
+			</div><!-- end blog white paper coherence -->
 
 		  <!-- blog solid-->
           <div class="blog-post">
@@ -147,8 +163,6 @@
 				</p>
             </p>
             <ul class="pager">
-            <li><a href="#">Previous</a></li>
-            <li><a href="#whitePaperCoherence">Next</a></li>
             <li><a href="#">Top</a></li>
           </ul>
 
@@ -280,8 +294,6 @@
 					</table>
             </p>
             <ul class="pager">
-            <li><a href="#solid">Previous</a></li>
-            <li><a href="#projectTool">Next</a></li>
             <li><a href="#">Top</a></li>
           </ul>
 
@@ -307,8 +319,6 @@
 	            </p>
             </p>
             <ul class="pager">
-            <li><a href="#whitePaperCoherence">Previous</a></li>
-            <li><a href="#streamVsParallel">Next</a></li>
             <li><a href="#">Top</a></li>
           </ul>
 
@@ -395,8 +405,6 @@ pool.awaitTermination(10, TimeUnit.SECONDS);
 			</p>
             </p>
             <ul class="pager">
-            <li><a href="#projectTool">Previous</a></li>
-            <li><a href="#coherencePOFInnerClass">Next</a></li>
             <li><a href="#">Top</a></li>
           </ul>
 
@@ -425,8 +433,6 @@ pool.awaitTermination(10, TimeUnit.SECONDS);
             Nell'esempio precedente viene utilizzato il carattere <b>'$'</b> per indicare che <i>BetType</i> è una InnerClass dichiarata all'interno della classe <i>Bet</i>.
             </p>
             <ul class="pager">
-            <li><a href="#streamVsParallel">Previous</a></li>
-            <li><a href="#coherenceListenersEqualsAndHashCode">Next</a></li>
             <li><a href="#">Top</a></li>
           </ul>
 
@@ -448,8 +454,6 @@ CacheFactory.getTypedCache(cacheName, TypeAssertion.withTypes(keyClass, valueCla
             Al fine di evitare problematiche di Listener duplicati nel Cluster Coherence ricordarsi sempre di cancellare il listener durante lo stop della propria applicazione; inoltre i listener registrati ed eventuali filtri utilizzati dovranno <b>ri-definire i metodi equals e hashCode</b> al fine di gestire correttamente lato Cluster la fase di registrazione e cancellazione dei listeners.
             </p>
             <ul class="pager">
-            <li><a href="#coherencePOFInnerClass">Previous</a></li>
-            <li><a href="#coherenceJmx">Next</a></li>
             <li><a href="#">Top</a></li>
           </ul>
 
@@ -478,8 +482,6 @@ CacheFactory.getTypedCache(cacheName, TypeAssertion.withTypes(keyClass, valueCla
             </pre>
             </p>
             <ul class="pager">
-            <li><a href="#coherenceListenersEqualsAndHashCode">Previous</a></li>
-            <li><a href="#distributedSystem">Next</a></li>
             <li><a href="#">Top</a></li>
           </ul>
 
@@ -508,8 +510,6 @@ CacheFactory.getTypedCache(cacheName, TypeAssertion.withTypes(keyClass, valueCla
             <img src="img/distributedSystem.jpeg"/>
             </p>
             <ul class="pager">
-            <li><a href="#coherenceJmx">Previous</a></li>
-            <li><a href="#weblogicJmsLoadBalancing">Next</a></li>
             <li><a href="#">Top</a></li>
           </ul>
 
@@ -548,8 +548,6 @@ cmo.setLoadBalancingEnabled(true)
 
             </p>
             <ul class="pager">
-            <li><a href="#distributedSystem">Previous</a></li>
-            <li><a href="#weblogicMavenDepdendency">Next</a></li>
             <li><a href="#">Top</a></li>
           </ul>
 
@@ -582,8 +580,6 @@ cmo.setLoadBalancingEnabled(true)
 
             </p>
             <ul class="pager">
-            <li><a href="#weblogicJmsLoadBalancing">Previous</a></li>
-            <li><a href="#rdbms">Next</a></li>
             <li><a href="#">Top</a></li>
           </ul>
 
@@ -678,8 +674,6 @@ Public void myTopLevelJDBCMethod() {
             Guida completa: <a href="http://db360.blogspot.it/2018/03/optimizing-performance-scalability-of.html?elq_mid=109484&sh=8181412132224268261426882615131212260&cmid=WWMK170418P00047">link articolo</a>
             </p>
             <ul class="pager">
-            <li><a href="#weblogicMavenDepdendency">Previous</a></li>
-            <li><a href="#grafici">Next</a></li>
             <li><a href="#">Top</a></li>
           </ul>
 
@@ -699,8 +693,6 @@ Public void myTopLevelJDBCMethod() {
 
             </p>
             <ul class="pager">
-            <li><a href="#rdbms">Previous</a></li>
-            <li><a href="#integrationProblems">Next</a></li>
             <li><a href="#">Top</a></li>
           </ul>
 
@@ -728,8 +720,6 @@ Public void myTopLevelJDBCMethod() {
 			</p>
             
           <ul class="pager">
-            <li><a href="#grafici">Previous</a></li>
-            <li><a href="#devOps">Next</a></li>
             <li><a href="#">Top</a></li>
           </ul>
 
@@ -750,8 +740,6 @@ Public void myTopLevelJDBCMethod() {
 			</p>
             
           <ul class="pager">
-            <li><a href="#integrationProblems">Previous</a></li>
-            <li><a href="#osbBestPractice">Next</a></li>
             <li><a href="#">Top</a></li>
           </ul>
 
@@ -781,8 +769,6 @@ Public void myTopLevelJDBCMethod() {
 			</p>
             
           <ul class="pager">
-            <li><a href="#devOps">Previous</a></li>
-            <li><a href="#joinSql">Next</a></li>
             <li><a href="#">Top</a></li>
           </ul>
 
@@ -803,8 +789,6 @@ Public void myTopLevelJDBCMethod() {
 			<img src="img/join.png"/>
             </p>
           <ul class="pager">
-            <li><a href="#osbBestPractice">Previous</a></li>
-            <li><a href="#">Next</a></li>
             <li><a href="#">Top</a></li>
           </ul>
 
@@ -888,6 +872,7 @@ Public void myTopLevelJDBCMethod() {
               <li>Java
               	<ol class="list-unstyled" type="a">
               		<li><a href="#streamVsParallel">Stream vs Parallel Stream</a></li>
+					<li><a href="#jta">JTA</a></li>
               	</ol>
               </li>
               <li>Sql - Database
