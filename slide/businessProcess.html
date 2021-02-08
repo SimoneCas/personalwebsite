@@ -1,0 +1,171 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+
+    <title>Tecniche di modellazione dei processi di Business</title>
+
+    <meta name="description" content="Tecniche di modellazione dei processi di Business">
+    <meta name="author" content="Simone Casamassa">
+
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+    <link rel="stylesheet" href="css/reveal.css">
+    <link rel="stylesheet" href="css/theme/blood.css" id="theme">
+
+    <!-- Code syntax highlighting -->
+    <link rel="stylesheet" href="lib/css/zenburn.css">
+
+    <!-- Printing and PDF exports -->
+    <script>
+      var link = document.createElement( 'link' );
+      link.rel = 'stylesheet';
+      link.type = 'text/css';
+      link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+      document.getElementsByTagName( 'head' )[0].appendChild( link );
+    </script>
+  </head>
+  <body>
+    <div class="reveal">
+      <!-- Any section element inside of this container is displayed as a slide -->
+      <div class="slides">
+        <section>
+          <h2>Tecniche di modellazione dei processi di Business</h2>
+        </section>
+
+        <section>
+          <h2>Tecniche</h2>
+          <ul>
+            <li>BPMN</li>
+            <li>UML</li>
+            <li>Flowcharts</li>
+            <li>Data Flow Diagrams</li>
+				    <li>PERT Diagrams</li>
+				    <li>Functional Flow Block Diagrams</li>
+          </ul>
+        </section>
+
+        <section>
+          <h3>BPMN</h3>
+          <section>
+            <p>BPMN è uno standard per la modellazione dei processi aziendali che fornisce una notazione grafica 
+            per specificare i processi aziendali in un diagramma grafico, basato su una tecnica 
+            di diagramma di flusso molto simile ai diagrammi di attività UML. 
+            L'obiettivo di BPMN è supportare la gestione dei processi aziendali, sia per gli utenti tecnici 
+            che per gli utenti aziendali, fornendo una notazione intuitiva per gli utenti aziendali, ma in 
+            grado di rappresentare la semantica dei processi complessi. La specifica BPMN fornisce anche una 
+            mappatura tra la grafica della notazione e i costrutti sottostanti dei linguaggi di esecuzione, in 
+            particolare Business Process Execution Language (BPEL)</p>
+          </section>
+          <section>
+              <img src="imgs/bpm.png" />
+            </section>
+        </section>
+
+        <section>
+          <h3>UML</h3>
+          <section>
+            <p>UML offre molti diagrammi orientati alla descrizioni delle soluzioni software. Molti diagrammi
+              offrono una visione orientata agli oggetti; tra i diagrammi disponibili il diagramma delle attività offre
+              un buon compromesso tra astrazione e dettagli di processo che possono essere descritti.
+            </p>
+          </section>
+          <section>
+              <img src="imgs/activity.png" width="45%"/>
+          </section>
+        </section>
+
+        <section>
+          <h3>Data Flow Diagrams</h3>
+          <section>
+          <p>I diagrammi di flusso dei dati sono, per definizione, incentrati sui dati e non forniscono 
+            un modo chiaro per includere tutte le parti interessate nel processo mentre BPMN può farlo. 
+            Tuttavia, se i flussi di lavoro sono in gran parte guidati dai dati o basati su flussi di 
+            informazioni, questa forma di notazione dei processi aziendali potrebbe soddisfare le tue esigenze.
+          </p>
+        </section>
+            <section>
+              <img src="imgs/dfd.png" />
+            </section>
+        </section>
+
+        <section>
+          <h3>PERT Diagrams</h3>
+          <section>
+          <p>I diagrammi PERT, cercano di suddividere i flussi dei processi aziendali in linee temporali 
+            stimando i tempi più brevi, più lunghi e più probabili per il completamento di ogni fase di un 
+            processo aziendale.
+            Il valore del diagramma PERT è che non solo mostra il percorso critico che deve essere seguito
+            verso i risultati, ma aiuta anche a determinare tempi realistici per il processo. Ciò lo rende 
+            particolarmente utile nella definizione di obiettivi e traguardi e nel confrontare diversi 
+            approcci di processo per determinare quale sarà più efficiente.
+          </p>
+        </section>
+            <section>
+              <img src="imgs/PERT.png" />
+            </section>
+        </section>
+
+        <section>
+          <h3>FFD</h3>
+          <section>
+          <p>I diagrammi funzionali a blocchi sono utili per la mappatura dei processi aziendali. Il loro focus 
+            è l'ordine di esecuzione di compiti/funzioni in una sequenza di blocchi ordinati.
+            Ogni blocco funzionale può essere ulteriormente suddiviso in un diagramma separato che mostra 
+            le sotto-attività all'interno di ogni blocco funzionale. Naturalmente, questo si traduce in un 
+            sacco di diagrammi che rappresentano un singolo processo, ma è facile incrociarli rispetto al 
+            diagramma di primo livello.
+            
+            Alcune aziende preferiscono gli FFD perché, nonostante la necessità di diversi diagrammi, sono 
+            relativamente facili da seguire, anche quando il processo è piuttosto complesso.
+          </p>
+          </section>
+            <section>
+              <img src="imgs/FFD.png" width="40%"/>
+            </section>
+        </section>
+
+        <section>
+          <h1>Fine</h1>
+          <h3>Grazie</h3>
+          <h4><a href="http://www.simonecasamassa.it">SIMONECASAMASSA.IT</a></h4>
+        </section>
+
+      </div>
+      <div style="position:absolute; bottom:0; left:0; margin-left:1%; font-size:16pt">
+        <p style="text-align:left; ">
+            <a href="">simonecasamassa.it</a>
+        </p>
+      </div>
+    </div>
+
+    <script src="lib/js/head.min.js"></script>
+    <script src="js/reveal.js"></script>
+
+    <script>
+     // Full list of configuration options available at:
+     // https://github.com/hakimel/reveal.js#configuration
+     Reveal.initialize({
+       controls: true,
+       progress: true,
+       history: true,
+       center: true,
+
+       transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+       // Optional reveal.js plugins
+       dependencies: [
+         { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+         { src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+         { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+         { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+         { src: 'plugin/zoom-js/zoom.js', async: true },
+         { src: 'plugin/notes/notes.js', async: true }
+       ]
+     });
+    </script>
+  </body>
+</html>
