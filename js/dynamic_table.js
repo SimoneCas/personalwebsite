@@ -1,7 +1,7 @@
 /* link first project */		
 $(document).ready(function() {
 	var firstRow = $('th:contains("WIDESB"):first').parent();
-	var osbRow = $('<tr><th class="input" colspan="5">Technology Reply - Wind Integrated Data Enterprise </th></tr>');
+	var osbRow = $('<tr><th class="input" colspan="5">Wind Integrated Data Enterprise </th></tr>');
 	osbRow
 		.addClass('group')
 		.insertBefore(firstRow)
@@ -21,7 +21,7 @@ $(document).ready(function() {
 		.fadeOut('fast');
 		
 	var secondRow = $('th:contains("IAM"):first').parent();
-	var oimRow = $('<tr><th class="input" colspan="5">Technology Reply - Oracle Identity Management </th></tr>');
+	var oimRow = $('<tr><th class="input" colspan="5">Oracle Identity Management </th></tr>');
 	oimRow
 		.addClass('group')
 		.insertBefore(secondRow)
@@ -41,7 +41,7 @@ $(document).ready(function() {
 		.fadeOut('fast');
 
 	var thirdRow = $('th:contains("Sicurezza"):first').parent();
-	var softRow = $('<tr><th class="input" colspan="5">Soft-strategy - Sicurezza delle reti </th></tr>');
+	var softRow = $('<tr><th class="input" colspan="5">Sicurezza delle reti </th></tr>');
 	softRow
 		.addClass('group')
 		.insertBefore(thirdRow)
@@ -61,7 +61,7 @@ $(document).ready(function() {
 		.fadeOut('fast');
 
 var fourthRow = $('th:contains("NFC"):first').parent();
-	var nfcRow = $('<tr><th class="input" colspan="5">Elis Consulting - NFC Android </th></tr>');
+	var nfcRow = $('<tr><th class="input" colspan="5">NFC Android</th></tr>');
 	nfcRow
 		.addClass('group')
 		.insertBefore(fourthRow)
@@ -81,7 +81,7 @@ var fourthRow = $('th:contains("NFC"):first').parent();
 		.fadeOut('fast');
 
 var fifthRow = $('th:contains("Face"):first').parent();
-	var opencvRow = $('<tr><th class="input" colspan="5">Gruppo MCR - OpenCV Face Recognition</th></tr>');
+	var opencvRow = $('<tr><th class="input" colspan="5">OpenCV Face Recognition</th></tr>');
 	opencvRow
 		.addClass('group')
 		.insertBefore(fifthRow)
@@ -100,83 +100,103 @@ var fifthRow = $('th:contains("Face"):first').parent();
 		.siblings(':contains("Face")')
 		.fadeOut('fast');
 		
-	var sixthRow = $('th:contains("655"):first').parent();
-	var acea655Row = $('<tr><th class="input" colspan="5">Technology Reply Roma - Acea Monitoraggio 655</th></tr>');
+	var sixthRow = $('th:contains("Monitoraggio processi"):first').parent();
+	var acea655Row = $('<tr><th class="input" colspan="5">Monitoraggio processi aziendali</th></tr>');
 	acea655Row 
 		.addClass('group')
 		.insertBefore(sixthRow)
 		.click(function(){
 			if( $(this).hasClass('open') ){
 				$(this)
-				.siblings(':contains("655")')
+				.siblings(':contains("Monitoraggio processi")')
 				.fadeOut('normal');
 			}else{
 				$(this)
-				.siblings(':contains("655")')
+				.siblings(':contains("Monitoraggio processi")')
 				.fadeIn('normal');
 			}
 			$(this).toggleClass('open');
 		})
-		.siblings(':contains("655")')
+		.siblings(':contains("Monitoraggio processi")')
 		.fadeOut('fast');
 
-	var seventhRow = $('th:contains("GEDI"):first').parent();
-	var gediRow = $('<tr><th class="input" colspan="5">Technology Reply Roma - GEDI - Migrazione Office 365</th></tr>');
+	var seventhRow = $('th:contains("Migrazione Office 365"):first').parent();
+	var gediRow = $('<tr><th class="input" colspan="5">Migrazione Office 365</th></tr>');
 	gediRow 
 		.addClass('group')
 		.insertBefore(seventhRow)
 		.click(function(){
 			if( $(this).hasClass('open') ){
 				$(this)
-				.siblings(':contains("GEDI")')
+				.siblings(':contains("Migrazione Office 365")')
 				.fadeOut('normal');
 			}else{
 				$(this)
-				.siblings(':contains("GEDI")')
+				.siblings(':contains("Migrazione Office 365")')
 				.fadeIn('normal');
 			}
 			$(this).toggleClass('open');
 		})
-		.siblings(':contains("GEDI")')
+		.siblings(':contains("Migrazione Office 365")')
 		.fadeOut('fast');
 
-	var eighthRow = $('th:contains("1-SISAL"):first').parent();
-	var sisalRow = $('<tr><th class="input" colspan="5">Technology Reply Roma - 1-SISAL MATCHPOINT - POC Terminali</th></tr>');
+	var eighthRow = $('th:contains("POC Terminali"):first').parent();
+	var sisalRow = $('<tr><th class="input" colspan="5">POC Terminali</th></tr>');
 	sisalRow 
 		.addClass('group')
 		.insertBefore(eighthRow)
 		.click(function(){
 			if( $(this).hasClass('open') ){
 				$(this)
-				.siblings(':contains("1-SISAL")')
+				.siblings(':contains("POC Terminali")')
 				.fadeOut('normal');
 			}else{
 				$(this)
-				.siblings(':contains("1-SISAL")')
+				.siblings(':contains("POC Terminali")')
 				.fadeIn('normal');
 			}
 			$(this).toggleClass('open');
 		})
-		.siblings(':contains("1-SISAL")')
+		.siblings(':contains("POC Terminali")')
 		.fadeOut('fast');
 
-	var ninethRow = $('th:contains("2-SISAL"):first').parent();
-	var sisalBORow = $('<tr><th class="input" colspan="5">Technology Reply Roma - 2-SISAL MATCHPOINT - Betting Offer</th></tr>');
+	var ninethRow = $('th:contains("Betting Offer"):first').parent();
+	var sisalBORow = $('<tr><th class="input" colspan="5">Betting Offer System</th></tr>');
 	sisalBORow 
 		.addClass('group')
 		.insertBefore(ninethRow)
 		.click(function(){
 			if( $(this).hasClass('open') ){
 				$(this)
-				.siblings(':contains("2-SISAL")')
+				.siblings(':contains("Betting Offer")')
 				.fadeOut('normal');
 			}else{
 				$(this)
-				.siblings(':contains("2-SISAL")')
+				.siblings(':contains("Betting Offer")')
 				.fadeIn('normal');
 			}
 			$(this).toggleClass('open');
 		})
-		.siblings(':contains("2-SISAL")')
+		.siblings(':contains("Betting Offer")')
+		.fadeOut('fast');
+
+	var tenthRow = $('th:contains("Cashout"):first').parent();
+	var sisalCSRow = $('<tr><th class="input" colspan="5">Cashout System</th></tr>');
+	sisalCSRow 
+		.addClass('group')
+		.insertBefore(tenthRow)
+		.click(function(){
+			if( $(this).hasClass('open') ){
+				$(this)
+				.siblings(':contains("Cashout")')
+				.fadeOut('normal');
+			}else{
+				$(this)
+				.siblings(':contains("Cashout")')
+				.fadeIn('normal');
+			}
+			$(this).toggleClass('open');
+		})
+		.siblings(':contains("Cashout")')
 		.fadeOut('fast');
 });
