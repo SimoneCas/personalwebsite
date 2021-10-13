@@ -528,6 +528,34 @@ CacheFactory.getTypedCache(cacheName, TypeAssertion.withTypes(keyClass, valueCla
             <b>Un sistema distribuito può soddisfare solo due delle tre proprietà descritte.</b>
             <br><br><br>
             <img src="img/distributedSystem.jpeg"/>
+			<br>
+			Domande principali a cui rispondere per poter scegliere la miglior base dati:
+			<ul>
+				<li>Quante relazioni esistono tra i dati?</li>
+				<li>Quanto è complesso il dato salvato?</li>
+				<li>Quanto spesso i dati cambiano?</li>
+				<li>Quanto spesso i dati vengono interrogati? Durante le interrogazioni si considerano le relazioni tra dati?</li>
+				<li>Quanto è critica l'applicazione in uno scenario di disastro?</li>
+			</ul>
+			Caratteristiche di un <b>DB Relazionale</b>:
+			<ul>
+				<li>Ottimizzato per le scritture, offre consistency e availability</li>
+				<li>Vantaggi: semplicità di utilizzo, facilità di query, data-integrity</li>
+				<li>Svantaggi: limiti nella grandezza dei campi, difficili da far scalare</li>
+			</ul>
+			Caratteristiche di un <b>DB non Relazionale</b>:
+			<ul>
+				<li>Ottimizzato per le letture, offrono availability e partition tolerance oppure consistency e partition tolerance</li>
+				<li>Vantaggi: flessibilità nella gestione dei dati, scalabilità</li>
+				<li>Svantaggi: data consistency, mancata standardizzazione</li>
+			</ul>
+			Tipologie di DB non Relazionali:
+			Caratteristiche di un <b>DB Relazionale</b>:
+			<ul>
+				<li>Key-Value: funziona meglio con uno schema di database semplice. È meglio per molte letture, scritture e pochi aggiornamenti</li>
+				<li>Document: funziona meglio se hai bisogno di uno schema flessibile. I dati vengono archiviati in formato XML o JSON. Offre prestazioni di lettura elevate e puoi bilanciare le prestazioni di lettura con le prestazioni di scrittura</li>
+				<li>Graph: ottimo quando si dispone di uno schema di database complesso da navigare tra le relazioni degli oggetti</li>
+			</ul>
             </p>
             <ul class="pager">
             <li><a href="#">Top</a></li>
