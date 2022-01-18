@@ -129,6 +129,35 @@
 		
 		<div class="col-sm-8 blog-main" style="width:75%; float:left">
       
+	  <!-- blog code review-->
+			  <div class="blog-post">
+          <h2 class="blog-post-title"><a name="codeReview" class="anchorArticle">   </a></h2>
+          <br><br><br>
+          <h2 class="blog-post-title">Code Review</h2>
+          <p class="blog-post-meta">Gennaio 18, 2022</p>
+  
+            <p>
+              Checklist Code Review per applicazioni distribuite:
+			  <ol>
+				<li>Verificare che nell'integrazion con sistemi esterni siano definiti flussi che gestiscono gli errori</li>
+				<li>Verificare che sia presente un piano di recovery a seguito di fail o shutdown (restore di flussi che erano attivi)</li>
+				<li>Verificare che siano sempre configurati timeout nelle chiamate ai sistemi esterni e retry in caso di timeout</li>
+				<li>Verificare che si utilizzi il Circuit Breaker</li>
+				<li>Verificare che il numero di interazioni con sistemi esterni sia "lecito" con chiamate singole e verificare se convertirle in chiamate "massive" (aggregate)</li>
+				<li>Verificare che le API siano idempotenti</li>
+				<li>Verificare l'utilizzo di Cache dove possibile</li>
+				<li>Vericare la configurabilità dell'applicazione: quali da db, quali da file interno, quali da file esterno, quali da System Property</li>
+				<li>Verificare correttezza pom</li>
+				<li>Verificare code quality e vulnerabilità tramite SonarQube</li>
+			  </ol>
+            </p>
+          </p>
+          <ul class="pager">
+          <li><a href="#">Top</a></li>
+          </ul>
+  
+        </div><!-- end blog jta -->
+		
       <!-- blog java concurrency-->
 			  <div class="blog-post">
           <h2 class="blog-post-title"><a name="javaConcurrency" class="anchorArticle">   </a></h2>
@@ -943,6 +972,7 @@ Public void myTopLevelJDBCMethod() {
 			  </li>
 			  <li>Altro
 				<ol class="list-unstyled" type="a">
+					<li><a href="#codeReview">Code Review</a></li>
 					<li><a href="#solid">S.O.L.I.D.</a></li>
 					<li><a href="#grafici">Visualizzazione dati</a></li>
 					<li><a href="#devOps">DevOps</a></li>
