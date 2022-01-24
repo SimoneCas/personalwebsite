@@ -1,0 +1,440 @@
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>Simone Casamassa</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta name="description" content="">
+		<meta name="author" content="">
+		
+				
+		
+		<!-- Le styles -->
+		<link href="./css/bootstrap.css" rel="stylesheet">
+		<link href="./css/bootstrap-responsive.css" rel="stylesheet">
+		<link href="./css/style.css" rel="stylesheet">
+		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+		<link rel="stylesheet" href="./css/styleDinamica.css" type="text/css" charset="utf-8" />
+
+		<!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+		<!--[if lt IE 9]>
+		<script src="../assets/js/html5shiv.js"></script>
+		<![endif]-->
+
+		<style type="text/css"></style>
+		<style id="holderjs-style" type="text/css">
+			.holderjs-fluid {
+				font-size: 16px;
+				font-weight: bold;
+				text-align: center;
+				font-family: sans-serif;
+				margin: 0
+			}
+			.anchorArticle{
+				//padding-top: 80px; 
+				margin-top: -80px;
+			}
+			.anchorArticle:hover{
+				margin-top: -80px;
+				text-decoration: none; 
+				color: #0088cc;
+			}
+            .customScrollbar{
+                background: #4caf50;
+                height: 8px;
+                width: 0%;
+                opacity: 0.8;
+            }
+		</style>
+		
+		<script type="text/javascript" src="js/redirect_mobile.js"></script>
+		
+	</head>
+
+	<body>
+
+		<!-- NAVBAR
+		================================================== -->
+		<div class="navbar-wrapper">
+			<!-- Wrap the .navbar in .container to center it within the absolutely positioned parent. -->
+			<div class="container">
+
+				<div class="navbar transparent navbar-inverse navbar-fixed-top" >
+					<div class="navbar-inner">
+						<div class="container">
+							<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse"> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </a>
+							<a class="brand" href="index.html"> <strong><!-- VOLENDO QUI POSSO INSERIRE UN TITOLO IN ALTO A SINISTRA --></strong> </a>
+							<div class="nav-collapse collapse">
+								<ul class="nav pull-right">
+									<li class="dropdown">
+										<a href="index.html">HOME</a>
+									</li>
+									<li class="dropdown">
+										<a href="" class="active">PROGETTAZIONE</a>
+									</li>
+									<li>
+										<a href="java.html" >JAVA</a>
+									</li>
+									<li>
+										<a href="sql.html">SQL</a>
+									</li>
+									<li>
+										<a href="oracle.html">ORACLE</a>
+									</li>
+									<li>
+										<a href="tool.html">TOOL</a>
+									</li>
+									<li>
+										<a href="librerie.html">LIBRERIE</a>
+									</li>
+									<li>
+										<a href="altro.html">ALTRO</a>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+                    <div class="navbar customScrollbar" id="myBar">
+                    </div>
+				</div>
+			</div>
+		</div><!--navbar -->
+
+		<!-- Carousel
+		================================================== -->
+		<div id="myCarousel" class="carousel slide">
+			<div class="carousel-inner">
+				<div class="item active">
+					<img src="./img/background_home.jpg" alt="">
+					<div class="container">
+						<div class="title_container">
+							<div id="application_title">
+								IT Notebook
+							</div>
+							<p class="lead" id="subtitle">
+								Think, believe, dream, and dare.
+							</p>
+							<!--<a class="btn btn-large btn-primary" href="#">Sign up today</a>-->
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- /.carousel-inner -->
+		</div><!-- /.carousel -->
+
+		<!-- Marketing messaging and featurettes
+		================================================== -->
+		<!-- Wrap the rest of the page in another container to center all the content. -->
+
+		<div class="container marketing" >
+		
+
+      <div class="row" style="width:100%" id="blogsContainer">
+		
+		
+		
+		
+		<div class="col-sm-8 blog-main" style="width:75%; float:left">
+      
+	  <!-- blog code review-->
+			  <div class="blog-post">
+          <h2 class="blog-post-title"><a name="codeReview" class="anchorArticle">   </a></h2>
+          <br><br><br>
+          <h2 class="blog-post-title">Code Review</h2>
+          <p class="blog-post-meta">Gennaio 18, 2022</p>
+  
+            <p>
+              Checklist Code Review per applicazioni distribuite:
+			  <ol>
+				<li>Verificare che nell'integrazion con sistemi esterni siano definiti flussi che gestiscono gli errori</li>
+				<li>Verificare che sia presente un piano di recovery a seguito di fail o shutdown (restore di flussi che erano attivi)</li>
+				<li>Verificare che siano sempre configurati timeout nelle chiamate ai sistemi esterni e retry in caso di timeout</li>
+				<li>Verificare che si utilizzi il Circuit Breaker</li>
+				<li>Verificare che il numero di interazioni con sistemi esterni sia "lecito" con chiamate singole e verificare se convertirle in chiamate "massive" (aggregate)</li>
+				<li>Verificare che le API siano idempotenti</li>
+				<li>Verificare l'utilizzo di Cache dove possibile</li>
+				<li>Vericare la configurabilità dell'applicazione: quali da db, quali da file interno, quali da file esterno, quali da System Property</li>
+				<li>Verificare correttezza pom</li>
+				<li>Verificare code quality e vulnerabilità tramite SonarQube</li>
+			  </ol>
+            </p>
+          </p>
+          <ul class="pager">
+          <li><a href="#">Top</a></li>
+          </ul>
+  
+        </div><!-- end blog jta -->
+		
+      
+		  <!-- blog solid-->
+          <div class="blog-post">
+            <h2 class="blog-post-title"><a name="solid" class="anchorArticle">   </a></h2>
+            <br><br><br>
+            <h2 class="blog-post-title">Principi S.O.L.I.D.</h2>
+            <p class="blog-post-meta">Giugno 10, 2020</p>
+
+	            <p>
+					Breve riassunto delle Best Practices S.O.L.I.D. da tenere in considerazione durante lo sviluppo 
+					di applicazioni con linguaggi orientati agli oggetti <br><br>
+					<a href="slide/solid.html">S.O.L.I.D.</a>
+					<br>
+				</p>
+            </p>
+            <ul class="pager">
+            <li><a href="#">Top</a></li>
+          </ul>
+
+        </div><!-- end blog white paper coherence -->
+
+		<!-- blog distributed system -->
+          <div class="blog-post">
+            <h2 class="blog-post-title"><a name="distributedSystem" class="anchorArticle">   </a></h2>
+            <br><br><br>
+            <h2 class="blog-post-title">Sistemi distribuiti</h2>
+            <p class="blog-post-meta">Novembre 05, 2018</p>
+
+            <p>
+            In fase di progettazione della base di dati, a seconda dei diversi requisiti, si dovrà scegliere quale "famiglia" di prodotto utilizzare.
+            <br>
+            Prima di elencare le principali soluzioni software ricapitoliamo le proprietà di un sistema distribuito:
+            <br><br>
+            <b>Consistenza:</b> tutti i nodi nella rete vedono lo stesso valore del dato nello stesso istante; assicurata quindi l'integrità del dato trai i diversi nodi del sistema distribuito.
+            <br><br>
+            <b>Disponibilità:</b> il servizio risulta sempre disponibile garantendo risposte ai client. 
+            <br><br>
+            <b>Tolleranza della partizione:</b> il servizio continua ad operare correttamente anche in presenza di perdita di messaggi o di partizioni di rete.
+            <br><br>
+            <b>Un sistema distribuito può soddisfare solo due delle tre proprietà descritte.</b>
+            <br><br><br>
+            <img src="img/distributedSystem.jpeg"/>
+			<br>
+			Domande principali a cui rispondere per poter scegliere la miglior base dati:
+			<ul>
+				<li>Quante relazioni esistono tra i dati?</li>
+				<li>Quanto è complesso il dato salvato?</li>
+				<li>Quanto spesso i dati cambiano?</li>
+				<li>Quanto spesso i dati vengono interrogati? Durante le interrogazioni si considerano le relazioni tra dati?</li>
+				<li>Quanto è critica l'applicazione in uno scenario di disastro?</li>
+			</ul>
+			Caratteristiche di un <b>DB Relazionale</b>:
+			<ul>
+				<li>Ottimizzato per le scritture, offre consistency e availability</li>
+				<li>Vantaggi: semplicità di utilizzo, facilità di query, data-integrity</li>
+				<li>Svantaggi: limiti nella grandezza dei campi, difficili da far scalare</li>
+			</ul>
+			Caratteristiche di un <b>DB non Relazionale</b>:
+			<ul>
+				<li>Ottimizzato per le letture, offrono availability e partition tolerance oppure consistency e partition tolerance</li>
+				<li>Vantaggi: flessibilità nella gestione dei dati, scalabilità</li>
+				<li>Svantaggi: data consistency, mancata standardizzazione</li>
+			</ul>
+			Tipologie di DB non Relazionali:
+			Caratteristiche di un <b>DB Relazionale</b>:
+			<ul>
+				<li>Key-Value: funziona meglio con uno schema di database semplice. È meglio per molte letture, scritture e pochi aggiornamenti</li>
+				<li>Document: funziona meglio se hai bisogno di uno schema flessibile. I dati vengono archiviati in formato XML o JSON. Offre prestazioni di lettura elevate e puoi bilanciare le prestazioni di lettura con le prestazioni di scrittura</li>
+				<li>Graph: ottimo quando si dispone di uno schema di database complesso da navigare tra le relazioni degli oggetti</li>
+			</ul>
+            </p>
+            <ul class="pager">
+            <li><a href="#">Top</a></li>
+          </ul>
+
+        </div><!-- end blog distributed system -->
+
+		<!-- blog grafici -->
+          <div class="blog-post">
+            <h2 class="blog-post-title"><a name="grafici" class="anchorArticle" >     </a></h2>
+            <br><br><br>
+            <h2 class="blog-post-title">Visualizzazione dati</h2>
+            <p class="blog-post-meta">Aprile 05, 2018</p>
+
+            <p>
+            	La scelta di un grafico nella visualizzazione di informazioni risulta basilare per condividere il corretto messaggio agli altri interlocutori.<br><br>
+            	Il seguente diagramma può aiutare a scegliere il grafico da utilizzare in base al numero ed al genere di variabili da graficare:<br><br>
+            	<img src="img/grafici.png"/>
+
+            </p>
+            <ul class="pager">
+            <li><a href="#">Top</a></li>
+          </ul>
+
+        </div><!-- end blog best practice integration -->
+			
+      <!-- blog best practice integration -->
+          <div class="blog-post">
+            <h2 class="blog-post-title"><a name="integrationProblems" class="anchorArticle" >    </a></h2>
+            <br><br><br>
+            <h2 class="blog-post-title">Problemi d'integrazione</h2>
+            <p class="blog-post-meta">Marzo 14, 2017</p>
+
+            <p>In progetti d'integrazione aspetti trasversali al business come la gestione degli errori rivestono un ruolo 
+            fondamentale.
+            <br>
+			      La presentazione descrive le principali pratiche da adottare in contesti di integrazione ESB, SOA o BPM per poter prevenire e gestire gli errori. In particolar modo saranno trattati 4 punti principali:
+            <ul>
+              <li>Integrazione con servizi a scalabilità limitata</li>
+              <li>Integrazione con servizi non raggiungibili</li>
+              <li>Restituzione d'informazioni d'errore al client</li>
+              <li>Garantire l'elaborazione del messaggio</li>
+			       </ul>
+      <br>
+			<a href="slide/faultHandling.html"><img src="img/integrationProblems.JPG" width="50%"/></a>. 
+			</p>
+            
+          <ul class="pager">
+            <li><a href="#">Top</a></li>
+          </ul>
+
+        </div><!-- end blog best practice integration -->
+      
+      
+      <!-- blog DevOps -->
+          <div class="blog-post">
+            <h2 class="blog-post-title"><a name="devOps" class="anchorArticle" >    </a></h2>
+            <br><br><br>
+            <h2 class="blog-post-title">DevOps Best Practices</h2>
+            <p class="blog-post-meta">Aprile 10, 2016 </p>
+
+            <p>DevOps è un termine entrato da qualche anno nel gergo informatico delle metodologie di sviluppo ed operation IT. Con la seguente presentazione si ricapitolano i principali componenti metodologici, il modo in cui questi si applichino alla realtà e con quali strumenti. <br>Oltre a fornire una panoramica su ciò che DevOps è si forniscono le principali linee guida per adottare teniche di DevOps sul progetto: <br>
+			
+			<br>
+			<a href="slide/devOps.html"><img src="img/dvOpSlide.png" width="50%"/></a>. 
+			</p>
+            
+          <ul class="pager">
+            <li><a href="#">Top</a></li>
+          </ul>
+
+        </div><!-- end blog DevOps -->
+		
+        
+		<!--
+          <div class="blog-post">
+            <h2 class="blog-post-title">Sample blog post</h2>
+            <p class="blog-post-meta">January 1, 2014 by <a href="#">Mark</a></p>
+
+            <p>This blog post shows a few different types of content that's supported and styled with Bootstrap. Basic typography, images, and code are all supported.</p>
+            <hr>
+            <p>Cum sociis natoque penatibus et magnis <a href="#">dis parturient montes</a>, nascetur ridiculus mus. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Sed posuere consectetur est at lobortis. Cras mattis consectetur purus sit amet fermentum.</p>
+            <blockquote>
+              <p>Curabitur blandit tempus porttitor. <strong>Nullam quis risus eget urna mollis</strong> ornare vel eu leo. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+            </blockquote>
+            <p>Etiam porta <em>sem malesuada magna</em> mollis euismod. Cras mattis consectetur purus sit amet fermentum. Aenean lacinia bibendum nulla sed consectetur.</p>
+            <h2>Heading</h2>
+            <p>Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.</p>
+            <h3>Sub-heading</h3>
+            <p>Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
+            <pre><code>Example code block</code></pre>
+            <p>Aenean lacinia bibendum nulla sed consectetur. Etiam porta sem malesuada magna mollis euismod. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa.</p>
+            <h3>Sub-heading</h3>
+            <p>Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Aenean lacinia bibendum nulla sed consectetur. Etiam porta sem malesuada magna mollis euismod. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
+            <ul>
+              <li>Praesent commodo cursus magna, vel scelerisque nisl consectetur et.</li>
+              <li>Donec id elit non mi porta gravida at eget metus.</li>
+              <li>Nulla vitae elit libero, a pharetra augue.</li>
+            </ul>
+            <p>Donec ullamcorper nulla non metus auctor fringilla. Nulla vitae elit libero, a pharetra augue.</p>
+            <ol>
+              <li>Vestibulum id ligula porta felis euismod semper.</li>
+              <li>Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</li>
+              <li>Maecenas sed diam eget risus varius blandit sit amet non magna.</li>
+            </ol>
+            <p>Cras mattis consectetur purus sit amet fermentum. Sed posuere consectetur est at lobortis.</p>
+          </div>
+		  -->
+		
+		 <!--
+          <div class="blog-post">
+            <h2 class="blog-post-title">Another blog post</h2>
+            <p class="blog-post-meta">December 23, 2013 by <a href="#">Jacob</a></p>
+
+            <p>Cum sociis natoque penatibus et magnis <a href="#">dis parturient montes</a>, nascetur ridiculus mus. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Sed posuere consectetur est at lobortis. Cras mattis consectetur purus sit amet fermentum.</p>
+            <blockquote>
+              <p>Curabitur blandit tempus porttitor. <strong>Nullam quis risus eget urna mollis</strong> ornare vel eu leo. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+            </blockquote>
+            <p>Etiam porta <em>sem malesuada magna</em> mollis euismod. Cras mattis consectetur purus sit amet fermentum. Aenean lacinia bibendum nulla sed consectetur.</p>
+            <p>Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.</p>
+          </div>
+		  -->
+		  <!--
+          <div class="blog-post">
+            <h2 class="blog-post-title">New feature</h2>
+            <p class="blog-post-meta">December 14, 2013 by <a href="#">Chris</a></p>
+
+            <p>Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Aenean lacinia bibendum nulla sed consectetur. Etiam porta sem malesuada magna mollis euismod. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
+            <ul>
+              <li>Praesent commodo cursus magna, vel scelerisque nisl consectetur et.</li>
+              <li>Donec id elit non mi porta gravida at eget metus.</li>
+              <li>Nulla vitae elit libero, a pharetra augue.</li>
+            </ul>
+            <p>Etiam porta <em>sem malesuada magna</em> mollis euismod. Cras mattis consectetur purus sit amet fermentum. Aenean lacinia bibendum nulla sed consectetur.</p>
+            <p>Donec ullamcorper nulla non metus auctor fringilla. Nulla vitae elit libero, a pharetra augue.</p>
+          </div>
+		  -->
+
+        </div><!-- /.blog-main -->
+
+        <div class="col-sm-3 col-sm-offset-1 blog-sidebar" style="width:24%; float:left">
+          <div class="sidebar-module sidebar-module-inset">
+            <h4>Perchè:</h4>
+            <p>Serie di post per tenere traccia delle soluzioni sviluppate/utilizzate, per condividere guide e materiale utile.</p>
+          </div>
+          <div class="sidebar-module">
+            <h4>Lista:</h4>
+            <ol class="list-unstyled">
+			  <li>Progettazione
+				<ol class="list-unstyled" type="a">
+					<li><a href="#codeReview">Code Review</a></li>
+					<li><a href="#solid">S.O.L.I.D.</a></li>
+					<li><a href="#grafici">Visualizzazione dati</a></li>
+					<li><a href="#devOps">DevOps</a></li>
+          			<li><a href="#integrationProblems">Problemi d'integrazione</a></li>
+          			<li><a href="#distributedSystem">Sistemi distribuiti</a></li>
+				</ol>
+			  </li>
+			  <!--
+              <li><a href="#">Oracle Service Bus</a></li>
+              <li><a href="#">Java</a></li>
+              <li><a href="#">Maven</a></li>
+			  -->
+            </ol>
+          </div>
+        </div><!-- /.blog-sidebar -->
+
+      </div><!-- /.row -->
+
+
+			<!-- FOOTER -->
+			<footer>
+				<p class="pull-right"></p>
+				<p>
+					Simone Casamassa website
+					
+				</p>
+			</footer>
+
+		</div><!-- /.container -->
+<script>
+            // When the user scrolls the page, execute myFunction 
+            window.onscroll = function() {scrollbarFunction()};
+
+            function scrollbarFunction() {
+              console.log("***")
+              var winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+              console.log("winScroll " + winScroll);
+              console.log("1 " +document.documentElement.scrollHeight);
+              console.log("2 " + document.documentElement.clientHeight);
+              var height = document.documentElement.clientHeight;
+              //var height = document.getElementById("myBar").style.height;
+              console.log("height" + height);
+              var scrolled = (winScroll / height) * 100;
+              console.log("scrolled" + scrolled);
+              if (scrolled > 90) {
+               document.getElementById("myBar").style.width = "100%";
+              } else { 
+              document.getElementById("myBar").style.width = scrolled + "%";
+              }
+            }
+</script>
+	</body>
+</html>

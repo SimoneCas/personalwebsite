@@ -1,0 +1,577 @@
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>Simone Casamassa</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta name="description" content="">
+		<meta name="author" content="">
+		
+				
+		
+		<!-- Le styles -->
+		<link href="./css/bootstrap.css" rel="stylesheet">
+		<link href="./css/bootstrap-responsive.css" rel="stylesheet">
+		<link href="./css/style.css" rel="stylesheet">
+		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+		<link rel="stylesheet" href="./css/styleDinamica.css" type="text/css" charset="utf-8" />
+
+		<!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+		<!--[if lt IE 9]>
+		<script src="../assets/js/html5shiv.js"></script>
+		<![endif]-->
+
+		<style type="text/css"></style>
+		<style id="holderjs-style" type="text/css">
+			.holderjs-fluid {
+				font-size: 16px;
+				font-weight: bold;
+				text-align: center;
+				font-family: sans-serif;
+				margin: 0
+			}
+			.anchorArticle{
+				//padding-top: 80px; 
+				margin-top: -80px;
+			}
+			.anchorArticle:hover{
+				margin-top: -80px;
+				text-decoration: none; 
+				color: #0088cc;
+			}
+            .customScrollbar{
+                background: #4caf50;
+                height: 8px;
+                width: 0%;
+                opacity: 0.8;
+            }
+		</style>
+		
+		<script type="text/javascript" src="js/redirect_mobile.js"></script>
+		
+	</head>
+
+	<body>
+
+		<!-- NAVBAR
+		================================================== -->
+		<div class="navbar-wrapper">
+			<!-- Wrap the .navbar in .container to center it within the absolutely positioned parent. -->
+			<div class="container">
+
+				<div class="navbar transparent navbar-inverse navbar-fixed-top" >
+					<div class="navbar-inner">
+						<div class="container">
+							<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse"> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </a>
+							<a class="brand" href="index.html"> <strong><!-- VOLENDO QUI POSSO INSERIRE UN TITOLO IN ALTO A SINISTRA --></strong> </a>
+							<div class="nav-collapse collapse">
+								<ul class="nav pull-right">
+									<li class="dropdown">
+										<a href="index.html">HOME</a>
+									</li>
+									<li class="dropdown">
+										<a href="progettazione.html">PROGETTAZIONE</a>
+									</li>
+									<li>
+										<a href="java.html" >JAVA</a>
+									</li>
+									<li>
+										<a href="sql.html">SQL</a>
+									</li>
+									<li>
+										<a href="" class="active">ORACLE</a>
+									</li>
+									<li>
+										<a href="tool.html">TOOL</a>
+									</li>
+									<li>
+										<a href="librerie.html">LIBRERIE</a>
+									</li>
+									<li>
+										<a href="altro.html">ALTRO</a>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+                    <div class="navbar customScrollbar" id="myBar">
+                    </div>
+				</div>
+			</div>
+		</div><!--navbar -->
+
+		<!-- Carousel
+		================================================== -->
+		<div id="myCarousel" class="carousel slide">
+			<div class="carousel-inner">
+				<div class="item active">
+					<img src="./img/background_home.jpg" alt="">
+					<div class="container">
+						<div class="title_container">
+							<div id="application_title">
+								IT Notebook
+							</div>
+							<p class="lead" id="subtitle">
+								Think, believe, dream, and dare.
+							</p>
+							<!--<a class="btn btn-large btn-primary" href="#">Sign up today</a>-->
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- /.carousel-inner -->
+		</div><!-- /.carousel -->
+
+		<!-- Marketing messaging and featurettes
+		================================================== -->
+		<!-- Wrap the rest of the page in another container to center all the content. -->
+
+		<div class="container marketing" >
+		
+      <div class="row" style="width:100%" id="blogsContainer">
+		
+		
+		
+		
+		<div class="col-sm-8 blog-main" style="width:75%; float:left">
+      
+	 
+		  <!-- blog white paper coherence-->
+          <div class="blog-post">
+            <h2 class="blog-post-title"><a name="whitePaperCoherence" class="anchorArticle">   </a></h2>
+            <br><br><br>
+            <h2 class="blog-post-title">Coherence 12c, Planning a Successful Deployment</h2>
+            <p class="blog-post-meta">Ottobre 31, 2019</p>
+
+	            <p>
+					Link al White Paper di Oracle nel quale si descrivono tutte le configurazioni e i check da attuare in produzione per rilasciare soluzioni con Oracle Coherence 12c:<br>
+					<a href="slide/oracle-coherence-12c-deployment.pdf">White Paper</a>
+					<br><br>
+					Oltre agli aspetti di configurazione descritti nel White Paper, durante lo sviluppo tenere sempre in considerazione le seguenti linee guida:
+					<ol>
+						<li>Minimizzare gli hop di rete tra nodi applicativi e nodi del datagrid</li>
+						<li>La 'Key Affinity' assicura che i dati siano co-localizzati nella stessa partizione (e non solo nello stesso nodo)</li>
+						<li>Durante l'esecuzione di un Entry Processor, il lock avviene solo sulla entry oggetto di modifica e su eventuali altre entry accedute tramite BackingMap</li>
+					</ol>
+					<br>
+					Elenco delle attività di Operation che richiedono il riavvio dei server:
+					<br>
+					<table style="border-style: solid; font-size: 10pt">
+						<tr style="border-style: solid; background-color: #f5f5f5; font-weight: bold">
+							<td>Area</td>
+							<td style="border-left: solid">Sistema Coherence</td>
+							<td style="border-left: solid">Attività</td>
+							<td style="border-left: solid">Tipologia di riavvio</td>
+						</tr>
+						<tr>
+							<td>Network</td>
+							<td style="border-left: solid">Nodo del Cluster</td>
+							<td style="border-left: solid">Cambio del trasport protocol tra Cluster Members (Cache Servers / Proxy Servers)</td>
+							<td style="border-left: solid">Riavvio completo</td>
+						</tr>
+						<tr style="background-color: #f5f5f5">
+							<td>Network</td>
+							<td style="border-left: solid">Nodo del Cluster</td>
+							<td style="border-left: solid">Cambio della WKA list IP / hostnames</td>
+							<td style="border-left: solid">Riavvio completo</td>
+						</tr>
+						<tr>
+							<td>Network</td>
+							<td style="border-left: solid">Nodo del Cluster</td>
+							<td style="border-left: solid">Cambio dell'IP di un cluster member non in WKA</td>
+							<td style="border-left: solid">Rolling Restart</td>
+						</tr>
+						<tr style="background-color: #f5f5f5">
+							<td>Network</td>
+							<td style="border-left: solid">Extended Client</td>
+							<td style="border-left: solid">Cambio di IP / hostname</td>
+							<td style="border-left: solid">Non necessario</td>
+						</tr>
+						<tr>
+							<td>Cache Configurare</td>
+							<td style="border-left: solid">Nodo del Cluster</td>
+							<td style="border-left: solid">Modifica delle classe che implementano key,value di cache gia in cluster</td>
+							<td style="border-left: solid">Riavvio completo</td>
+						</tr>
+						<tr style="background-color: #f5f5f5">
+							<td>Cache Configurare</td>
+							<td style="border-left: solid">Nodo del Cluster</td>
+							<td style="border-left: solid">Aggiunta nuove cache in cache-config</td>
+							<td style="border-left: solid">Rolling Restart</td>
+						</tr>
+						<tr>
+							<td>Cache Configurare</td>
+							<td style="border-left: solid">Nodo del Cluster</td>
+							<td style="border-left: solid">Cambio in cache partition</td>
+							<td style="border-left: solid">Riavvio completo</td>
+						</tr>
+						<tr style="background-color: #f5f5f5">
+							<td>Cache Configurare</td>
+							<td style="border-left: solid">Extended Client</td>
+							<td style="border-left: solid">Cambio in cache-config, soltanto del cliente</td>
+							<td style="border-left: solid">Non necessario</td>
+						</tr>
+						<tr>
+							<td>Classi applicative</td>
+							<td style="border-left: solid">Nodo del Cluster</td>
+							<td style="border-left: solid">Cambio di Interceptors / Entry Processors / Key Associators / Key / Values classes</td>
+							<td style="border-left: solid">Riavvio competo</td>
+						</tr>
+						<tr style="background-color: #f5f5f5">
+							<td>Classi applicative</td>
+							<td style="border-left: solid">Extended Client</td>
+							<td style="border-left: solid">Cambio delle app che si eseguono negli extend client</td>
+							<td style="border-left: solid">Non necessario</td>
+						</tr>
+						<tr>
+							<td>Database</td>
+							<td style="border-left: solid"> </td>
+							<td style="border-left: solid">Cambio della struttura degli oggetti SQL usati da Coherence (tables, views)</td>
+							<td style="border-left: solid">Riavvio completo</td>
+						</tr>
+						<tr style="background-color: #f5f5f5">
+							<td>Database</td>
+							<td style="border-left: solid"> </td>
+							<td style="border-left: solid">Operazioni sul DB che richiedono shutdown / startup del DB</td>
+							<td style="border-left: solid"Riavvio completo</td>
+						</tr>
+						<tr>
+							<td>Scaling</td>
+							<td style="border-left: solid">Nodo del Cluster</td>
+							<td style="border-left: solid">Aggiungere / rimuovere cluster members o proxy servers</td>
+							<td style="border-left: solid">Non necessario</td>
+						</tr>
+						<tr style="background-color: #f5f5f5">
+							<td>Scaling</td>
+							<td style="border-left: solid">Extended Client</td>
+							<td style="border-left: solid">Aggiungere / rimuovere extend client</td>
+							<td style="border-left: solid">Non necessario</td>
+						</tr>
+						<tr>
+							<td>Patching</td>
+							<td style="border-left: solid">Nodo del Cluster</td>
+							<td style="border-left: solid">Applicare una patch / PSU su Coherence / WLS dei cluster member</td>
+							<td style="border-left: solid">Rolling Restart</td>
+						</tr>
+						<tr style="background-color: #f5f5f5">
+							<td>Patching</td>
+							<td style="border-left: solid">Extended Client</td>
+							<td style="border-left: solid">Applicare una patch / PSU su domain WLS clienti di un Cluster di Coherence</td>
+							<td style="border-left: solid">Non necessario</td>
+						</tr>
+					</table>
+            </p>
+            <ul class="pager">
+            <li><a href="#">Top</a></li>
+          </ul>
+
+        </div><!-- end blog white paper coherence -->
+
+        <!-- blog coherence POF serialization Inner Class -->
+          <div class="blog-post">
+            <h2 class="blog-post-title"><a name="coherencePOFInnerClass" class="anchorArticle">   </a></h2>
+            <br><br><br>
+            <h2 class="blog-post-title">POF Serialization di Inner Class</h2>
+            <p class="blog-post-meta">Giugno 06, 2019</p>
+
+            <p>
+            Se utilizzando Coherence si decide di serializzare gli oggetti tramite Portable Object Format (POF) Serialization bisognerà dichiarare all'interno del file pof-config.xml il mapping tra la classe da serializzare ed il relativo serializzatore.
+            Se la classe da serializzare è una Inner Class dovremo utilizzare la seguente sintassi per indicare la classe oggetto di serializzazione:
+            
+            <pre style="font-style: italic; font-size: 14px; background: #E7E7E7; font-family: Courier;">
+&lt;user-type>
+    &lt;type-id>1001&lt;/type-id>
+    &lt;class-name>it.sample.model.Bet$BetType&lt;/class-name>
+    &lt;serializer>
+       &lt;class-name>com.tangosol.io.pof.EnumPofSerializer&lt;/class-name>
+    &lt;/serializer>
+&lt;/user-type>
+            </pre>
+            Nell'esempio precedente viene utilizzato il carattere <b>'$'</b> per indicare che <i>BetType</i> è una InnerClass dichiarata all'interno della classe <i>Bet</i>.
+            </p>
+            <ul class="pager">
+            <li><a href="#">Top</a></li>
+          </ul>
+
+        </div><!-- end blog coherence POF serialization Inner Class -->
+
+		<!-- blog coherence listener e filtri -->
+          <div class="blog-post">
+            <h2 class="blog-post-title"><a name="coherenceListenersEqualsAndHashCode" class="anchorArticle">   </a></h2>
+            <br><br><br>
+            <h2 class="blog-post-title">Corretta definizione dei Listeners Coherence</h2>
+            <p class="blog-post-meta">Febbraio 19, 2019</p>
+
+            <p>
+            Se utilizzando Coherence si ha la necessità di catturare eventi di modifica della cache, si dovrà registrare alla NamedCache un Listener Coherence con eventualmente un Filtro per rimanere in ascolto solo di eventi relativi ad un sottoinsieme di entry presenti in cache.
+            Un esempio di registrazione di Listener Coherence:
+            <pre style="font-style: italic; font-size: 14px; background: #E7E7E7; font-family: Courier;">
+CacheFactory.getTypedCache(cacheName, TypeAssertion.withTypes(keyClass, valueClass)).addMapListener(listener, new Filter(), false);
+            </pre>
+            Al fine di evitare problematiche di Listener duplicati nel Cluster Coherence ricordarsi sempre di cancellare il listener durante lo stop della propria applicazione; inoltre i listener registrati ed eventuali filtri utilizzati dovranno <b>ri-definire i metodi equals e hashCode</b> al fine di gestire correttamente lato Cluster la fase di registrazione e cancellazione dei listeners.
+            </p>
+            <ul class="pager">
+            <li><a href="#">Top</a></li>
+          </ul>
+
+        </div><!-- end blog coherence listener e filtri -->
+
+        <!-- blog coherence jmx -->
+          <div class="blog-post">
+            <h2 class="blog-post-title"><a name="coherenceJmx" class="anchorArticle">  </a></h2>
+            <br><br><br>
+            <h2 class="blog-post-title">Abilitare jmx per Coherence</h2>
+            <p class="blog-post-meta">Febbraio 15, 2019</p>
+
+            <p>
+            Per abilitare il monitoraggio degli mBean Coherence tramite la specifica jmx bisogna lanciare i Managed Server data storage con una delle due seguenti properties:
+            <pre style="font-style: italic; font-size: 14px; background: #E7E7E7; font-family: Courier;">
+-Dcoherence.management=local-only   //monitoraggio abilitato localmente
+-Dcoherence.management=all          //monitoraggio abilitato da remoto
+            </pre>
+
+            Verificare che <b>non</b> siano presenti le seguenti properties che renderebbero non visibili alcuni mBean di Coherence:
+            <pre style="font-style: italic; font-size: 14px; background: #E7E7E7; font-family: Courier;">
+-Dcom.sun.management.jmxremote=true 
+-Dcom.sun.management.jmxremote.ssl=false 
+-Dcom.sun.management.jmxremote.authenticate=false 
+-Dcom.sun.management.jmxremote.port=10039
+            </pre>
+            </p>
+            <ul class="pager">
+            <li><a href="#">Top</a></li>
+          </ul>
+
+        </div><!-- end blog coherence jmx -->
+
+		<!-- blog weblogic jms load balancing -->
+          <div class="blog-post">
+            <h2 class="blog-post-title"><a name="weblogicJmsLoadBalancing" class="anchorArticle">   </a></h2>
+            <br><br><br>
+            <h2 class="blog-post-title">Weblogic JMS - Load Balancing</h2>
+            <p class="blog-post-meta">Ottobre 25, 2018</p>
+
+            <p>
+            Se si sviluppa un'applicazione con Producer JMS in un cluster Weblogic formato da più istanze di Managed Server la configurazione di default della Connection Factory JMS abiliterà solo accodamenti "single node", ovvero ogni Producer scriverà sulla destinazione locale alla sua istanza, non sfruttando così il parallelismo delle esecuzioni multi server.
+            <br><br>
+            Per abilitare un accodamento bilanciato su tutto il cluster bisogna valorizzare le seguenti configurazioni come segue:
+            <ul>
+            	<li>Server Affinity Enabled --> "False"</li>
+            	<li>Load Balancing Enabled --> "True"</li>
+            </ul>
+            <br><br>
+            Esempio di script WLST:
+            <br>
+            <pre style="font-style: italic; font-size: 14px; background: #E7E7E7; font-family: Courier;">
+...
+cmo=cd('/JMSSystemResources/'+JMS_MODULE_NAME+'/JMSResource/+JMS_MODULE_NAME+
+    '/ConnectionFactories/'+CONN_FACTORY_NAME/LoadBalancingParams/'+CONN_FACTORY_NAME)
+cmo.setServerAffinityEnabled(false)
+cmo.setLoadBalancingEnabled(true)
+...
+            </pre>
+            <br>
+            Di seguito il link alla documentazione Oracle: 
+            <a href="https://docs.oracle.com/cd/E72987_01/wls/WLACH/pagehelp/JMSjmsconnectionjmsconnectionfactoryconfigloadbalancingparamstitle.html">https://docs.oracle.com</a>
+            
+
+            </p>
+            <ul class="pager">
+            <li><a href="#">Top</a></li>
+          </ul>
+
+        </div><!-- end blog weblogic maven dependency -->
+
+
+		<!-- blog weblogic maven dependency -->
+          <div class="blog-post">
+            <h2 class="blog-post-title"><a name="weblogicMavenDepdendency" class="anchorArticle" >    </a></h2>
+            <br><br><br>
+            <h2 class="blog-post-title">Weblogic Maven Dependency</h2>
+            <p class="blog-post-meta">Maggio 10, 2018</p>
+
+            <p>
+            Ad oggi il repository centrale maven di Oracle non risulta stabile per le dipendenze di Weblogic.
+            <br>
+            Al fine di risolvere correttamente tutte le dipendenze maven di Oracle Weblogic la best practice da documentazione è quella di popolare il repository locale maven con le dipendenze di Weblogic a partira da un'installazione locale.
+            <br><br>
+            <a href="https://docs.oracle.com/middleware/12213/wls/WLPRG/maven.htm#WLPRG587">Guida</a>
+            <br>
+            In breve, installare e configurare il weblogic-maven-plugin: 
+            <ul>
+            	<li>Posizionarsi nella cartella <i>ORACLE_HOME\oracle_common\plugins\maven\com\oracle\maven\oracle-maven-sync\12.2.1</i></li>
+            	<li>Lanciare il comando <i>mvn install:install-file -DpomFile=oracle-maven-sync-12.2.1.pom -Dfile=oracle-maven-sync-12.2.1.jar</i></li>
+            	<li>Lanciare il comando <i>mvn com.oracle.maven:oracle-maven-sync:push -DoracleHome=c:\oracle\middleware\oracle_home\</i></li>
+            </ul>
+ 			
+ 			Verificare la configurazione del repository locale: <i>mvn help:describe -DgroupId=com.oracle.weblogic
+-DartifactId=weblogic-maven-plugin -Dversion=12.2.1-0-0 </i>
+
+            </p>
+            <ul class="pager">
+            <li><a href="#">Top</a></li>
+          </ul>
+
+        </div><!-- end blog weblogic maven dependency -->
+
+		
+		<!-- blog OSB Best Practice -->
+          <div class="blog-post">
+            <h2 class="blog-post-title"><a name="osbBestPractice" class="anchorArticle" >    </a></h2>
+            <br><br><br>
+            <h2 class="blog-post-title">OSB Best Practice</h2>
+            <p class="blog-post-meta">Gennaio 30, 2016 </p>
+
+            <p>Principali linee guida per lo sviluppo e la progettazione di logiche d'integrazione tramite Oracle Service Bus:<br>
+			<ol>
+				<li>Non cercare di sviluppare l'intera soluzione d'integration solo su OSB: OSB è solo una parte di Oracle SOA Suite, anche se installato separatamente. In alcuni progetti si tende a sviluppare tutte le soluzioni d'integrazione tramite OSB; accentrare in OSB operazioni come la gestione degli errori, delle operazioni asincrone e di logica di business può generare enorme caos. OSB è un prodotto ESB e come tale deve essere utilizzato solo per sviluppare componenti ESB. </li>
+				<li>Non progettare transazioni statefull su OSB. OSB è un prodotto per la gestione di sessioni stateless, demandando a BPEL o BPM queste funzionalità.</li>
+				<li>Non utilizzare le action di OSB per effettuare operazioni di INSERT/UPDATE/DELETE  o chiamate a procedure. Limitarsi ad operazionni di SELECT.</li>
+				<li>Non utilizzare Java Callout per implementare complessa logica di business</li>
+				<li>Tra l'uso di una Route o di una Service Callout, prediligere sempre l'utilizzo della route che è implementata con una gestione dei Thread più performante, utilizzando un minor numero di risorse.</li>
+				<li>Non sviluppare molteplici operazioni in un singolo stage del Proxy Service, poiché in caso di errore o di debug lo stage è il blocco più atomico identificato dal prodotto.</li>
+				<li>Non processare file troppo grandi con OSB.</li>
+				<li>Nell'uso dell' XPath non utilizzare wild card come * e //</li>
+				<li>Impostare il progetto con un'alberatura di cartelle che permette di sudddividere il deploy in più fasi per permettere installazioni progressive ed agili.</li>
+			</ol>
+			<br>
+			Per ulteriori informazioni sul prodotto si rimanda alla pagina <a href="http://www.oracle.com/technetwork/middleware/service-bus/overview/index.html">oracle service bus</a>. 
+			</p>
+            
+          <ul class="pager">
+            <li><a href="#">Top</a></li>
+          </ul>
+
+        </div><!-- end blog OSB Best Practice -->
+		
+        
+		<!--
+          <div class="blog-post">
+            <h2 class="blog-post-title">Sample blog post</h2>
+            <p class="blog-post-meta">January 1, 2014 by <a href="#">Mark</a></p>
+
+            <p>This blog post shows a few different types of content that's supported and styled with Bootstrap. Basic typography, images, and code are all supported.</p>
+            <hr>
+            <p>Cum sociis natoque penatibus et magnis <a href="#">dis parturient montes</a>, nascetur ridiculus mus. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Sed posuere consectetur est at lobortis. Cras mattis consectetur purus sit amet fermentum.</p>
+            <blockquote>
+              <p>Curabitur blandit tempus porttitor. <strong>Nullam quis risus eget urna mollis</strong> ornare vel eu leo. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+            </blockquote>
+            <p>Etiam porta <em>sem malesuada magna</em> mollis euismod. Cras mattis consectetur purus sit amet fermentum. Aenean lacinia bibendum nulla sed consectetur.</p>
+            <h2>Heading</h2>
+            <p>Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.</p>
+            <h3>Sub-heading</h3>
+            <p>Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
+            <pre><code>Example code block</code></pre>
+            <p>Aenean lacinia bibendum nulla sed consectetur. Etiam porta sem malesuada magna mollis euismod. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa.</p>
+            <h3>Sub-heading</h3>
+            <p>Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Aenean lacinia bibendum nulla sed consectetur. Etiam porta sem malesuada magna mollis euismod. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
+            <ul>
+              <li>Praesent commodo cursus magna, vel scelerisque nisl consectetur et.</li>
+              <li>Donec id elit non mi porta gravida at eget metus.</li>
+              <li>Nulla vitae elit libero, a pharetra augue.</li>
+            </ul>
+            <p>Donec ullamcorper nulla non metus auctor fringilla. Nulla vitae elit libero, a pharetra augue.</p>
+            <ol>
+              <li>Vestibulum id ligula porta felis euismod semper.</li>
+              <li>Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</li>
+              <li>Maecenas sed diam eget risus varius blandit sit amet non magna.</li>
+            </ol>
+            <p>Cras mattis consectetur purus sit amet fermentum. Sed posuere consectetur est at lobortis.</p>
+          </div>
+		  -->
+		
+		 <!--
+          <div class="blog-post">
+            <h2 class="blog-post-title">Another blog post</h2>
+            <p class="blog-post-meta">December 23, 2013 by <a href="#">Jacob</a></p>
+
+            <p>Cum sociis natoque penatibus et magnis <a href="#">dis parturient montes</a>, nascetur ridiculus mus. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Sed posuere consectetur est at lobortis. Cras mattis consectetur purus sit amet fermentum.</p>
+            <blockquote>
+              <p>Curabitur blandit tempus porttitor. <strong>Nullam quis risus eget urna mollis</strong> ornare vel eu leo. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+            </blockquote>
+            <p>Etiam porta <em>sem malesuada magna</em> mollis euismod. Cras mattis consectetur purus sit amet fermentum. Aenean lacinia bibendum nulla sed consectetur.</p>
+            <p>Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.</p>
+          </div>
+		  -->
+		  <!--
+          <div class="blog-post">
+            <h2 class="blog-post-title">New feature</h2>
+            <p class="blog-post-meta">December 14, 2013 by <a href="#">Chris</a></p>
+
+            <p>Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Aenean lacinia bibendum nulla sed consectetur. Etiam porta sem malesuada magna mollis euismod. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
+            <ul>
+              <li>Praesent commodo cursus magna, vel scelerisque nisl consectetur et.</li>
+              <li>Donec id elit non mi porta gravida at eget metus.</li>
+              <li>Nulla vitae elit libero, a pharetra augue.</li>
+            </ul>
+            <p>Etiam porta <em>sem malesuada magna</em> mollis euismod. Cras mattis consectetur purus sit amet fermentum. Aenean lacinia bibendum nulla sed consectetur.</p>
+            <p>Donec ullamcorper nulla non metus auctor fringilla. Nulla vitae elit libero, a pharetra augue.</p>
+          </div>
+		  -->
+
+        </div><!-- /.blog-main -->
+
+        <div class="col-sm-3 col-sm-offset-1 blog-sidebar" style="width:24%; float:left">
+          <div class="sidebar-module sidebar-module-inset">
+            <h4>Perchè:</h4>
+            <p>Serie di post per tenere traccia delle soluzioni sviluppate/utilizzate, per condividere guide e materiale utile.</p>
+          </div>
+          <div class="sidebar-module">
+            <h4>Lista:</h4>
+            <ol class="list-unstyled">
+			  <li>Oracle
+				<ol class="list-unstyled" type="a">
+					<li><a href="#weblogicMavenDepdendency">Weblogic Maven Dependency</a></li>
+					<li><a href="#osbBestPractice">OSB Best Practice</a></li>
+					<li><a href="#weblogicJmsLoadBalancing">JMS Load Balancing</a></li>
+                    <li><a href="#coherenceJmx">Coherence e jmx</a></li>
+                    <li><a href="#coherenceListenersEqualsAndHashCode">Definizione Listeners Coherence</a></li>
+                    <li><a href="#coherencePOFInnerClass">POF Serialization di Inner Class</a></li>
+                    <li><a href="#whitePaperCoherence">White Paper Coherence Deployment</a></li>
+				</ol>
+			  </li>
+			  <!--
+              <li><a href="#">Oracle Service Bus</a></li>
+              <li><a href="#">Java</a></li>
+              <li><a href="#">Maven</a></li>
+			  -->
+            </ol>
+          </div>
+        </div><!-- /.blog-sidebar -->
+
+      </div><!-- /.row -->
+
+
+			<!-- FOOTER -->
+			<footer>
+				<p class="pull-right"></p>
+				<p>
+					Simone Casamassa website
+					
+				</p>
+			</footer>
+
+		</div><!-- /.container -->
+<script>
+            // When the user scrolls the page, execute myFunction 
+            window.onscroll = function() {scrollbarFunction()};
+
+            function scrollbarFunction() {
+              console.log("***")
+              var winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+              console.log("winScroll " + winScroll);
+              console.log("1 " +document.documentElement.scrollHeight);
+              console.log("2 " + document.documentElement.clientHeight);
+              var height = document.documentElement.clientHeight;
+              //var height = document.getElementById("myBar").style.height;
+              console.log("height" + height);
+              var scrolled = (winScroll / height) * 100;
+              console.log("scrolled" + scrolled);
+              if (scrolled > 90) {
+               document.getElementById("myBar").style.width = "100%";
+              } else { 
+              document.getElementById("myBar").style.width = scrolled + "%";
+              }
+            }
+</script>
+	</body>
+</html>

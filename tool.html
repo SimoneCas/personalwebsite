@@ -1,0 +1,228 @@
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>Simone Casamassa</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta name="description" content="">
+		<meta name="author" content="">
+		
+				
+		
+		<!-- Le styles -->
+		<link href="./css/bootstrap.css" rel="stylesheet">
+		<link href="./css/bootstrap-responsive.css" rel="stylesheet">
+		<link href="./css/style.css" rel="stylesheet">
+		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+		<link rel="stylesheet" href="./css/styleDinamica.css" type="text/css" charset="utf-8" />
+
+		<!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+		<!--[if lt IE 9]>
+		<script src="../assets/js/html5shiv.js"></script>
+		<![endif]-->
+
+		<style type="text/css"></style>
+		<style id="holderjs-style" type="text/css">
+			.holderjs-fluid {
+				font-size: 16px;
+				font-weight: bold;
+				text-align: center;
+				font-family: sans-serif;
+				margin: 0
+			}
+			.customScrollbar{
+                background: #4caf50;
+                height: 8px;
+                width: 0%;
+                opacity: 0.8;
+            }
+		</style>
+		
+		<script type="text/javascript" src="js/redirect_mobile.js"></script>
+		
+	</head>
+
+	<body>
+
+		<!-- NAVBAR
+		================================================== -->
+		<div class="navbar-wrapper">
+			<!-- Wrap the .navbar in .container to center it within the absolutely positioned parent. -->
+			<div class="container">
+
+				<div class="navbar transparent navbar-inverse navbar-fixed-top">
+					<div class="navbar-inner">
+						<div class="container">
+							<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse"> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </a>
+							<a class="brand" href="index.html"> <strong><!-- VOLENDO QUI POSSO INSERIRE UN TITOLO IN ALTO A SINISTRA --></strong> </a>
+							<div class="nav-collapse collapse">
+								<ul class="nav pull-right">
+									<li class="dropdown">
+										<a href="index.html">HOME</a>
+									</li>
+									<li class="dropdown">
+										<a href="progettazione.html">PROGETTAZIONE</a>
+									</li>
+									<li>
+										<a href="java.html" >JAVA</a>
+									</li>
+									<li>
+										<a href="sql.html">SQL</a>
+									</li>
+									<li>
+										<a href="oracle.html">ORACLE</a>
+									</li>
+									<li>
+										<a href="" class="active">TOOL</a>
+									</li>
+									<li>
+										<a href="librerie.html">LIBRERIE</a>
+									</li>
+									<li>
+										<a href="altro.html">ALTRO</a>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+					<div class="navbar customScrollbar" id="myBar">
+                    </div>
+				</div>
+			</div>
+		</div><!--navbar -->
+
+		<!-- Carousel
+		================================================== -->
+		<div id="myCarousel" class="carousel slide">
+			<div class="carousel-inner">
+				<div class="item active">
+					<img src="./img/background_home.jpg" alt="">
+					<div class="container">
+						<div class="title_container">
+							<div id="application_title">
+								IT Notebook
+							</div>
+							<p class="lead" id="subtitle">
+								The future belongs to those who believe in the beauty of their dreams.
+							</p>
+							<!--<a class="btn btn-large btn-primary" href="#">Sign up today</a>-->
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- /.carousel-inner -->
+		</div><!-- /.carousel -->
+
+		<!-- Marketing messaging and featurettes
+		================================================== -->
+		<!-- Wrap the rest of the page in another container to center all the content. -->
+
+		<div class="container marketing" >
+		
+      <div class="row" style="width:100%">
+		<div class="col-sm-8 blog-main" style="width:75%; float:left">
+		
+		
+		<!-- blog JVM Monitoring -->
+          <div class="blog-post">
+          	<h2 class="blog-post-title"><a name="JVMMonitoring" class="anchorArticle">   </a></h2>
+            <br><br><br>
+            <h2 class="blog-post-title">JVM Monitoring</h2>
+
+            <p>
+            	Sviluppando progetti su JVM è indispensabile monitorare e configurare temi di performance della JVM sulla quale è avviata l'applicazione.
+            	Risulta fondamentamentale quindi monitorare la JVM sia a runtime che a posteriori.<br>
+            	Per analisi a runtime tramite protocollo JMX - <b>Java VisualVM</b>: permette di monitorare l'utilizzo di memoria, cpu, thread e offre la possibilità di installare plug-in per analisi di dettaglio.
+            	<br><br>
+            	Per analizzare invece a posteriori il comportamento di una JVM - <b><a href="https://docs.oracle.com/javacomponents/jmc-5-4/jfr-runtime-guide/about.htm#JFRUH170">Java Flight Recorder</a> + Java Mission Control</b>: tramite JFR è possibile salvare su file le statistiche della JVM in modo automatizzato così da poterle analizzare in un secondo momento tramite il tool Java Mission Control.<br>
+            </p>
+			<hr>
+          <ul class="pager">
+            <li><a href="#Lombok">Previous</a></li>
+            <li><a href="#easyGC">Next</a></li>
+          </ul>
+		</div><!-- end blog JVM Monitoring -->
+
+		<!-- blog EasyGC -->
+          <div class="blog-post">
+          	<h2 class="blog-post-title"><a name="easyGC" class="anchorArticle">   </a></h2>
+            <br><br><br>
+            <h2 class="blog-post-title">Garbage Collector analyzer</h2>
+
+            <p>
+            	Sviluppando progetti su JVM è indispensabile monitorare e configurare temi di performance dell'applicazione.
+            	Risulta fondamentamentale analizzare le attività del Garbage Collector per analizzare l'utilizzo dell'heap.<br>
+            	Tool di analisi online del file di log xxx.gc generato dalla JVM:<br>
+            	<a href="https://gceasy.io/">GC-easy</a>
+            	<br><br>
+            	Se si vuole invece utilizzare un tool il locale:<br>
+            	<a href="https://formulae.brew.sh/formula/gcviewer">GC Viewer</a>
+            </p>
+			<hr>
+          <ul class="pager">
+            <li><a href="#JVMMonitoring">Previous</a></li>
+            <li><a href="#showMePassword">Next</a></li>
+          </ul>
+		</div><!-- end blog EasyGC -->
+
+		
+        </div><!-- /.blog-main -->
+
+
+      <div class="col-sm-3 col-sm-offset-1 blog-sidebar" style="width:24%; float:left">
+          <div class="sidebar-module sidebar-module-inset">
+            <h4>Perchè:</h4>
+            <p>Lista di tool, framework e programmi utili</p>
+          </div>
+          <div class="sidebar-module">
+            <h4>Lista:</h4>
+            <ol class="list-unstyled">
+              <li>Tool di analisi
+              	<ol class="list-unstyled" type="a">
+              		<li><a href="#easyGC">Analizzatore Garbage Collector</a></li>
+              		<li><a href="#JVMMonitoring">Analizzatore JVM</a></li>
+              	</ol>
+              </li>
+        
+			  <!--
+              <li><a href="#">Oracle Service Bus</a></li>
+              <li><a href="#">Java</a></li>
+              <li><a href="#">Maven</a></li>
+			  -->
+            </ol>
+          </div>
+        </div><!-- /.blog-sidebar -->
+      </div><!-- /.row -->
+			<!-- FOOTER -->
+			<footer>
+				<p class="pull-right"></p>
+				<p>
+					Simone Casamassa website
+					
+				</p>
+			</footer>
+
+		</div><!-- /.container -->
+<script>
+            // When the user scrolls the page, execute myFunction 
+            window.onscroll = function() {scrollbarFunction()};
+
+            function scrollbarFunction() {
+              console.log("***")
+              var winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+              console.log("winScroll " + winScroll);
+              console.log("1 " +document.documentElement.scrollHeight);
+              console.log("2 " + document.documentElement.clientHeight);
+              var height = document.documentElement.clientHeight;
+              //var height = document.getElementById("myBar").style.height;
+              console.log("height" + height);
+              var scrolled = (winScroll / height) * 100;
+              console.log("scrolled" + scrolled);
+              if (scrolled > 70) {
+               document.getElementById("myBar").style.width = "100%";
+              } else { 
+              document.getElementById("myBar").style.width = scrolled + "%";
+              }
+            }
+</script>
+	</body>
+</html>

@@ -1,0 +1,386 @@
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>Simone Casamassa</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta name="description" content="">
+		<meta name="author" content="">
+		
+				
+		
+		<!-- Le styles -->
+		<link href="./css/bootstrap.css" rel="stylesheet">
+		<link href="./css/bootstrap-responsive.css" rel="stylesheet">
+		<link href="./css/style.css" rel="stylesheet">
+		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+		<link rel="stylesheet" href="./css/styleDinamica.css" type="text/css" charset="utf-8" />
+
+		<!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+		<!--[if lt IE 9]>
+		<script src="../assets/js/html5shiv.js"></script>
+		<![endif]-->
+
+		<style type="text/css"></style>
+		<style id="holderjs-style" type="text/css">
+			.holderjs-fluid {
+				font-size: 16px;
+				font-weight: bold;
+				text-align: center;
+				font-family: sans-serif;
+				margin: 0
+			}
+			.anchorArticle{
+				//padding-top: 80px; 
+				margin-top: -80px;
+			}
+			.anchorArticle:hover{
+				margin-top: -80px;
+				text-decoration: none; 
+				color: #0088cc;
+			}
+            .customScrollbar{
+                background: #4caf50;
+                height: 8px;
+                width: 0%;
+                opacity: 0.8;
+            }
+		</style>
+		
+		<script type="text/javascript" src="js/redirect_mobile.js"></script>
+		
+	</head>
+
+	<body>
+
+		<!-- NAVBAR
+		================================================== -->
+		<div class="navbar-wrapper">
+			<!-- Wrap the .navbar in .container to center it within the absolutely positioned parent. -->
+			<div class="container">
+
+				<div class="navbar transparent navbar-inverse navbar-fixed-top" >
+					<div class="navbar-inner">
+						<div class="container">
+							<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse"> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </a>
+							<a class="brand" href="index.html"> <strong><!-- VOLENDO QUI POSSO INSERIRE UN TITOLO IN ALTO A SINISTRA --></strong> </a>
+							<div class="nav-collapse collapse">
+								<ul class="nav pull-right">
+									<li class="dropdown">
+										<a href="index.html">HOME</a>
+									</li>
+									<li class="dropdown">
+										<a href="progettazione.html">PROGETTAZIONE</a>
+									</li>
+									<li>
+										<a href="" class="active">JAVA</a>
+									</li>
+									<li>
+										<a href="sql.html">SQL</a>
+									</li>
+									<li>
+										<a href="oracle.html">ORACLE</a>
+									</li>
+									<li>
+										<a href="tool.html">TOOL</a>
+									</li>
+									<li>
+										<a href="librerie.html">LIBRERIE</a>
+									</li>
+									<li>
+										<a href="altro.html">ALTRO</a>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+                    <div class="navbar customScrollbar" id="myBar">
+                    </div>
+				</div>
+			</div>
+		</div><!--navbar -->
+
+		<!-- Carousel
+		================================================== -->
+		<div id="myCarousel" class="carousel slide">
+			<div class="carousel-inner">
+				<div class="item active">
+					<img src="./img/background_home.jpg" alt="">
+					<div class="container">
+						<div class="title_container">
+							<div id="application_title">
+								IT Notebook
+							</div>
+							<p class="lead" id="subtitle">
+								The important thing is not to stop questioning.
+							</p>
+							<!--<a class="btn btn-large btn-primary" href="#">Sign up today</a>-->
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- /.carousel-inner -->
+		</div><!-- /.carousel -->
+
+		<!-- Marketing messaging and featurettes
+		================================================== -->
+		<!-- Wrap the rest of the page in another container to center all the content. -->
+
+		<div class="container marketing" >
+		
+      <div class="row" style="width:100%" id="blogsContainer">
+		
+		
+		
+		
+		<div class="col-sm-8 blog-main" style="width:75%; float:left">
+		
+      <!-- blog java concurrency-->
+			  <div class="blog-post">
+          <h2 class="blog-post-title"><a name="javaConcurrency" class="anchorArticle">   </a></h2>
+          <br><br><br>
+          <h2 class="blog-post-title">Java Concurrency Evolution</h2>
+          <p class="blog-post-meta">Dicembre 18, 2020</p>
+  
+            <p>
+              Descrizione di dettaglio degli strumenti Java per eseguire task paralleli: <a href="https://dzone.com/articles/java-concurrency-evolution?edition=598293&utm_source=dzone&utm_medium=email&utm_campaign=dzone&utm_content=%5B%5Brssitem_title%5D%5D%20-%20%5B%5Brss_title%5D%5D">Articolo DZone</a><br><br>
+              Appunti di backup: <a href="img/JavaConcurrencyEvolution.pdf">appunti di backup in pdf</a><br><br>
+              Link a Git con gli esempi: <a href="https://github.com/bejancsaba/java-concurrency-evolution">Link 1</a> - <a href="https://github.com/bejancsaba/java-concurrency-evolution-loom">Link 2</a>
+              <br>
+            </p>
+          </p>
+          <ul class="pager">
+          <li><a href="#">Top</a></li>
+          </ul>
+  
+        </div><!-- end blog jta -->
+
+			<!-- blog jta-->
+			  <div class="blog-post">
+				<h2 class="blog-post-title"><a name="jta" class="anchorArticle">   </a></h2>
+				<br><br><br>
+				<h2 class="blog-post-title">JTA</h2>
+				<p class="blog-post-meta">Novembre 07, 2020</p>
+
+					<p>
+						Infografica che riassume le possibili configurazioni Transazionali negli EJB, tramite Java Transaction API:<br><br>
+						<img src="img/ejb-transaction.jpg"/>
+						<br>
+					</p>
+				</p>
+				<ul class="pager">
+				<li><a href="#">Top</a></li>
+			  </ul>
+
+			</div><!-- end blog jta -->
+
+		  
+		<!-- blog java stream vs parallel stream -->
+          <div class="blog-post">
+            <h2 class="blog-post-title"><a name="streamVsParallel" class="anchorArticle">   </a></h2>
+            <br><br><br>
+            <h2 class="blog-post-title">Stream vs Parallel Stream</h2>
+            <p class="blog-post-meta">Giugno 13, 2019</p>
+
+            <p>
+            Per lavorare su collezioni di dati effettuando operazioni di calcolo, riduzione e aggregazione ci può risultare 
+            utile l'utilizzo degli <b>Stream</b> e dei <b>Parallel Stream</b>.<br><br>
+
+            L'esecuzione di uno <b>Stream</b> avviene in un unico thread, gestendo in modo sequenziale le operazioni.<br>
+            L'esecuzione di un <b>Parallel Stream</b> avviene invece utlizzando molteplici thread, senza mantenere l'ordinamento degli elementi elaborati.<br>
+
+            Esempio di Stream:
+            <pre style="font-style: italic; font-size: 14px; background: #E7E7E7; font-family: Courier;">
+numbers.stream()
+	.map(e -> transform(e))
+	.forEach(System.out::println);
+            </pre>	
+            Esempio di Parallel Stream
+            <pre style="font-style: italic; font-size: 14px; background: #E7E7E7; font-family: Courier;">
+numbers.parallelStream()
+	.map(e -> transform(e))
+	.forEach(System.out::println);
+
+or
+
+numbers.stream()
+	.parallel()
+	.map(e -> transform(e))
+	.forEach(System.out::println);
+            </pre>
+
+            <u>Attenzione</u>: l'utilizzo del metodo "sequential()" forzando l'esecuzione del Parallel Stream in modo sequenziale non permette di eseguire elaborazione parallela.
+            <br>
+            Se si vuole utilizzare il Parallel Stream per ottimizzare l'elaborazione ma si vuole mantenere ordinati i valori originali, si può utilizzare il metodo "forEachOrdered()"
+            <pre style="font-style: italic; font-size: 14px; background: #E7E7E7; font-family: Courier;">
+numbers.stream()
+	.parallel()
+	.map(e -> transform(e))
+	.forEachOrdered(System.out::println);
+            </pre>
+
+            La configurazione del numero di thread da poter assegnare al parallelStraem è importante sia per gestire l'applicazione in modo sicuro rispetto al numero di cores e sia per configurarla al meglio in base alla tipologia di lavoro che lo stream dovrà svolgere.<br>
+            Regola base di configurazione:<br>
+            <br>
+            <pre style="font-style: italic; font-size: 14px; background: #E7E7E7; font-family: Courier;">
+		# of cores
+# thread <= ----------------------------------
+		1 - blocking factor
+
+0 <= blocking factor <= 1
+            </pre>
+            dove:<br>
+            0 se i thraed sono CPU intensive: task che prevedono pochi interrupt ed elaborazioni lunghe ed intensive lato cpu<br>
+			1 se i thread prevedono molti interrupt, dovuti ad esempio ad interazioni con sistemi esterni, e che prevedono elaborazioni brevi lato cpu. <br>
+			Il numero di thread da utilizzare per eseguire l'applicazione può essere configurato:
+			<ul>
+				<li><b>A livello di jvm</b>: -Djava.util.concurrent.ForkJoinPool.common.parallelism=#Thread</li>
+				<li><b>A livello programmatico</b>:</li>
+			</ul>
+			<pre style="font-style: italic; font-size: 14px; background: #E7E7E7; font-family: Courier;">
+ForkJoinPool pool = new ForkJoinPool(50);
+pool.submit(() ->
+	numbers.stream().parallel()
+		.map(e -> transform(e))
+		.forEach(e -> {})
+);
+
+pool.shutdown();
+pool.awaitTermination(10, TimeUnit.SECONDS);
+            </pre>
+            Quando conviene lo stream parallelo?
+            <ul>
+            	<li>Quando abbiamo una mole di dati da elaborare di grandi dimensioni</li>
+            	<li>Per task che non richiedano parecchie risorse di tempo e non producano eccezioni</li>
+            </ul>
+			</p>
+            </p>
+            <ul class="pager">
+            <li><a href="#">Top</a></li>
+          </ul>
+
+        </div><!-- end blog java stream vs parallel stream -->
+
+        
+		<!--
+          <div class="blog-post">
+            <h2 class="blog-post-title">Sample blog post</h2>
+            <p class="blog-post-meta">January 1, 2014 by <a href="#">Mark</a></p>
+
+            <p>This blog post shows a few different types of content that's supported and styled with Bootstrap. Basic typography, images, and code are all supported.</p>
+            <hr>
+            <p>Cum sociis natoque penatibus et magnis <a href="#">dis parturient montes</a>, nascetur ridiculus mus. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Sed posuere consectetur est at lobortis. Cras mattis consectetur purus sit amet fermentum.</p>
+            <blockquote>
+              <p>Curabitur blandit tempus porttitor. <strong>Nullam quis risus eget urna mollis</strong> ornare vel eu leo. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+            </blockquote>
+            <p>Etiam porta <em>sem malesuada magna</em> mollis euismod. Cras mattis consectetur purus sit amet fermentum. Aenean lacinia bibendum nulla sed consectetur.</p>
+            <h2>Heading</h2>
+            <p>Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.</p>
+            <h3>Sub-heading</h3>
+            <p>Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
+            <pre><code>Example code block</code></pre>
+            <p>Aenean lacinia bibendum nulla sed consectetur. Etiam porta sem malesuada magna mollis euismod. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa.</p>
+            <h3>Sub-heading</h3>
+            <p>Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Aenean lacinia bibendum nulla sed consectetur. Etiam porta sem malesuada magna mollis euismod. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
+            <ul>
+              <li>Praesent commodo cursus magna, vel scelerisque nisl consectetur et.</li>
+              <li>Donec id elit non mi porta gravida at eget metus.</li>
+              <li>Nulla vitae elit libero, a pharetra augue.</li>
+            </ul>
+            <p>Donec ullamcorper nulla non metus auctor fringilla. Nulla vitae elit libero, a pharetra augue.</p>
+            <ol>
+              <li>Vestibulum id ligula porta felis euismod semper.</li>
+              <li>Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</li>
+              <li>Maecenas sed diam eget risus varius blandit sit amet non magna.</li>
+            </ol>
+            <p>Cras mattis consectetur purus sit amet fermentum. Sed posuere consectetur est at lobortis.</p>
+          </div>
+		  -->
+		
+		 <!--
+          <div class="blog-post">
+            <h2 class="blog-post-title">Another blog post</h2>
+            <p class="blog-post-meta">December 23, 2013 by <a href="#">Jacob</a></p>
+
+            <p>Cum sociis natoque penatibus et magnis <a href="#">dis parturient montes</a>, nascetur ridiculus mus. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Sed posuere consectetur est at lobortis. Cras mattis consectetur purus sit amet fermentum.</p>
+            <blockquote>
+              <p>Curabitur blandit tempus porttitor. <strong>Nullam quis risus eget urna mollis</strong> ornare vel eu leo. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+            </blockquote>
+            <p>Etiam porta <em>sem malesuada magna</em> mollis euismod. Cras mattis consectetur purus sit amet fermentum. Aenean lacinia bibendum nulla sed consectetur.</p>
+            <p>Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.</p>
+          </div>
+		  -->
+		  <!--
+          <div class="blog-post">
+            <h2 class="blog-post-title">New feature</h2>
+            <p class="blog-post-meta">December 14, 2013 by <a href="#">Chris</a></p>
+
+            <p>Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Aenean lacinia bibendum nulla sed consectetur. Etiam porta sem malesuada magna mollis euismod. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
+            <ul>
+              <li>Praesent commodo cursus magna, vel scelerisque nisl consectetur et.</li>
+              <li>Donec id elit non mi porta gravida at eget metus.</li>
+              <li>Nulla vitae elit libero, a pharetra augue.</li>
+            </ul>
+            <p>Etiam porta <em>sem malesuada magna</em> mollis euismod. Cras mattis consectetur purus sit amet fermentum. Aenean lacinia bibendum nulla sed consectetur.</p>
+            <p>Donec ullamcorper nulla non metus auctor fringilla. Nulla vitae elit libero, a pharetra augue.</p>
+          </div>
+		  -->
+
+        </div><!-- /.blog-main -->
+
+        <div class="col-sm-3 col-sm-offset-1 blog-sidebar" style="width:24%; float:left">
+          <div class="sidebar-module sidebar-module-inset">
+            <h4>Perchè:</h4>
+            <p>Serie di post per tenere traccia delle soluzioni sviluppate/utilizzate, per condividere guide e materiale utile.</p>
+          </div>
+          <div class="sidebar-module">
+            <h4>Lista:</h4>
+            <ol class="list-unstyled">
+              <li>Java
+              	<ol class="list-unstyled" type="a">
+              		<li><a href="#streamVsParallel">Stream vs Parallel Stream</a></li>
+                  <li><a href="#jta">JTA</a></li>
+                  <li><a href="#javaConcurrency">Java Concurrency</a></li>
+              	</ol>
+              </li>
+              
+            </ol>
+          </div>
+        </div><!-- /.blog-sidebar -->
+
+      </div><!-- /.row -->
+
+
+			<!-- FOOTER -->
+			<footer>
+				<p class="pull-right"></p>
+				<p>
+					Simone Casamassa website
+					
+				</p>
+			</footer>
+
+		</div><!-- /.container -->
+<script>
+            // When the user scrolls the page, execute myFunction 
+            window.onscroll = function() {scrollbarFunction()};
+
+            function scrollbarFunction() {
+              console.log("***")
+              var winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+              console.log("winScroll " + winScroll);
+              console.log("1 " +document.documentElement.scrollHeight);
+              console.log("2 " + document.documentElement.clientHeight);
+              var height = document.documentElement.clientHeight;
+              //var height = document.getElementById("myBar").style.height;
+              console.log("height" + height);
+              var scrolled = (winScroll / height) * 100;
+              console.log("scrolled" + scrolled);
+              if (scrolled > 90) {
+               document.getElementById("myBar").style.width = "100%";
+              } else { 
+              document.getElementById("myBar").style.width = scrolled + "%";
+              }
+            }
+</script>
+	</body>
+</html>
